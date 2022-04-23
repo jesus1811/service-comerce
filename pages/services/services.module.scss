@@ -1,0 +1,43 @@
+.containerCard {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: gainsboro;
+  padding: 15px;
+}
+.titleMain {
+  font-size: 35px;
+  color: blue;
+  font-weight: bold;
+}
+.titleCard {
+  font-size: 25px;
+  color: blue;
+}
+.precioCard {
+    font-size: 15px;
+    color: red;
+}
+
+.imagesCard {
+  flex: 150px;
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.containerButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
