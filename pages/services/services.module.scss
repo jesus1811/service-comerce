@@ -18,6 +18,7 @@
   font-size: 35px;
   color: blue;
   font-weight: bold;
+  text-align: center;
 }
 .titleCard {
   font-size: 25px;
@@ -29,9 +30,9 @@
 }
 
 .imagesCard {
-  flex: 150px;
-  width: 150px;
-  height: 150px;
+  flex: 2px;
+  height: 100px;
+  width: 100%;
   border-radius: 5px;
   object-fit: cover;
 }

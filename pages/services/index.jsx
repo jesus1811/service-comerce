@@ -9,13 +9,47 @@ const Services = () => {
       <Header />
       <h1 className={styles.titleMain}>Servicios Terapeuticos</h1>
       <div className={styles.containerCard}>
-      <article className={styles.card}>
+        <article className={styles.card}>
           <h1 className={styles.titleCard}>terapia prueba1</h1>
           <img src="/time.jpg" alt="" className={styles.imagesCard} />
           <p className={styles.precioCard}> s/ 45.5</p>
-          <p className={styles.profesionalCard}>
-           jadhira Rodriguez
-          </p>
+          <p className={styles.profesionalCard}>jadhira Rodriguez</p>
+          <div className={styles.containerButtons}>
+            <Button>Ver Servicio</Button>
+          </div>
+        </article>
+        <article className={styles.card}>
+          <h1 className={styles.titleCard}>terapia prueba1</h1>
+          <img src="/time.jpg" alt="" className={styles.imagesCard} />
+          <p className={styles.precioCard}> s/ 45.5</p>
+          <p className={styles.profesionalCard}>jadhira Rodriguez</p>
+          <div className={styles.containerButtons}>
+            <Button>Ver Servicio</Button>
+          </div>
+        </article>
+        <article className={styles.card}>
+          <h1 className={styles.titleCard}>terapia prueba1</h1>
+          <img src="/time.jpg" alt="" className={styles.imagesCard} />
+          <p className={styles.precioCard}> s/ 45.5</p>
+          <p className={styles.profesionalCard}>jadhira Rodriguez</p>
+          <div className={styles.containerButtons}>
+            <Button>Ver Servicio</Button>
+          </div>
+        </article>
+        <article className={styles.card}>
+          <h1 className={styles.titleCard}>terapia prueba1</h1>
+          <img src="/time.jpg" alt="" className={styles.imagesCard} />
+          <p className={styles.precioCard}> s/ 45.5</p>
+          <p className={styles.profesionalCard}>jadhira Rodriguez</p>
+          <div className={styles.containerButtons}>
+            <Button>Ver Servicio</Button>
+          </div>
+        </article>
+        <article className={styles.card}>
+          <h1 className={styles.titleCard}>terapia prueba1</h1>
+          <img src="/time.jpg" alt="" className={styles.imagesCard} />
+          <p className={styles.precioCard}> s/ 45.5</p>
+          <p className={styles.profesionalCard}>jadhira Rodriguez</p>
           <div className={styles.containerButtons}>
             <Button>Pedir Servicio</Button>
           </div>
@@ -24,42 +58,16 @@ const Services = () => {
           <h1 className={styles.titleCard}>terapia prueba1</h1>
           <img src="/time.jpg" alt="" className={styles.imagesCard} />
           <p className={styles.precioCard}> s/ 45.5</p>
-          <p className={styles.profesionalCard}>
-           jadhira Rodriguez
-          </p>
+          <p className={styles.profesionalCard}>jadhira Rodriguez</p>
           <div className={styles.containerButtons}>
-            <Button>Pedir Servicio</Button>
+            <Button>Ver Servicio</Button>
           </div>
         </article>
         <article className={styles.card}>
           <h1 className={styles.titleCard}>terapia prueba1</h1>
           <img src="/time.jpg" alt="" className={styles.imagesCard} />
           <p className={styles.precioCard}> s/ 45.5</p>
-          <p className={styles.profesionalCard}>
-           jadhira Rodriguez
-          </p>
-          <div className={styles.containerButtons}>
-            <Button>Pedir Servicio</Button>
-          </div>
-        </article>
-        <article className={styles.card}>
-          <h1 className={styles.titleCard}>terapia prueba1</h1>
-          <img src="/time.jpg" alt="" className={styles.imagesCard} />
-          <p className={styles.precioCard}> s/ 45.5</p>
-          <p className={styles.profesionalCard}>
-           jadhira Rodriguez
-          </p>
-          <div className={styles.containerButtons}>
-            <Button>Pedir Servicio</Button>
-          </div>
-        </article>
-        <article className={styles.card}>
-          <h1 className={styles.titleCard}>terapia prueba1</h1>
-          <img src="/time.jpg" alt="" className={styles.imagesCard} />
-          <p className={styles.precioCard}> s/ 45.5</p>
-          <p className={styles.profesionalCard}>
-           jadhira Rodriguez
-          </p>
+          <p className={styles.profesionalCard}>jadhira Rodriguez</p>
           <div className={styles.containerButtons}>
             <Button>Pedir Servicio</Button>
           </div>
