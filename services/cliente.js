@@ -7,7 +7,6 @@ export const validarclienteServices = async (
   password,
   setState,
   state,
-  loader,
   setLoader,
 ) => {
   await axios
@@ -18,7 +17,7 @@ export const validarclienteServices = async (
     .then(({ data }) => {
       setState({ ...state, user: data });
       localStorage.setItem("store", JSON.stringify({ ...state, user: data }));
-      setLoader(!loader);
+      setLoader(true);
     })
     .catch((e) => {
       alert(JSON.stringify("erorr" + e));

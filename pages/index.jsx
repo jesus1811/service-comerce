@@ -13,6 +13,7 @@ const Home = () => {
   const router = useRouter();
   useEffect(() => {
     store.user.length != 0 && router.push("/menu-home");
+    setLoader(false);
   }, [loader]);
 
   return (
@@ -47,7 +48,6 @@ const Home = () => {
                   password,
                   setStore,
                   store,
-                  loader,
                   setLoader
                 );
               }}
