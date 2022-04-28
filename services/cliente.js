@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 const BASE_URL = process.env.NEXT_PUBLIC_URL;
 
 export const validarclienteServices = async (
@@ -6,6 +7,7 @@ export const validarclienteServices = async (
   password,
   setState,
   state,
+  loader,
   setLoader,
 ) => {
   await axios
@@ -16,7 +18,7 @@ export const validarclienteServices = async (
     .then(({ data }) => {
       setState({ ...state, user: data });
       localStorage.setItem("store", JSON.stringify({ ...state, user: data }));
-      setLoader(false);
+      setLoader(!loader);
     })
     .catch((e) => {
       alert(JSON.stringify("erorr" + e));
@@ -43,7 +45,11 @@ export const postClienteServices = async (
       foto,
     })
     .then(({ data }) => {
-      alert(JSON.stringify(data));
+      // alert(JSON.stringify(data));
+      Swal.fire({
+        title: JSON.stringify(data),
+        icon: "success",
+      });
     })
     .catch((e) => {
       alert(JSON.stringify(e));

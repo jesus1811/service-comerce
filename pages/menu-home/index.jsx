@@ -10,7 +10,7 @@ const MenuHome = () => {
   const [tipoServicios, setTipoServicios] = useState([]);
   const [loader, setLoader] = useState(true);
   const router = useRouter();
-  const { store } = useContext(DataContext);
+  const { store, setStore } = useContext(DataContext);
   useEffect(() => {
     store.user.length != 1 && router.push("/");
     getTipoServices(setTipoServicios, setLoader);
@@ -19,14 +19,28 @@ const MenuHome = () => {
     <ContainerPrimary>
       <Header />
       <div className={styles.containerDiv}>
-        <h1 className={styles.title}>Elija su Categoria de Interes</h1>
+        <h1 className={styles.title}>ELIJA SU CATEGORIA DE INTERES</h1>
         <div className={styles.containerImages}>
           {tipoServicios.map((n, index) => {
             return (
               <div className={styles.card} key={index}>
                 <h2 className={styles.titleCard}>{n.nombreTipoServicio}</h2>
-                <img className={styles.images} src="/time.jpg" alt="" />
-                <Button onClick={()=>router.push("/services")}>Ingresar</Button>
+                <img className={styles.images} src={n.urlServicio} alt="" />
+                <Button
+                  onClick={() => {
+                    setStore({ ...store, categoria: n.nombreTipoServicio });
+                    localStorage.setItem(
+                      "store",
+                      JSON.stringify({
+                        ...store,
+                        categoria: n.nombreTipoServicio,
+                      })
+                    );
+                    router.push("/services");
+                  }}
+                >
+                  Ingresar
+                </Button>
               </div>
             );
           })}

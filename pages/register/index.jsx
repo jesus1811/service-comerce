@@ -4,6 +4,7 @@ import styles from "./register.module.scss";
 import { useRouter } from "next/router";
 import { postClienteServices } from "../../services/cliente";
 import { app } from "../../services/firebase";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const [dni, setDni] = useState("");
@@ -22,11 +23,10 @@ const Register = () => {
     setCorreo("");
     setPassword("");
   };
-  const hanldleChange = (e) => {
-    setArchivo(e.target.files[0]);
-  };
-
   const handleGuardarCliente = async () => {
+    const path = app.storage().ref().child(archivo.name);
+    await path.put(archivo);
+   
     postClienteServices(
       dni,
       nombre,
@@ -35,22 +35,26 @@ const Register = () => {
       password,
       celular,
       "https://firebasestorage.googleapis.com/v0/b/crud-image-1acb8.appspot.com/o/" +
-        archivo.name + 
+        archivo.name +
         "?alt=media&token=449b3048-6b97-42b5-8436-9f926747cc05"
     );
-    const path = app.storage().ref().child(archivo.name);
-    await path.put(archivo);
-
-    alert("archivo enviado " + archivo.name);
+    
 
     clearInputs();
   };
 
   return (
     <ContainerPrimary>
+       <div className={styles.celeste}>
+        <h1 className={styles.titleBlue}>Bienvenido a Montalvo </h1>
+        <img className={styles.image} src="./login.png" alt="" />
+        <p className={styles.description}>
+        ¿ Ya tienes una cuenta ?
+        </p>
+        <Button onClick={() => router.push("/")}>Ir al login</Button>
+      </div>
       <div className={styles.container}>
         <h1 className={styles.title}>Registrate aqui</h1>
-        <p className={styles.description}>Ingresa los siguientes datos</p>
         <div className={styles.containerInputs}>
           <Input
             placeholder="DNI"
@@ -84,18 +88,23 @@ const Register = () => {
           />
           <Input
             placeholder="Contraseña"
-            type="text"
+            type="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
           <div className={styles.containerFile}>
             <p className={styles.titleFile}>Agregar foto</p>
-            <input type="file" onChange={hanldleChange} className={styles.file} />
+            <input
+              type="file"
+              onChange={(e) => {
+                setArchivo(e.target.files[0]);
+              }}
+              className={styles.file}
+            />
           </div>
 
           <div className={styles.containerButton}>
             <Button onClick={handleGuardarCliente}>Crear</Button>
-            <Button onClick={() => router.push("/")}>Regresar</Button>
           </div>
         </div>
       </div>

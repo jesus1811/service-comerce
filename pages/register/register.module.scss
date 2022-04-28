@@ -1,3 +1,32 @@
+@mixin container($color) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  background-color: $color;
+  padding: 20px;
+  border-radius: 4px;
+  width: 100%;
+}
+.celeste {
+  @include container(#a1c8d1);
+}
+.gray {
+  @include container(#717b86);
+}
+@mixin title($size, $color) {
+  font-size: $size;
+  color: $color;
+  text-align: center;
+  font-weight: 700;
+}
+.titleWhite {
+  @include title(24px, white);
+}
+.titleBlue {
+  @include title(24px, #0d1925);
+}
 .containerMain {
   width: 100%;
   min-height: 100vh;
@@ -8,15 +37,27 @@
   align-items: center;
   padding: 0 20px;
 }
+.image {
+  width: 161px;
+  height: 161px;
+  border-radius: 50%;
+}
+.description {
+  font-size: 15px;
+  color: #000000;
+  text-align: center;
+  font-weight: 400;
+}
 .container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   gap: 20px;
-  background-color: white;
+  background-color: #717B86;
   padding: 20px;
   border-radius: 4px;
+  width: 100%;
 }
 .containerInputs {
   display: flex;
@@ -32,10 +73,10 @@
   gap: 15px;
 }
 .title {
-  font-size: 30px;
-  color: blue;
+  font-size: 24px;
+  color: white;
   text-align: center;
-  font-weight: bold;
+  font-weight: 700;
 }
 .description {
   font-size: 20px;
@@ -45,7 +86,7 @@
 .containerFile {
   position: relative;
   width: 100%;
-  background: blue;
+  background: #122335;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,7 +94,7 @@
   border-radius: 4px;
   padding: 8px 16px;
   &:hover{
-    background:blueviolet ;
+    background:#122335 ;
   }
 }
 .file {

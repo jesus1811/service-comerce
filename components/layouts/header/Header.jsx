@@ -41,6 +41,7 @@ const Header = () => {
               store.user[0]?.apellidoCliente}
           </LinkNav>
           <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} />
+          
         </nav>
       </div>
     </section>

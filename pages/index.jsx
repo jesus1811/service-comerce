@@ -17,13 +17,16 @@ const Home = () => {
 
   return (
     <ContainerPrimary>
-      <div className={styles.container}>
-        <h1 className={styles.title}>Bienvenido a Montalvo </h1>
-        <img className={styles.image} src="/time.jpg" alt="" />
-
+      <div className={styles.celeste}>
+        <h1 className={styles.titleBlue}>Bienvenido a Montalvo </h1>
+        <img className={styles.image} src="./login.png" alt="" />
         <p className={styles.description}>
           Por favor ingresar tu cuenta aqui abajo
         </p>
+        <Button onClick={() => router.push("/register")}>Registrar</Button>
+      </div>
+      <div className={styles.gray}>
+        <h1 className={styles.titleWhite}>Ingresa Aqui </h1>
         <div className={styles.containerInputs}>
           <Input
             placeholder="Correo Electronico"
@@ -44,13 +47,13 @@ const Home = () => {
                   password,
                   setStore,
                   store,
+                  loader,
                   setLoader
                 );
               }}
             >
               Ingresar
             </Button>
-            <Button onClick={() => router.push("/register")}>Registrar</Button>
           </div>
         </div>
       </div>
