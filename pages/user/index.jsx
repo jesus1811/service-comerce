@@ -1,70 +1,72 @@
+import { useState } from "react";
 import { useContext } from "react";
-import Image from "next/image";
-import { ContainerPrimary } from "../../components/common";
+import { Button, ContainerPrimary, Input } from "../../components/common";
 import { Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
+import { putPasswordCliente } from "../../services/cliente";
 import styles from "./user.module.scss";
 
 const User = () => {
   const { store } = useContext(DataContext);
+  const [password, setPassword] = useState("");
+  const [onUserEdit, setOnUserEdit] = useState(false);
+  const editPassword = () => {
+    putPasswordCliente(parseInt(store.user[0].idCliente), password);
+    setPassword("");
+  };
   return (
     <ContainerPrimary>
       <Header />
-      <div className={styles.celeste}>
-        <h1 className={styles.titleBlue}>Perfil </h1>
+      {onUserEdit ? (
+        <div className={styles.celeste}>
+          <h1 className={styles.titleBlue}>Editar Contraseña</h1>
 
-        {store.user.map((n, index) => {
-          return (
-            <div>
-              <img
-                className={styles.image}
-                src={store.user[0]?.urlFoto}
-                alt=""
-              />
-              <h2 className={styles.titleSub}>DNI</h2>
-              <p className={styles.description}>{store.user[0].DNI}</p>
-              <h2 className={styles.titleSub}>Nombre</h2>
-              <p className={styles.description}>
-                {store.user[0].nombreCliente +
-                  "  " +
-                  store.user[0].apellidoCliente}
-              </p>
-
-              <h2 className={styles.titleSub}>Correo</h2>
-              <p className={styles.description}>
-                {store.user[0].correoCliente}
-              </p>
-            </div>
-            // <>
-            //   <p className={styles.description}>{store.user[0].DNI}</p>
-            //   <p className={styles.description}>
-            //     {store.user[0].nombreCliente}
-            //   </p>
-            //   <p className={styles.description}>
-            //     {store.user[0].apellidoCliente}
-            //   </p>
-            //   <p className={styles.description}>
-            //     {store.user[0].correoCliente}
-            //   </p>
-            // </>
-          );
-        })}
-
-        {/* <Button onClick={() => router.push("/register")}>Registrar</Button> */}
-      </div>
-      {/* <Header />
-      <h1>Perfil</h1>
-      {store.user.map((n, index) => {
-        return (
-          <div key={index}>
-            <h1>{store.user[0].DNI}</h1>
-            <h1>{store.user[0].nombreCliente}</h1>
-            <h1>{store.user[0].apellidoCliente}</h1>
-            <h1>{store.user[0].correoCliente}</h1>
-            <img src={store.user[0]?.urlFoto} alt="" width={100} height={100} />
+          <div className={styles.card}>
+            <Input
+              type="text"
+              placeholder="Contraseña Nueva"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+            <Button onClick={editPassword}>Confirmar</Button>
           </div>
-        );
-      })} */}
+        </div>
+      ) : (
+        <div className={styles.celeste}>
+          <h1 className={styles.titleBlue}>Perfil </h1>
+
+          {store.user.map((n, index) => {
+            return (
+              <div className={styles.card}>
+                <div className={styles.containerImage}>
+                  <img
+                    className={styles.image}
+                    src={store.user[0]?.urlFoto}
+                    alt=""
+                  />
+                </div>
+
+                <h2 className={styles.titleSub}>DNI</h2>
+                <p className={styles.description}>{store.user[0].DNI}</p>
+                <h2 className={styles.titleSub}>Nombre</h2>
+                <p className={styles.description}>
+                  {store.user[0].nombreCliente +
+                    "  " +
+                    store.user[0].apellidoCliente}
+                </p>
+
+                <h2 className={styles.titleSub}>Correo</h2>
+                <p className={styles.description}>
+                  {store.user[0].correoCliente}
+                </p>
+                <Button onClick={() => setOnUserEdit(true)}>
+                  Cambiar Contraseña
+                </Button>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </ContainerPrimary>
   );
 };

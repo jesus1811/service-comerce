@@ -7,7 +7,7 @@ export const validarclienteServices = async (
   password,
   setState,
   state,
-  setLoader,
+  setLoader
 ) => {
   await axios
     .post(BASE_URL + "/api/login", {
@@ -19,9 +19,11 @@ export const validarclienteServices = async (
       localStorage.setItem("store", JSON.stringify({ ...state, user: data }));
       setLoader(true);
     })
-    .catch((e) => {
-      alert(JSON.stringify("erorr" + e));
-      
+    .catch((err) => {
+      Swal.fire({
+        title: JSON.stringify(err),
+        icon: "error",
+      });
     });
 };
 export const postClienteServices = async (
@@ -44,13 +46,34 @@ export const postClienteServices = async (
       foto,
     })
     .then(({ data }) => {
-      // alert(JSON.stringify(data));
       Swal.fire({
-        title: JSON.stringify(data),
+        title: data,
         icon: "success",
       });
     })
-    .catch((e) => {
-      alert(JSON.stringify(e));
+    .catch((err) => {
+      Swal.fire({
+        title: JSON.stringify(err),
+        icon: "error",
+      });
+    });
+};
+export const putPasswordCliente = async (id, password) => {
+  await axios
+    .put(BASE_URL+ "/api/cliente/" + id, {
+      password,
+    })
+    .then(({ data }) => {
+      Swal.fire({
+        title: data,
+        icon: "success",
+      });
+
+    })
+    .catch((err) => {
+      Swal.fire({
+        title: JSON.stringify(err),
+        icon: "error",
+      });
     });
 };
