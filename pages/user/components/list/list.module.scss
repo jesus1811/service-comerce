@@ -10,48 +10,42 @@
   width: 100%;
   max-width: 600px;
 }
-.containerCeleste {
+.celeste {
   @include container(#a1c8d1);
-}
-.containerGray {
-  @include container(#717b86);
 }
 @mixin title($size, $color) {
   font-size: $size;
   color: $color;
-  text-align: center;
   font-weight: 700;
 }
 .titleWhite {
   @include title(24px, white);
 }
 .titleBlue {
+  @include title(36px, #0d1925);
+}
+.titleSub {
   @include title(24px, #0d1925);
 }
-
 .image {
   width: 161px;
   height: 161px;
   border-radius: 50%;
 }
 .description {
-  font-size: 15px;
+  font-size: 18px;
   color: #000000;
-  text-align: center;
   font-weight: 400;
 }
-
-.containerInputs {
+.card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  width: 100%;
-}
-.containerButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 15px;
+}
+.containerImage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }

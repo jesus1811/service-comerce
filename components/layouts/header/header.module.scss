@@ -92,7 +92,7 @@
 
   &:checked ~ .navigation {
     opacity: 1;
-    height: 280px;
+    min-height: 200px;
     padding:10px;
     display: flex;
   }

@@ -1,0 +1,34 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+  max-width: 250px;
+  min-height: 300px;
+}
+.title {
+  font-size: 32px;
+  color: #06232a;
+  text-align: center;
+}
+.precio {
+  font-size: 24px;
+  color: #169997;
+}
+.profesional {
+  font-size: 18px;
+  color: #15758d;
+}
+.images {
+  flex: 2px;
+  min-height: 140px;
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.containerButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}

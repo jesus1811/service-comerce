@@ -33,7 +33,8 @@ export const postClienteServices = async (
   correo,
   password,
   celular,
-  foto
+  foto,
+  router
 ) => {
   await axios
     .post(BASE_URL + "/api/cliente", {
@@ -50,6 +51,7 @@ export const postClienteServices = async (
         title: data,
         icon: "success",
       });
+      router.push("/");
     })
     .catch((err) => {
       Swal.fire({
@@ -60,7 +62,7 @@ export const postClienteServices = async (
 };
 export const putPasswordCliente = async (id, password) => {
   await axios
-    .put(BASE_URL+ "/api/cliente/" + id, {
+    .put(BASE_URL + "/api/cliente/" + id, {
       password,
     })
     .then(({ data }) => {
@@ -68,7 +70,6 @@ export const putPasswordCliente = async (id, password) => {
         title: data,
         icon: "success",
       });
-
     })
     .catch((err) => {
       Swal.fire({

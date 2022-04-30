@@ -4,7 +4,6 @@ import styles from "./register.module.scss";
 import { useRouter } from "next/router";
 import { postClienteServices } from "../../services/cliente";
 import { app } from "../../services/firebase";
-import Swal from "sweetalert2";
 
 const Register = () => {
   const [dni, setDni] = useState("");
@@ -26,7 +25,7 @@ const Register = () => {
   const handleGuardarCliente = async () => {
     const path = app.storage().ref().child(archivo.name);
     await path.put(archivo);
-   
+
     postClienteServices(
       dni,
       nombre,
@@ -36,21 +35,19 @@ const Register = () => {
       celular,
       "https://firebasestorage.googleapis.com/v0/b/crud-image-1acb8.appspot.com/o/" +
         archivo.name +
-        "?alt=media&token=449b3048-6b97-42b5-8436-9f926747cc05"
+        "?alt=media&token=449b3048-6b97-42b5-8436-9f926747cc05",
+      router
     );
-    
 
     clearInputs();
   };
 
   return (
     <ContainerPrimary>
-       <div className={styles.celeste}>
+      <div className={styles.celeste}>
         <h1 className={styles.titleBlue}>Bienvenido a Montalvo </h1>
         <img className={styles.image} src="./login.png" alt="" />
-        <p className={styles.description}>
-        ¿ Ya tienes una cuenta ?
-        </p>
+        <p className={styles.description}>¿ Ya tienes una cuenta ?</p>
         <Button onClick={() => router.push("/")}>Ir al login</Button>
       </div>
       <div className={styles.container}>
@@ -58,7 +55,7 @@ const Register = () => {
         <div className={styles.containerInputs}>
           <Input
             placeholder="DNI"
-            type="text"
+            type="number"
             onChange={(e) => setDni(e.target.value.slice(0, 8))}
             value={dni}
           />
@@ -76,13 +73,13 @@ const Register = () => {
           />
           <Input
             placeholder="Celular"
-            type="text"
+            type="number"
             onChange={(e) => setCelular(e.target.value.slice(0, 9))}
             value={celular}
           />
           <Input
             placeholder="Correo Electronico"
-            type="text"
+            type="email"
             onChange={(e) => setCorreo(e.target.value)}
             value={correo}
           />

@@ -6,4 +6,7 @@
     background: transparent;
     border-bottom: solid 3px white;
     border-radius: 4px;
+    &:focus{
+      border-color: #0d1925;
+    }
   }

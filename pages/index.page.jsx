@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <ContainerPrimary>
-      <div className={styles.celeste}>
+      <div className={styles.containerCeleste}>
         <h1 className={styles.titleBlue}>Bienvenido a Montalvo </h1>
         <img className={styles.image} src="./login.png" alt="" />
         <p className={styles.description}>
@@ -26,7 +26,7 @@ const Home = () => {
         </p>
         <Button onClick={() => router.push("/register")}>Registrar</Button>
       </div>
-      <div className={styles.gray}>
+      <div className={styles.containerGray}>
         <h1 className={styles.titleWhite}>Ingresa Aqui </h1>
         <div className={styles.containerInputs}>
           <Input

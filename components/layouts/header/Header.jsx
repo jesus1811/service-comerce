@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { useRouter } from "next/router";
 import { DataContext } from "../../../context/Provider";
-import { LinkNav } from "../../common";
 import Link from "next/link";
 import styles from "./header.module.scss";
+import { LinkNav } from "./components";
 const Header = () => {
   const router = useRouter();
   const { store, setStore } = useContext(DataContext);

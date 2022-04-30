@@ -21,23 +21,3 @@
   align-items: center;
   gap: 20px;
 }
-
-.images {
-  flex: 220px;
-  width: 220px;
-  height: 220px;
-  border-radius: 5px;
-  object-fit: cover;
-}
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-.titleCard{
-  font-size: 36px;
-  color: #15758D;
-  font-weight: 500;
-}
