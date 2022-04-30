@@ -40,12 +40,10 @@ const Header = () => {
               " " +
               store.user[0]?.apellidoCliente}
           </LinkNav>
-          <Image
+          <img
             src={store.user[0]?.urlFoto}
             alt=""
             className={styles.perfil}
-            width={64}
-            height={64}
           />
         </nav>
       </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { ContainerPrimary } from "../../components/common";
+import { ContainerPrimary, Loading } from "../../components/common";
 import { Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { getServicioServices } from "../../services/servicio";
@@ -19,13 +19,17 @@ const Services = () => {
       <Header />
       <h1 className={styles.titleMain}>{store.categoria}</h1>
       <div className={styles.containerCard}>
-        {servicios.map((servicio, index) => {
-          return (
-            servicio.NombreTipoServicio == store.categoria && (
-              <Servicio servicio={servicio} key={index} />
-            )
-          );
-        })}
+        {loader ? (
+          <Loading />
+        ) : (
+          servicios.map((servicio, index) => {
+            return (
+              servicio.NombreTipoServicio == store.categoria && (
+                <Servicio servicio={servicio} key={index} />
+              )
+            );
+          })
+        )}
       </div>
     </ContainerPrimary>
   );

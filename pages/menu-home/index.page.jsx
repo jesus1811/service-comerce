@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { ContainerPrimary } from "../../components/common";
+import { ContainerPrimary, Loading } from "../../components/common";
 import { Header } from "../../components/layouts";
 import { getTipoServices } from "../../services/tipoServicio";
 import styles from "./menuHome.module.scss";
@@ -20,9 +20,13 @@ const MenuHome = () => {
       <div className={styles.containerDiv}>
         <h1 className={styles.title}>ELIJA SU CATEGORIA DE INTERES</h1>
         <div className={styles.containerImages}>
-          {tipoServicios.map((tipoServicio, index) => {
-            return <TipoServicio tipoServicio={tipoServicio} key={index} />;
-          })}
+          {loader ? (
+            <Loading />
+          ) : (
+            tipoServicios.map((tipoServicio, index) => {
+              return <TipoServicio tipoServicio={tipoServicio} key={index} />;
+            })
+          )}
         </div>
       </div>
     </ContainerPrimary>

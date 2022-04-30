@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 const BASE_URL = process.env.NEXT_PUBLIC_URL;
 
 export const getTipoServices = async (setState, setLoader) => {
@@ -8,7 +9,11 @@ export const getTipoServices = async (setState, setLoader) => {
       setState(res.data);
       setLoader(false);
     })
-    .catch((e) => {
-      alert(JSON.stringify(e));
+    .catch((err) => {
+      // alert(JSON.stringify(e));
+      Swal.fire({
+        title: JSON.stringify(err),
+        icon: "error",
+      });
     });
 };

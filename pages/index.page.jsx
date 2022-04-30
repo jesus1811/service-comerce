@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useContext, useEffect } from "react";
-import { Button, ContainerPrimary, Input } from "../components/common";
+import { Button, ContainerPrimary, Input, Loading } from "../components/common";
 import { DataContext } from "../context/Provider";
 import { validarclienteServices } from "../services/cliente";
 import styles from "./index.module.scss";
@@ -26,11 +25,7 @@ const Home = () => {
     <ContainerPrimary>
       <div className={styles.containerCeleste}>
         <h1 className={styles.titleBlue}>Bienvenido a Montalvo </h1>
-        <img
-          className={styles.image}
-          src="./login.png"
-          alt=""
-        />
+        <img className={styles.image} src="./login.png" alt="" />
         <p className={styles.description}>
           Por favor ingresar tu cuenta aqui abajo
         </p>
