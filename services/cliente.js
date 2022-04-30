@@ -9,22 +9,31 @@ export const validarclienteServices = async (
   state,
   setLoader
 ) => {
-  await axios
-    .post(BASE_URL + "/api/login", {
-      email,
-      password,
-    })
-    .then(({ data }) => {
-      setState({ ...state, user: data });
-      localStorage.setItem("store", JSON.stringify({ ...state, user: data }));
-      setLoader(true);
-    })
-    .catch((err) => {
-      Swal.fire({
-        title: JSON.stringify(err),
-        icon: "error",
-      });
-    });
+  email != 0 &&
+    password != 0 &&
+    (await axios
+      .post(BASE_URL + "/api/login", {
+        email,
+        password,
+      })
+      .then(({ data }) => {
+        data.length != 0
+          ? (setState({ ...state, user: data }),
+            localStorage.setItem(
+              "store",
+              JSON.stringify({ ...state, user: data })
+            ),
+            setLoader(true))
+          : Swal.fire({
+              title: "Correo y/o Contraseña Incorrecta",
+            });
+      })
+      .catch((err) => {
+        Swal.fire({
+          title: JSON.stringify(err),
+          icon: "error",
+        });
+      }));
 };
 export const postClienteServices = async (
   dni,

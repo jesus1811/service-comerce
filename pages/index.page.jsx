@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useContext, useEffect } from "react";
 import { Button, ContainerPrimary, Input } from "../components/common";
@@ -11,16 +12,25 @@ const Home = () => {
   const [loader, setLoader] = useState(true);
   const { store, setStore } = useContext(DataContext);
   const router = useRouter();
+
   useEffect(() => {
     store.user.length != 0 && router.push("/menu-home");
     setLoader(false);
   }, [loader]);
+  const handleClickValidate = (e) => {
+    e.preventDefault();
+    validarclienteServices(correo, password, setStore, store, setLoader);
+  };
 
   return (
     <ContainerPrimary>
       <div className={styles.containerCeleste}>
         <h1 className={styles.titleBlue}>Bienvenido a Montalvo </h1>
-        <img className={styles.image} src="./login.png" alt="" />
+        <img
+          className={styles.image}
+          src="./login.png"
+          alt=""
+        />
         <p className={styles.description}>
           Por favor ingresar tu cuenta aqui abajo
         </p>
@@ -40,20 +50,7 @@ const Home = () => {
             onChange={({ target }) => setPassword(target.value)}
           />
           <div className={styles.containerButton}>
-            <Button
-              onClick={(e) => {
-                e.preventDefault();
-                validarclienteServices(
-                  correo,
-                  password,
-                  setStore,
-                  store,
-                  setLoader
-                );
-              }}
-            >
-              Ingresar
-            </Button>
+            <Button onClick={handleClickValidate}>Ingresar</Button>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { ContainerPrimary } from "../../components/common";
 import { Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";

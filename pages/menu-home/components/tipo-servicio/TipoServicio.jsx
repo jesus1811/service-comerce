@@ -3,6 +3,7 @@ import { Button } from "../../../../components/common";
 import { DataContext } from "../../../../context/Provider";
 import styles from "./tipoServicio.module.scss";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const TipoServicio = ({ tipoServicio }) => {
   const router = useRouter();
@@ -10,7 +11,13 @@ const TipoServicio = ({ tipoServicio }) => {
   return (
     <div className={styles.card}>
       <h2 className={styles.titleCard}>{tipoServicio.nombreTipoServicio}</h2>
-      <img className={styles.images} src={tipoServicio.urlServicio} alt="" />
+      <Image
+        className={styles.images}
+        src={tipoServicio.urlServicio}
+        alt=""
+        width={220}
+        height={220}
+      />
       <Button
         onClick={() => {
           setStore({ ...store, categoria: tipoServicio.nombreTipoServicio });

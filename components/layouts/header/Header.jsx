@@ -4,6 +4,7 @@ import { DataContext } from "../../../context/Provider";
 import Link from "next/link";
 import styles from "./header.module.scss";
 import { LinkNav } from "./components";
+import Image from "next/image";
 const Header = () => {
   const router = useRouter();
   const { store, setStore } = useContext(DataContext);
@@ -20,7 +21,6 @@ const Header = () => {
           <img src="menu.svg" alt="" className={styles.image} />
         </label>
         <nav className={styles.navigation + " "}>
-          <LinkNav path="#">Cambiar Contraseña</LinkNav>
           <button
             className={styles.logout}
             onClick={() => {
@@ -40,8 +40,13 @@ const Header = () => {
               " " +
               store.user[0]?.apellidoCliente}
           </LinkNav>
-          <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} />
-          
+          <Image
+            src={store.user[0]?.urlFoto}
+            alt=""
+            className={styles.perfil}
+            width={64}
+            height={64}
+          />
         </nav>
       </div>
     </section>
