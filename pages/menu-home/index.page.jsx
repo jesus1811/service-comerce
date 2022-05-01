@@ -18,16 +18,18 @@ const MenuHome = () => {
     <ContainerPrimary>
       <Header />
       <div className={styles.containerDiv}>
-        <h1 className={styles.title}>ELIJA SU CATEGORIA DE INTERES</h1>
-        <div className={styles.containerImages}>
-          {loader ? (
-            <Loading />
-          ) : (
-            tipoServicios.map((tipoServicio, index) => {
-              return <TipoServicio tipoServicio={tipoServicio} key={index} />;
-            })
-          )}
-        </div>
+        {loader ? (
+          <Loading />
+        ) : (
+          <>
+            <h1 className={styles.title}>ELIJA SU CATEGORIA DE INTERES</h1>
+            <div className={styles.containerImages}>
+              {tipoServicios.map((tipoServicio, index) => {
+                return <TipoServicio tipoServicio={tipoServicio} key={index} />;
+              })}
+            </div>
+          </>
+        )}
       </div>
     </ContainerPrimary>
   );

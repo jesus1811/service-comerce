@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useContext } from "react";
 import { Button } from "../../../../components/common";
 import { DataContext } from "../../../../context/Provider";
@@ -11,7 +10,7 @@ const List = ({ onClick }) => {
       <h1 className={styles.titleBlue}>Perfil </h1>
       <div className={styles.card}>
         <div className={styles.containerImage}>
-          <Image
+          <img
             className={styles.image}
             src={store.user[0]?.urlFoto}
             alt=""

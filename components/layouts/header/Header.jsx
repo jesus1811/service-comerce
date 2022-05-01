@@ -4,7 +4,6 @@ import { DataContext } from "../../../context/Provider";
 import Link from "next/link";
 import styles from "./header.module.scss";
 import { LinkNav } from "./components";
-import Image from "next/image";
 const Header = () => {
   const router = useRouter();
   const { store, setStore } = useContext(DataContext);
