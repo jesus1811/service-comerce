@@ -8,12 +8,7 @@ const Edit = ({ password, onChange, onClick }) => {
       <h1 className={styles.title}>Editar Contraseña</h1>
 
       <div className={styles.card}>
-        <Input
-          type="password"
-          placeholder="Contraseña Nueva"
-          onChange={onChange}
-          value={password}
-        />
+        <Input type="password" placeholder="Contraseña Nueva" onChange={onChange} value={password} />
         <Button onClick={onClick}>Confirmar</Button>
       </div>
     </div>

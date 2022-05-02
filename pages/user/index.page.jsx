@@ -18,11 +18,7 @@ const User = () => {
     <ContainerPrimary>
       <Header />
       {onUserEdit ? (
-        <Edit
-          onClick={editPassword}
-          onChange={(e) => setPassword(e.target.value)}
-          password={password}
-        />
+        <Edit onClick={editPassword} onChange={(e) => setPassword(e.target.value)} password={password} />
       ) : (
         <List onClick={() => setOnUserEdit(true)} />
       )}

@@ -24,26 +24,15 @@ const Header = () => {
             className={styles.logout}
             onClick={() => {
               setStore({ ...store, user: [] });
-              localStorage.setItem(
-                "store",
-                JSON.stringify({ ...store, user: [] })
-              );
+              localStorage.setItem("store", JSON.stringify({ ...store, user: [] }));
               router.push("/");
             }}
           >
             Cerrar Session
           </button>
 
-          <LinkNav path="/user">
-            {store.user[0]?.nombreCliente +
-              " " +
-              store.user[0]?.apellidoCliente}
-          </LinkNav>
-          <img
-            src={store.user[0]?.urlFoto}
-            alt=""
-            className={styles.perfil}
-          />
+          <LinkNav path="/user">{store.user[0]?.nombreCliente + " " + store.user[0]?.apellidoCliente}</LinkNav>
+          <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} />
         </nav>
       </div>
     </section>

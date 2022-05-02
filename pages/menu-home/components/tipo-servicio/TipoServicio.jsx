@@ -10,13 +10,7 @@ const TipoServicio = ({ tipoServicio }) => {
   return (
     <div className={styles.card}>
       <h2 className={styles.titleCard}>{tipoServicio.nombreTipoServicio}</h2>
-      <img
-        className={styles.images}
-        src={tipoServicio.urlServicio}
-        alt=""
-        width={220}
-        height={220}
-      />
+      <img className={styles.images} src={tipoServicio.urlServicio} alt="" width={220} height={220} />
       <Button
         onClick={() => {
           setStore({ ...store, categoria: tipoServicio.nombreTipoServicio });

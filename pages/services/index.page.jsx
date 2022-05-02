@@ -24,11 +24,7 @@ const Services = () => {
           <h1 className={styles.titleMain}>{store.categoria}</h1>
           <div className={styles.containerCard}>
             {servicios.map((servicio, index) => {
-              return (
-                servicio.NombreTipoServicio == store.categoria && (
-                  <Servicio servicio={servicio} key={index} />
-                )
-              );
+              return servicio.NombreTipoServicio == store.categoria && <Servicio servicio={servicio} key={index} />;
             })}
           </div>
         </>

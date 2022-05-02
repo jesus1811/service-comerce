@@ -2,13 +2,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 const BASE_URL = process.env.NEXT_PUBLIC_URL;
 
-export const validarclienteServices = async (
-  email,
-  password,
-  setState,
-  state,
-  setLoader
-) => {
+export const validarclienteServices = async (email, password, setState, state, setLoader) => {
   email != 0 &&
     password != 0 &&
     (await axios
@@ -19,10 +13,7 @@ export const validarclienteServices = async (
       .then(({ data }) => {
         data.length != 0
           ? (setState({ ...state, user: data }),
-            localStorage.setItem(
-              "store",
-              JSON.stringify({ ...state, user: data })
-            ),
+            localStorage.setItem("store", JSON.stringify({ ...state, user: data })),
             setLoader(true))
           : Swal.fire({
               title: "Correo y/o Contraseña Incorrecta",
@@ -35,16 +26,7 @@ export const validarclienteServices = async (
         });
       }));
 };
-export const postClienteServices = async (
-  dni,
-  nombre,
-  apellido,
-  correo,
-  password,
-  celular,
-  foto,
-  router
-) => {
+export const postClienteServices = async (dni, nombre, apellido, correo, password, celular, foto, router) => {
   await axios
     .post(BASE_URL + "/api/cliente", {
       dni,
@@ -53,7 +35,10 @@ export const postClienteServices = async (
       correo,
       password,
       celular,
-      foto,
+      foto:
+        "https://firebasestorage.googleapis.com/v0/b/crud-image-1acb8.appspot.com/o/" +
+        foto +
+        "?alt=media&token=449b3048-6b97-42b5-8436-9f926747cc05",
     })
     .then(({ data }) => {
       Swal.fire({

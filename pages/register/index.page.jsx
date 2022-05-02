@@ -26,18 +26,7 @@ const Register = () => {
     const path = app.storage().ref().child(archivo.name);
     await path.put(archivo);
 
-    postClienteServices(
-      dni,
-      nombre,
-      apellido,
-      correo,
-      password,
-      celular,
-      "https://firebasestorage.googleapis.com/v0/b/crud-image-1acb8.appspot.com/o/" +
-        archivo.name +
-        "?alt=media&token=449b3048-6b97-42b5-8436-9f926747cc05",
-      router
-    );
+    postClienteServices(dni, nombre, apellido, correo, password, celular, archivo.name, router);
 
     clearInputs();
   };
@@ -53,24 +42,9 @@ const Register = () => {
       <div className={styles.container}>
         <h1 className={styles.title}>Registrate aqui</h1>
         <div className={styles.containerInputs}>
-          <Input
-            placeholder="DNI"
-            type="number"
-            onChange={(e) => setDni(e.target.value.slice(0, 8))}
-            value={dni}
-          />
-          <Input
-            placeholder="Nombre"
-            type="text"
-            onChange={(e) => setNombre(e.target.value)}
-            value={nombre}
-          />
-          <Input
-            placeholder="Apellido"
-            type="text"
-            onChange={(e) => setApellido(e.target.value)}
-            value={apellido}
-          />
+          <Input placeholder="DNI" type="number" onChange={(e) => setDni(e.target.value.slice(0, 8))} value={dni} />
+          <Input placeholder="Nombre" type="text" onChange={(e) => setNombre(e.target.value)} value={nombre} />
+          <Input placeholder="Apellido" type="text" onChange={(e) => setApellido(e.target.value)} value={apellido} />
           <Input
             placeholder="Celular"
             type="number"
