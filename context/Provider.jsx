@@ -5,9 +5,5 @@ export const DataContext = createContext();
 export const ContextProvider = ({ children }) => {
   const { store, setStore } = Store();
 
-  return (
-    <DataContext.Provider value={{ store, setStore }}>
-      {children}
-    </DataContext.Provider>
-  );
+  return <DataContext.Provider value={{ store, setStore }}>{children}</DataContext.Provider>;
 };

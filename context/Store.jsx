@@ -5,9 +5,7 @@ const Store = () => {
     user: [],
   };
   const [store, setStore] = useState(
-    (typeof window !== "undefined" &&
-      JSON.parse(localStorage.getItem("store"))) ||
-      initial
+    (typeof window !== "undefined" && JSON.parse(localStorage.getItem("store"))) || initial
   );
 
   return { store, setStore };
