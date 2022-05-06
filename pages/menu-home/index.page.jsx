@@ -22,7 +22,7 @@ const MenuHome = () => {
           <Loading />
         ) : (
           <>
-            <h1 className={styles.title}>ELIJA SU CATEGORIA DE INTERES</h1>
+            <h1 className={styles.title}>ELIJA SU CATEGORÍA DE INTERES</h1>
             <div className={styles.containerImages}>
               {tipoServicios.map((tipoServicio, index) => {
                 return <TipoServicio tipoServicio={tipoServicio} key={index} />;

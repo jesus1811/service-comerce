@@ -13,7 +13,7 @@ const Header = () => {
         <input type="checkbox" id="check" className={styles.checkedNav} />
         <Link href="/menu-home">
           <a className={styles.link} smooth={true}>
-            Montalvo
+            <img src="Logo.svg" alt="montalvo" className={styles.logo} />
           </a>
         </Link>
         <label htmlFor="check" className="btnCheck">
@@ -28,7 +28,7 @@ const Header = () => {
               router.push("/");
             }}
           >
-            Cerrar Session
+            Cerrar Sesión
           </button>
 
           <LinkNav path="/user">{store.user[0]?.nombreCliente + " " + store.user[0]?.apellidoCliente}</LinkNav>
