@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useState, useContext, useEffect } from "react";
-import { Button, ContainerPrimary, Input, Loading } from "../components/common";
+import { Button, Input } from "../components/common";
+import { ContainerPrimary } from "../components/layouts";
 import { DataContext } from "../context/Provider";
 import { validarclienteServices } from "../services/cliente";
 import styles from "./index.module.scss";

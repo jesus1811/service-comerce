@@ -6,9 +6,15 @@
   flex-wrap: wrap;
   gap: 20px;
 }
-.titleMain {
+@mixin title($color) {
   font-size: 36px;
-  color: #122335;
+  color: $color;
   text-align: center;
   font-weight: 600;
+}
+.titleMain {
+  @include title(#122335);
+}
+.titleMainDark {
+  @include title(white);
 }

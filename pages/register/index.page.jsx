@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Button, ContainerPrimary, Input } from "../../components/common";
+import { Button, Input } from "../../components/common";
 import styles from "./register.module.scss";
 import { useRouter } from "next/router";
 import { postClienteServices } from "../../services/cliente";
 import { app } from "../../services/firebase";
+import { ContainerPrimary } from "../../components/layouts";
 
 const Register = () => {
   const [dni, setDni] = useState("");

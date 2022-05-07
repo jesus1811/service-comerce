@@ -1,8 +1,14 @@
-.title {
+@mixin title($color) {
   font-size: 36px;
-  color: #122335;
+  color: $color;
   text-align: center;
   font-weight: 500;
+}
+.title {
+  @include title(#122335);
+}
+.titleDark {
+  @include title(white);
 }
 .containerImages {
   width: 100%;

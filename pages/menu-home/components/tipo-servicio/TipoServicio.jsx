@@ -9,7 +9,7 @@ const TipoServicio = ({ tipoServicio }) => {
   const { store, setStore } = useContext(DataContext);
   return (
     <div className={styles.card}>
-      <h2 className={styles.titleCard}>{tipoServicio.nombreTipoServicio}</h2>
+      <h2 className={store.onDark ? styles.titleCardDark : styles.titleCard}>{tipoServicio.nombreTipoServicio}</h2>
       <img className={styles.images} src={tipoServicio.urlServicio} alt="" width={220} height={220} />
       <Button
         onClick={() => {
