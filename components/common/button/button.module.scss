@@ -1,11 +1,17 @@
-.button {
-    padding: 9px 29px;
-    color: white;
-    background-color: #122335;
-    border-radius: 4px;
-    transition: all ease-out 200ms;
-    font-size: 24px;
-    &:hover{
-      background: #122335;
-    }
+@mixin button($bg, $color) {
+  padding: 9px 29px;
+  color: $color;
+  background-color: $bg;
+  border-radius: 4px;
+  transition: all ease-out 200ms;
+  font-size: 24px;
+  &:hover {
+    background: $bg;
   }
+}
+.button {
+  @include button(#122335, white);
+}
+.buttonDark {
+  @include button(white, black);
+}

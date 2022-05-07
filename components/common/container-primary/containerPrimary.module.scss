@@ -1,10 +1,16 @@
-.containerMain {
-    width: 100%;
-    min-height: 100vh;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 100px  20px 20px 20px;
-  }
+@mixin container($bg) {
+  width: 100%;
+  min-height: 100vh;
+  background: $bg;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px 20px 20px;
+}
+.container {
+  @include container(white);
+}
+.containerDark {
+  @include container(black);
+}

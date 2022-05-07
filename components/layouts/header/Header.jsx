@@ -30,6 +30,15 @@ const Header = () => {
           >
             Cerrar Sesión
           </button>
+          <button
+            className={styles.logout}
+            onClick={() => {
+              setStore({ ...store, onDark: !store.onDark });
+              localStorage.setItem("store", JSON.stringify({ ...store, onDark: !store.onDark }));
+            }}
+          >
+            cambiar modo
+          </button>
 
           <LinkNav path="/user">{store.user[0]?.nombreCliente + " " + store.user[0]?.apellidoCliente}</LinkNav>
           <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} />
