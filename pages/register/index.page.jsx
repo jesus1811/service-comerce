@@ -40,7 +40,7 @@ const Register = () => {
         <p className={styles.description}>¿ Ya tienes una cuenta ?</p>
         <Button onClick={() => router.push("/")}>Ir al login</Button>
       </div>
-      <div className={styles.container}>
+      <div className={styles.gray}>
         <h1 className={styles.title}>Registrate aqui</h1>
         <div className={styles.containerInputs}>
           <Input placeholder="DNI" type="number" onChange={(e) => setDni(e.target.value.slice(0, 8))} value={dni} />

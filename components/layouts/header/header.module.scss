@@ -1,4 +1,4 @@
-.container {
+@mixin container($bg) {
   width: 100%;
   padding-bottom: 10px;
   padding-top: 10px;
@@ -7,10 +7,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #717b86;
+  background: $bg;
   position: fixed;
   left: 0;
   top: 0;
+}
+.container {
+  @include container(#717b86);
+}
+.containerDark {
+  @include container(red);
 }
 .logout {
   display: flex;
@@ -26,7 +32,6 @@
   }
   @media screen and (max-width: 1024px) {
     width: 100%;
-    height: 100%;
     text-align: center;
     padding: 0;
   }
@@ -77,10 +82,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     background: #717b86;
     gap: 0;
-    height: 0;
     top: 71.56px;
     right: 5.5%;
     bottom: 0;

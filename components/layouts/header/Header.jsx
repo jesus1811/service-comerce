@@ -8,7 +8,7 @@ const Header = () => {
   const router = useRouter();
   const { store, setStore } = useContext(DataContext);
   return (
-    <section className={styles.container}>
+    <section className={store.onDark ? styles.containerDark : styles.container}>
       <div className={styles.containerDiv}>
         <input type="checkbox" id="check" className={styles.checkedNav} />
         <Link href="/menu-home">
@@ -19,7 +19,7 @@ const Header = () => {
         <label htmlFor="check" className="btnCheck">
           <img src="menu.svg" alt="" className={styles.image} />
         </label>
-        <nav className={styles.navigation + " "}>
+        <nav className={styles.navigation}>
           <button
             className={styles.logout}
             onClick={() => {
@@ -37,10 +37,11 @@ const Header = () => {
               localStorage.setItem("store", JSON.stringify({ ...store, onDark: !store.onDark }));
             }}
           >
-            cambiar modo
+            {store.onDark ? "icono1" : "icono2"}
           </button>
 
           <LinkNav path="/user">{store.user[0]?.nombreCliente + " " + store.user[0]?.apellidoCliente}</LinkNav>
+
           <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} />
         </nav>
       </div>
