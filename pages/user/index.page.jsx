@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useContext } from "react";
-import { ContainerPrimary } from "../../components/common";
-import { Header } from "../../components/layouts";
+import { ContainerPrimary, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { putPasswordCliente } from "../../services/cliente";
 import { Edit, List } from "./components";

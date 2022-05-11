@@ -1,13 +1,16 @@
 import { useRouter } from "next/router";
 import { useState, useContext, useEffect } from "react";
-import { Button, ContainerPrimary, Input, Loading } from "../components/common";
+import { Button, Input } from "../components/common";
+import { ContainerPrimary } from "../components/layouts";
 import { DataContext } from "../context/Provider";
+import useField from "../hooks/useField";
 import { validarclienteServices } from "../services/cliente";
 import styles from "./index.module.scss";
 
 const Home = () => {
-  const [correo, setCorreo] = useState("");
-  const [password, setPassword] = useState("");
+  const email = useField("email");
+  const password = useField("password");
+
   const [loader, setLoader] = useState(true);
   const { store, setStore } = useContext(DataContext);
   const router = useRouter();
@@ -18,7 +21,7 @@ const Home = () => {
   }, [loader]);
   const handleClickValidate = (e) => {
     e.preventDefault();
-    validarclienteServices(correo, password, setStore, store, setLoader);
+    validarclienteServices(email.value, password.value, setStore, store, setLoader);
   };
 
   return (
@@ -32,8 +35,8 @@ const Home = () => {
       <div className={styles.containerGray}>
         <h1 className={styles.titleWhite}>Ingresa Aqui </h1>
         <div className={styles.containerInputs}>
-          <Input placeholder="Correo Electronico" type={"email"} onChange={({ target }) => setCorreo(target.value)} />
-          <Input placeholder="Contraseña" type="password" onChange={({ target }) => setPassword(target.value)} />
+          <Input {...email} placeholder="Correo Electronico" />
+          <Input {...password} placeholder="Contraseña" />
           <div className={styles.containerButton}>
             <Button onClick={handleClickValidate}>Ingresar</Button>
           </div>

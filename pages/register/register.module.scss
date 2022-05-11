@@ -8,6 +8,7 @@
   padding: 20px;
   border-radius: 4px;
   width: 100%;
+  max-width: 600px;
 }
 .celeste {
   @include container(#a1c8d1);
@@ -48,17 +49,17 @@
   text-align: center;
   font-weight: 400;
 }
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  gap: 20px;
-  background-color: #717b86;
-  padding: 20px;
-  border-radius: 4px;
-  width: 100%;
-}
+// .container {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-around;
+//   align-items: center;
+//   gap: 20px;
+//   background-color: #717b86;
+//   padding: 20px;
+//   border-radius: 4px;
+//   width: 100%;
+// }
 .containerInputs {
   display: flex;
   flex-direction: column;

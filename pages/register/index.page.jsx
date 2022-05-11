@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Button, ContainerPrimary, Input } from "../../components/common";
+import { Button, Input } from "../../components/common";
 import styles from "./register.module.scss";
 import { useRouter } from "next/router";
 import { postClienteServices } from "../../services/cliente";
 import { app } from "../../services/firebase";
+import { ContainerPrimary } from "../../components/layouts";
 
 const Register = () => {
   const [dni, setDni] = useState("");
@@ -39,7 +40,7 @@ const Register = () => {
         <p className={styles.description}>¿ Ya tienes una cuenta ?</p>
         <Button onClick={() => router.push("/")}>Ir al login</Button>
       </div>
-      <div className={styles.container}>
+      <div className={styles.gray}>
         <h1 className={styles.title}>Registrate aqui</h1>
         <div className={styles.containerInputs}>
           <Input placeholder="DNI" type="number" onChange={(e) => setDni(e.target.value.slice(0, 8))} value={dni} />

@@ -6,10 +6,16 @@
   max-width: 250px;
   min-height: 300px;
 }
-.title {
+@mixin title($color) {
   font-size: 32px;
-  color: #06232a;
+  color: $color;
   text-align: center;
+}
+.title {
+  @include title(#06232a);
+}
+.titleDark {
+  @include title(white);
 }
 .precio {
   font-size: 24px;

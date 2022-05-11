@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
-import { ContainerPrimary, Loading } from "../../components/common";
-import { Header } from "../../components/layouts";
+import { Loading } from "../../components/common";
+import { ContainerPrimary, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { getServicioServices } from "../../services/servicio";
 import { Servicio } from "./components";
@@ -21,7 +21,7 @@ const Services = () => {
         <Loading />
       ) : (
         <>
-          <h1 className={styles.titleMain}>{store.categoria}</h1>
+          <h1 className={store.onDark ? styles.titleMainDark : styles.titleMain}>{store.categoria}</h1>
           <div className={styles.containerCard}>
             {servicios.map((servicio, index) => {
               return servicio.NombreTipoServicio == store.categoria && <Servicio servicio={servicio} key={index} />;
