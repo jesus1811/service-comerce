@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <ContainerPrimary>
       <div className={styles.containerCeleste}>
-        <h1 className={styles.titleBlue}>Bienvenido a Montalvo </h1>
+        <h1 className={styles.titleBlue}>Bienvenido a Montalvo {store.user.length} </h1>
         <img className={styles.image} src="./login.png" alt="" />
         <p className={styles.description}>Por favor ingresar tu cuenta aqui abajo</p>
         <Button onClick={() => router.push("/register")}>Registrar</Button>

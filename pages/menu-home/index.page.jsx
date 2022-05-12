@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from "react";
+import { useRouter } from "next/router";
 import { Loading } from "../../components/common";
 import { ContainerPrimary, Header } from "../../components/layouts";
 import { getTipoServices } from "../../services/tipoServicio";
@@ -10,8 +11,9 @@ const MenuHome = () => {
   const [tipoServicios, setTipoServicios] = useState([]);
   const [loader, setLoader] = useState(true);
   const { store } = useContext(DataContext);
+  const router = useRouter();
   useEffect(() => {
-    store.user.length != 1 && router.push("/");
+    store.user.length == 0 && router.push("/");
     getTipoServices(setTipoServicios, setLoader);
   }, [loader]);
   return (
