@@ -32,7 +32,7 @@ const Home = () => {
         <p className={styles.description}>Por favor ingresar tu cuenta aqui abajo</p>
         <Button onClick={() => router.push("/register")}>Registrar</Button>
       </div>
-      <div className={styles.containerGray}>
+      <div className={store.onDark ? styles.containerDark : styles.containerGray}>
         <h1 className={styles.titleWhite}>Ingresa Aqui </h1>
         <div className={styles.containerInputs}>
           <Input {...email} placeholder="Correo Electronico" />

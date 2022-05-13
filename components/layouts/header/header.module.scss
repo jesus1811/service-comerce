@@ -16,7 +16,7 @@
   @include container(#717b86);
 }
 .containerDark {
-  @include container(red);
+  @include container(#0B3B47);
 }
 .logout {
   display: flex;
@@ -50,7 +50,7 @@
   object-fit: cover;
 }
 .logo {
-  width: 180px;
+  width: 280px;
 }
 .link {
   color: white;

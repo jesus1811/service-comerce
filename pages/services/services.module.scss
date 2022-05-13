@@ -1,3 +1,4 @@
+
 .containerCard {
   width: 80%;
   display: flex;
@@ -11,10 +12,11 @@
   color: $color;
   text-align: center;
   font-weight: 600;
+  margin-bottom: 15px
 }
 .titleMain {
   @include title(#122335);
 }
 .titleMainDark {
-  @include title(white);
+  @include title(#D2F8F7);
 }

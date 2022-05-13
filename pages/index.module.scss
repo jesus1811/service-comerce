@@ -16,6 +16,9 @@
 .containerGray {
   @include container(#717b86);
 }
+.containerDark {
+  @include container(#0b3b47);
+}
 @mixin title($size, $color) {
   font-size: $size;
   color: $color;

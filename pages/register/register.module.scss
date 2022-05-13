@@ -16,6 +16,9 @@
 .gray {
   @include container(#717b86);
 }
+.containerDark {
+  @include container(#0b3b47);
+}
 @mixin title($size, $color) {
   font-size: $size;
   color: $color;
@@ -84,6 +87,21 @@
   color: black;
   text-align: center;
 }
+@mixin containerFile ($bg) {
+  position: relative;
+  width: 100%;
+  background: $bg;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  padding: 8px 16px;
+  &:hover {
+    background: $bg;
+  }
+  
+}
 .containerFile {
   position: relative;
   width: 100%;
@@ -97,6 +115,9 @@
   &:hover {
     background: #122335;
   }
+}
+.containerFileDark{
+  @include containerFile(#4491A4)
 }
 .file {
   opacity: 0;

@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Button, Input } from "../../components/common";
 import styles from "./register.module.scss";
 import { useRouter } from "next/router";
 import { postClienteServices } from "../../services/cliente";
 import { app } from "../../services/firebase";
 import { ContainerPrimary } from "../../components/layouts";
+import { DataContext } from "../../context/Provider";
 
 const Register = () => {
   const [dni, setDni] = useState("");
@@ -14,6 +15,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [celular, setCelular] = useState("");
   const [archivo, setArchivo] = useState({});
+  const { store } = useContext(DataContext);
   const router = useRouter();
   const clearInputs = () => {
     setNombre("");
@@ -40,7 +42,7 @@ const Register = () => {
         <p className={styles.description}>¿ Ya tienes una cuenta ?</p>
         <Button onClick={() => router.push("/")}>Ir al login</Button>
       </div>
-      <div className={styles.gray}>
+      <div className={store.onDark ? styles.containerDark : styles.gray}>
         <h1 className={styles.title}>Registrate aqui</h1>
         <div className={styles.containerInputs}>
           <Input placeholder="DNI" type="number" onChange={(e) => setDni(e.target.value.slice(0, 8))} value={dni} />
@@ -64,7 +66,7 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
-          <div className={styles.containerFile}>
+          <div className={store.onDark ? styles.containerFileDark : styles.containerFile}>
             <p className={styles.titleFile}>Agregar foto</p>
             <input
               type="file"
