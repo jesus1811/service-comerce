@@ -16,7 +16,7 @@ const Header = () => {
             {store.onDark ? (
               <img src="logoDark.png" alt="montalvo" className={styles.logo} />
             ) : (
-              <img src="Logo.png" alt="montalvo" className={styles.logo} />
+              <img src="logo.png" alt="montalvo" className={styles.logo} />
             )}
           </a>
         </Link>
