@@ -23,7 +23,7 @@ const Header = () => {
         <label htmlFor="check" className="btnCheck">
           <img src="menu.svg" alt="" className={styles.image} />
         </label>
-        <nav className={styles.navigation}>
+        <nav className={store.onDark ? styles.navigationDark : styles.navigation}>
           <button
             className={styles.logout}
             onClick={() => {
