@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { useRouter } from "next/router";
 import { Button } from "../../../../components/common";
 import { DataContext } from "../../../../context/Provider";
 import styles from "./servicio.module.scss";
 
 const Servicio = ({ servicio }) => {
   const { store } = useContext(DataContext);
+  const router = useRouter();
   return (
     <article className={styles.card}>
       <h1 className={store.onDark ? styles.titleDark : styles.title}>{servicio.NombreServicio}</h1>
@@ -15,7 +17,14 @@ const Servicio = ({ servicio }) => {
       </div>
 
       <div className={styles.containerButtons}>
-        <Button>Ver Servicio</Button>
+        <Button
+          onClick={() => {
+            router.push("services/detalle");
+            localStorage.setItem("idServicio", JSON.stringify(servicio.idServicio));
+          }}
+        >
+          Ver Detalle
+        </Button>
       </div>
     </article>
   );

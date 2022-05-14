@@ -14,14 +14,14 @@ const Header = () => {
         <Link href="/menu-home">
           <a className={styles.link} smooth={true}>
             {store.onDark ? (
-              <img src="logoDark.svg" alt="montalvo" className={styles.logo} />
+              <img src="/logoDark.svg" alt="montalvo" className={styles.logo} />
             ) : (
-              <img src="logo.svg" alt="montalvo" className={styles.logo} />
+              <img src="/logo.svg" alt="montalvo" className={styles.logo} />
             )}
           </a>
         </Link>
         <label htmlFor="check" className="btnCheck">
-          <img src="menu.svg" alt="" className={styles.image} />
+          <img src="/menu.svg" alt="" className={styles.image} />
         </label>
         <nav className={store.onDark ? styles.navigationDark : styles.navigation}>
           <button

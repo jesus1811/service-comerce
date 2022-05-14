@@ -12,7 +12,6 @@ const List = ({ onClick }) => {
         <div className={styles.containerImage}>
           <img className={styles.image} src={store.user[0]?.urlFoto} alt="" width={161} height={161} />
         </div>
-
         <h2 className={styles.titleSub}>DNI</h2>
         <p className={styles.description}>{store.user[0]?.DNI}</p>
         <h2 className={styles.titleSub}>Nombre</h2>

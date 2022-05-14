@@ -12,3 +12,14 @@ export const getServicioServices = async (setData, setLoder) => {
       alert(JSON.stringify(e));
     });
 };
+export const getServicioIdServices = async (id, setData, setLoder) => {
+  await axios
+    .get(BASE_URL + "/api/servicio/" + id)
+    .then(({ data }) => {
+      setData(data);
+      setLoder(false);
+    })
+    .catch((e) => {
+      alert(JSON.stringify(e));
+    });
+};
