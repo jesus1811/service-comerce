@@ -14,9 +14,9 @@ const Header = () => {
         <Link href="/menu-home">
           <a className={styles.link} smooth={true}>
             {store.onDark ? (
-              <img src="logoDark.png" alt="montalvo" className={styles.logo} />
+              <img src="logoDark.svg" alt="montalvo" className={styles.logo} />
             ) : (
-              <img src="logo.png" alt="montalvo" className={styles.logo} />
+              <img src="logo.svg" alt="montalvo" className={styles.logo} />
             )}
           </a>
         </Link>
