@@ -3,7 +3,7 @@ import { Button, Loading } from "../../components/common";
 import { ContainerPrimary, Header } from "../../components/layouts";
 import { getServicioIdServices } from "../../services/servicio";
 
-const detalle = () => {
+const Detalle = () => {
   const [servicio, setServicio] = useState([]);
   const [loader, setLoader] = useState(true);
   const [idServicio, setIdServicio] = useState(
@@ -33,4 +33,4 @@ const detalle = () => {
   );
 };
 
-export default detalle;
+export default Detalle;
