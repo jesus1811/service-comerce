@@ -4,6 +4,7 @@ import { DataContext } from "../../../context/Provider";
 import Link from "next/link";
 import styles from "./header.module.scss";
 import { LinkNav } from "./components";
+import { DarkModeSwitch } from "react-toggle-dark-mode";
 const Header = () => {
   const router = useRouter();
   const { store, setStore } = useContext(DataContext);
@@ -34,15 +35,15 @@ const Header = () => {
           >
             Cerrar Sesión
           </button>
-          <button
-            className={styles.logout}
-            onClick={() => {
+          <DarkModeSwitch
+            size={50}
+            checked={store.onDark}
+            onChange={() => {
               setStore({ ...store, onDark: !store.onDark });
               localStorage.setItem("store", JSON.stringify({ ...store, onDark: !store.onDark }));
             }}
-          >
-            {store.onDark ? "icono1" : "icono2"}
-          </button>
+          />
+          {/* </button> */}
 
           <LinkNav path="/user">{store.user[0]?.nombreCliente + " " + store.user[0]?.apellidoCliente}</LinkNav>
 
