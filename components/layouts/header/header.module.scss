@@ -10,7 +10,7 @@
   background: $bg;
   position: fixed;
   left: 0;
-  top: 0;
+  bottom: 0;
 }
 .container {
   @include container(#717b86);
@@ -26,7 +26,7 @@
   color: white;
   transition: all ease-out 150ms;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 20px;
   &:hover {
     color: white;
   }
@@ -45,12 +45,12 @@
 }
 .perfil {
   border-radius: 50%;
-  width: 64px;
-  height: 64px;
+  width: 70px;
+  height: 70px;
   object-fit: cover;
 }
 .logo {
-  width: 240px;
+  width: 70px;
 }
 .link {
   color: white;
@@ -85,9 +85,8 @@
     justify-content: space-around;
     background: $bg;
     gap: 0;
-    top: 71.56px;
-    right: 5.5%;
-    bottom: 0;
+    bottom: 83.3px;
+    right: 0;
     border-radius: 4px;
     overflow: hidden;
   }
@@ -105,8 +104,8 @@
 
   &:checked ~ .navigation {
     opacity: 1;
-    min-height: 200px;
-    padding: 10px;
+    min-height: 180px;
+    padding: 0 20px;
     display: flex;
   }
 }
@@ -115,8 +114,8 @@
 
   &:checked ~ .navigationDark {
     opacity: 1;
-    min-height: 200px;
-    padding: 10px;
+    min-height: 180px;
+    padding: 0 20px;
     display: flex;
   }
 }

@@ -15,16 +15,27 @@ const Header = () => {
         <Link href="/menu-home">
           <a className={styles.link} smooth={true}>
             {store.onDark ? (
-              <img src="/logoDark.svg" alt="montalvo" className={styles.logo} />
+              <img src="/homeDark.svg" alt="montalvo" className={styles.logo} />
             ) : (
-              <img src="/logo.svg" alt="montalvo" className={styles.logo} />
+              <img src="/home.svg" alt="montalvo" className={styles.logo} />
             )}
           </a>
         </Link>
+        <DarkModeSwitch
+          sunColor="#0B3B47"
+          size={70}
+          checked={store.onDark}
+          onChange={() => {
+            setStore({ ...store, onDark: !store.onDark });
+            localStorage.setItem("store", JSON.stringify({ ...store, onDark: !store.onDark }));
+          }}
+        />
         <label htmlFor="check" className="btnCheck">
-          <img src="/menu.svg" alt="" className={styles.image} />
+          <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} />
+          {/* <img src="/menu.svg" alt="" className={styles.image} /> */}
         </label>
         <nav className={store.onDark ? styles.navigationDark : styles.navigation}>
+          <LinkNav path="/user">Perfil</LinkNav>
           <button
             className={styles.logout}
             onClick={() => {
@@ -35,19 +46,7 @@ const Header = () => {
           >
             Cerrar Sesión
           </button>
-          <DarkModeSwitch
-            size={50}
-            checked={store.onDark}
-            onChange={() => {
-              setStore({ ...store, onDark: !store.onDark });
-              localStorage.setItem("store", JSON.stringify({ ...store, onDark: !store.onDark }));
-            }}
-          />
-          {/* </button> */}
-
-          <LinkNav path="/user">{store.user[0]?.nombreCliente + " " + store.user[0]?.apellidoCliente}</LinkNav>
-
-          <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} />
+          {/* <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} /> */}
         </nav>
       </div>
     </section>
