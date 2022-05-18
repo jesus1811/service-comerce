@@ -31,11 +31,17 @@ const Header = () => {
           }}
         />
         <label htmlFor="check" className="btnCheck">
-          <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} />
-          {/* <img src="/menu.svg" alt="" className={styles.image} /> */}
+          {/* <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} /> */}
+          {store.onDark ? (
+            <img src="/menuDark.svg" alt="" className={styles.image} />
+          ) : (
+            <img src="/menu.svg" alt="" className={styles.image} />
+          )}
         </label>
         <nav className={store.onDark ? styles.navigationDark : styles.navigation}>
-          <LinkNav path="/user">Perfil</LinkNav>
+          <LinkNav path="/user">
+            <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} />
+          </LinkNav>
           <button
             className={styles.logout}
             onClick={() => {
@@ -46,7 +52,6 @@ const Header = () => {
           >
             Cerrar Sesión
           </button>
-          {/* <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} /> */}
         </nav>
       </div>
     </section>

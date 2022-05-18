@@ -29,7 +29,7 @@ const Home = () => {
       <div className={styles.containerCeleste}>
         <h2 className={styles.titleBlue}>Bienvenido a Montalvo</h2>
         <img className={styles.image} src="./login.png" alt="" />
-        <p className={styles.description}>Por favor ingresar tu cuenta aqui abajo</p>
+        <p className={styles.description}>¿ no tienes cuenta ?</p>
         <Button onClick={() => router.push("/register")}>Registrar</Button>
       </div>
       <div className={store.onDark ? styles.containerDark : styles.containerGray}>
