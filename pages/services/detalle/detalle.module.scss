@@ -1,19 +1,26 @@
+.containerCard {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 @mixin card($bg) {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 15px;
-  max-width: 300px;
-  width: 90%;
-  min-height: 300px;
+  padding: 0 15px;
+  max-width: 140px;
+  min-height: 210px;
   background-color: $bg;
 }
 .card {
   @include card(white);
 }
 @mixin title($color) {
-  font-size: 32px;
+  font-size: 20px;
   color: $color;
   text-align: center;
 }
@@ -21,9 +28,19 @@
   @include title(#06232a);
 }
 .titleDark {
-  @include title(#06232a);
+  @include title(white);
 }
-.containerPrecio{
+.titleMain {
+  font-size: 32px;
+  color: #06232a;
+  text-align: center;
+}
+.titleMainDark {
+  font-size: 32px;
+  color: white;
+  text-align: center;
+}
+.containerPrecio {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -39,8 +56,7 @@
   color: #15758d;
 }
 .images {
-  flex: 2px;
-  min-height: 140px;
+  min-height: 50px;
   width: 100%;
   border-radius: 5px;
   object-fit: cover;

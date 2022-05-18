@@ -1,7 +1,7 @@
 .images {
   flex: 220px;
-  width: 220px;
-  height: 220px;
+  width: 100%;
+  max-width: 300px;
   border-radius: 5px;
   object-fit: cover;
 }

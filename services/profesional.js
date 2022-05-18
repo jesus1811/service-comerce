@@ -2,12 +2,12 @@ import axios from "axios";
 import Swal from "sweetalert2";
 const BASE_URL = process.env.NEXT_PUBLIC_URL;
 
-export const getTipoServices = async (setState, setLoader) => {
+export const getProfesionalServices = async (idProfesional, setData, setLoder) => {
   await axios
-    .get(BASE_URL + "/api/tipoServicio")
-    .then((res) => {
-      setState(res.data);
-      setLoader(false);
+    .get(BASE_URL + "/api/profesional/" + idProfesional)
+    .then(({ data }) => {
+      setData(data);
+      setLoder(false);
     })
     .catch((err) => {
       Swal.fire({

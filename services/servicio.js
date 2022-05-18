@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 const BASE_URL = process.env.NEXT_PUBLIC_URL;
 
 export const getServicioServices = async (setData, setLoder) => {
@@ -8,8 +9,11 @@ export const getServicioServices = async (setData, setLoder) => {
       setData(data);
       setLoder(false);
     })
-    .catch((e) => {
-      alert(JSON.stringify(e));
+    .catch((err) => {
+      Swal.fire({
+        title: JSON.stringify(err),
+        icon: "error",
+      });
     });
 };
 export const getServicioIdServices = async (id, setData, setLoder) => {
@@ -19,7 +23,25 @@ export const getServicioIdServices = async (id, setData, setLoder) => {
       setData(data);
       setLoder(false);
     })
-    .catch((e) => {
-      alert(JSON.stringify(e));
+    .catch((err) => {
+      Swal.fire({
+        title: JSON.stringify(err),
+        icon: "error",
+      });
+    });
+};
+
+export const getServiciosForProfesionalServices = async (idProfesional, setData, setLoader) => {
+  await axios
+    .get(BASE_URL + "/api/serviciosForProfesional/" + idProfesional)
+    .then(({ data }) => {
+      setData(data);
+      setLoader(false);
+    })
+    .catch((err) => {
+      Swal.fire({
+        title: JSON.stringify(err),
+        icon: "error",
+      });
     });
 };

@@ -20,7 +20,7 @@ const Servicio = ({ servicio }) => {
         <Button
           onClick={() => {
             router.push("services/detalle");
-            localStorage.setItem("idServicio", JSON.stringify(servicio.idServicio));
+            localStorage.setItem("servicio", JSON.stringify(servicio));
           }}
         >
           Ver Detalle
