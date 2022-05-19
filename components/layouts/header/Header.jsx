@@ -31,7 +31,6 @@ const Header = () => {
           }}
         />
         <label htmlFor="check" className="btnCheck">
-          {/* <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} /> */}
           {store.onDark ? (
             <img src="/menuDark.svg" alt="" className={styles.image} />
           ) : (
