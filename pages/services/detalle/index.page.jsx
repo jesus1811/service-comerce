@@ -13,14 +13,11 @@ const Detalle = () => {
   const [loader, setLoader] = useState(true);
   const { store } = useContext(DataContext);
   useEffect(() => {
-    getServicioIdServices(JSON.parse(localStorage.getItem("servicio")).idServicio, setServicio, setLoader);
-    getServiciosForProfesionalServices(
-      JSON.parse(localStorage.getItem("servicio")).idProfesional,
-      setServiciosProfesional,
-      setLoader
-    );
-    getProfesionalServices(JSON.parse(localStorage.getItem("servicio")).idProfesional, setProfesional, setLoader);
-  }, []);
+    const { idServicio, idProfesional } = JSON.parse(localStorage.getItem("servicio"));
+    getServicioIdServices(idServicio, setServicio, setLoader);
+    getServiciosForProfesionalServices(idProfesional, setServiciosProfesional, setLoader);
+    getProfesionalServices(idProfesional, setProfesional, setLoader);
+  }, [loader]);
 
   return (
     <ContainerPrimary>
@@ -29,14 +26,14 @@ const Detalle = () => {
         <Loading />
       ) : (
         <>
-          <img src={servicio[0]?.foto} alt="" width="200px" height="200px" />
-          <h1 className={store.onDark ? styles.titleDark : styles.title}>{servicio[0]?.NombreServicio}</h1>
+          <img src={servicio[0]?.foto} alt="" width="200px" height="200px" className={styles.images} />
+          <h1 className={store?.onDark ? styles.titleDark : styles.title}>{servicio[0]?.NombreServicio}</h1>
           <br />
-          <h1 className={store.onDark ? styles.titleDark : styles.title}>{servicio[0]?.descripcion}</h1>
-          <h1 className={store.onDark ? styles.titleDark : styles.title}>S/. {servicio[0]?.precio}</h1>
+          <h1 className={store?.onDark ? styles.titleDark : styles.title}>{servicio[0]?.descripcion}</h1>
+          <h1 className={store?.onDark ? styles.titleDark : styles.title}>S/. {servicio[0]?.precio}</h1>
           <Button onClick={() => {}}>solicitar servicio</Button>
 
-          <h1 className={store.onDark ? styles.titleMainDark : styles.titleMain}>Otros servicios del profesional</h1>
+          <h1 className={store?.onDark ? styles.titleMainDark : styles.titleMain}>Otros servicios del profesional</h1>
 
           <br />
 
@@ -66,14 +63,14 @@ const Detalle = () => {
           <h1 className={store.onDark ? styles.titleDark : styles.title}>
             ......................................................................
           </h1>
-          <h1 className={store.onDark ? styles.titleDark : styles.title}>{JSON.stringify(profesional[0], null, 2)}</h1>
+          <h1 className={store.onDark ? styles.titleDark : styles.title}>{JSON.stringify(profesional)}</h1>
           <h1 className={store.onDark ? styles.titleDark : styles.title}>
             .......................................................................
           </h1>
-          <h1 className={store.onDark ? styles.titleDark : styles.title}>
+          <h1 className={store?.onDark ? styles.titleDark : styles.title}>
             {profesional[0]?.nombreProfesional + " " + profesional[0]?.apellidoProfesional}
           </h1>
-          <h1 className={store.onDark ? styles.titleDark : styles.title}>{profesional[0]?.DNI}</h1>
+          <h1 className={store?.onDark ? styles.titleDark : styles.title}>{profesional[0]?.DNI}</h1>
           <img src={profesional[0]?.urlFoto} alt="" />
         </>
       )}
