@@ -13,7 +13,7 @@ const ContainerPrimary = ({ children }) => {
         <meta name="keywords" content="servicio, multiservicio, terapia, cursos, tecnologia, capacitacion" />
         <meta name="author" content="JesuDev" />
       </Head>
-      <section className={store.onDark ? styles.containerDark : styles.container}>{children}</section>
+      <section className={store?.onDark ? styles.containerDark : styles.container}>{children}</section>
     </>
   );
 };

@@ -7,6 +7,11 @@ import { getServicioIdServices, getServiciosForProfesionalServices } from "../..
 import styles from "./detalle.module.scss";
 
 const Detalle = () => {
+  const [servicio, setServicio] = useState([]);
+  const [serviciosProfesional, setServiciosProfesional] = useState([]);
+  const [profesional, setProfesional] = useState([]);
+  const [loader, setLoader] = useState(true);
+  const { store } = useContext(DataContext);
   useEffect(() => {
     getServicioIdServices(JSON.parse(localStorage.getItem("servicio")).idServicio, setServicio, setLoader);
     getServiciosForProfesionalServices(
@@ -16,11 +21,6 @@ const Detalle = () => {
     );
     getProfesionalServices(JSON.parse(localStorage.getItem("servicio")).idProfesional, setProfesional, setLoader);
   }, []);
-  const [servicio, setServicio] = useState([]);
-  const [serviciosProfesional, setServiciosProfesional] = useState([]);
-  const [profesional, setProfesional] = useState([]);
-  const [loader, setLoader] = useState(true);
-  const { store } = useContext(DataContext);
 
   return (
     <ContainerPrimary>

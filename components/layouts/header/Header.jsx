@@ -9,12 +9,12 @@ const Header = () => {
   const router = useRouter();
   const { store, setStore } = useContext(DataContext);
   return (
-    <section className={store.onDark ? styles.containerDark : styles.container}>
+    <section className={store?.onDark ? styles.containerDark : styles.container}>
       <div className={styles.containerDiv}>
         <input type="checkbox" id="check" className={styles.checkedNav} />
         <Link href="/menu-home">
           <a className={styles.link} smooth={true}>
-            {store.onDark ? (
+            {store?.onDark ? (
               <img src="/homeDark.svg" alt="montalvo" className={styles.logo} />
             ) : (
               <img src="/home.svg" alt="montalvo" className={styles.logo} />
@@ -24,22 +24,22 @@ const Header = () => {
         <DarkModeSwitch
           sunColor="#0B3B47"
           size={35}
-          checked={store.onDark}
+          checked={store?.onDark}
           onChange={() => {
             setStore({ ...store, onDark: !store.onDark });
             localStorage.setItem("store", JSON.stringify({ ...store, onDark: !store.onDark }));
           }}
         />
         <label htmlFor="check" className="btnCheck">
-          {store.onDark ? (
+          {store?.onDark ? (
             <img src="/menuDark.svg" alt="" className={styles.image} />
           ) : (
             <img src="/menu.svg" alt="" className={styles.image} />
           )}
         </label>
-        <nav className={store.onDark ? styles.navigationDark : styles.navigation}>
+        <nav className={store?.onDark ? styles.navigationDark : styles.navigation}>
           <LinkNav path="/user">
-            <img src={store.user[0]?.urlFoto} alt="" className={styles.perfil} />
+            <img src={store?.user[0]?.urlFoto} alt="" className={styles.perfil} />
           </LinkNav>
           <button
             className={styles.logout}

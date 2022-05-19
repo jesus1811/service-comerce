@@ -13,7 +13,7 @@ const MenuHome = () => {
   const { store } = useContext(DataContext);
   const router = useRouter();
   useEffect(() => {
-    store.user.length == 0 && router.push("/");
+    store?.user.length == 0 && router.push("/");
     getTipoServices(setTipoServicios, setLoader);
   }, [loader]);
   return (

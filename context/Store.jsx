@@ -1,13 +1,13 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 const Store = () => {
   const initial = {
     user: [],
     onDark: false,
   };
-  const [store, setStore] = useState(
-    (typeof window !== "undefined" && JSON.parse(localStorage.getItem("store"))) || initial
-  );
+  const [store, setStore] = useState(null);
+  useEffect(() => {
+    setStore(JSON.parse(localStorage.getItem("store")) || initial);
+  }, []);
 
   return { store, setStore };
 };

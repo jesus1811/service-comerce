@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, Suspense, lazy } from "react";
 import { Button } from "../../../../components/common";
 import { DataContext } from "../../../../context/Provider";
 import styles from "./tipoServicio.module.scss";

@@ -16,7 +16,7 @@ const Home = () => {
   const router = useRouter();
 
   useEffect(() => {
-    store.user.length != 0 && router.push("/menu-home");
+    store?.user.length != 0 && router.push("/menu-home");
     setLoader(false);
   }, [loader]);
   const handleClickValidate = (e) => {
@@ -32,7 +32,7 @@ const Home = () => {
         <p className={styles.description}>¿ no tienes cuenta ?</p>
         <Button onClick={() => router.push("/register")}>Registrar</Button>
       </div>
-      <div className={store.onDark ? styles.containerDark : styles.containerGray}>
+      <div className={store?.onDark ? styles.containerDark : styles.containerGray}>
         <h1 className={styles.titleWhite}>Ingresa Aqui </h1>
         <div className={styles.containerInputs}>
           <Input {...email} placeholder="Correo Electronico" />
