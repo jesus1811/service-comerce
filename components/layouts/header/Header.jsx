@@ -14,7 +14,7 @@ const Header = () => {
         <input type="checkbox" id="check" className={styles.checkedNav} />
         <Link href="/menu-home">
           <a className={styles.link} smooth={true}>
-            {store?.onDark ? (
+            {store.onDark ? (
               <img src="/homeDark.svg" alt="montalvo" className={styles.logo} />
             ) : (
               <img src="/home.svg" alt="montalvo" className={styles.logo} />
