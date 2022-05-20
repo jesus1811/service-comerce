@@ -1,0 +1,12 @@
+@mixin title($color) {
+  font-size: 36px;
+  color: $color;
+  text-align: center;
+  font-weight: 500;
+}
+.title {
+  @include title(#122335);
+}
+.titleDark {
+  @include title(#d2f8f7);
+}
