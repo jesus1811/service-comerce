@@ -26,11 +26,14 @@ const Detalle = () => {
         <Loading />
       ) : (
         <>
+          <h1 className={styles.titleMain}>{servicio[0]?.NombreServicio}</h1>
           <img src={servicio[0]?.foto} alt="" width="200px" height="200px" className={styles.images} />
-          <h1 className={store?.onDark ? styles.titleDark : styles.title}>{servicio[0]?.NombreServicio}</h1>
           <br />
-          <h1 className={store?.onDark ? styles.titleDark : styles.title}>{servicio[0]?.descripcion}</h1>
-          <h1 className={store?.onDark ? styles.titleDark : styles.title}>S/. {servicio[0]?.precio}</h1>
+          <div className={styles.containerDesc}>
+            <h1 className={styles.desripcion}>{servicio[0]?.descripcion}</h1>
+            <h1 className={styles.precio}>S/. {servicio[0]?.precio}</h1>
+          </div>
+
           <Button onClick={() => {}}>solicitar servicio</Button>
 
           <h1 className={store?.onDark ? styles.titleMainDark : styles.titleMain}>Otros servicios del profesional</h1>
@@ -42,10 +45,10 @@ const Detalle = () => {
               return (
                 <>
                   <article className={styles.card} key={index}>
-                    <h1 className={styles.title}>{servicioProfesional.NombreServicio}</h1>
                     <img src={servicioProfesional.foto} alt="" className={styles.images} />
                     <div className={styles.containerPrecio}>
-                      <p className={styles.precio}>S/. {servicioProfesional.precio}</p>
+                      <h1 className={styles.title}>{servicioProfesional.NombreServicio}</h1>
+                      <p className={styles.precio}>S/.{servicioProfesional.precio}</p>
                     </div>
 
                     <div className={styles.containerButtons}></div>
@@ -54,24 +57,24 @@ const Detalle = () => {
               );
             })}
           </div>
-          <br />
-
           <h1 className={store.onDark ? styles.titleMainDark : styles.titleMain}>
             Informacion personal del profesional
           </h1>
-          <h1 className={store.onDark ? styles.titleDark : styles.title}>EN MANTENIMIENTO</h1>
-          <h1 className={store.onDark ? styles.titleDark : styles.title}>
-            ......................................................................
-          </h1>
-          <h1 className={store.onDark ? styles.titleDark : styles.title}>{JSON.stringify(profesional)}</h1>
-          <h1 className={store.onDark ? styles.titleDark : styles.title}>
-            .......................................................................
-          </h1>
-          <h1 className={store?.onDark ? styles.titleDark : styles.title}>
-            {profesional[0]?.nombreProfesional + " " + profesional[0]?.apellidoProfesional}
-          </h1>
-          <h1 className={store?.onDark ? styles.titleDark : styles.title}>{profesional[0]?.DNI}</h1>
-          <img src={profesional[0]?.urlFoto} alt="" />
+          <div className={styles.containerProfesional}>
+            {/* <h1 className={store.onDark ? styles.titleDark : styles.title}>{JSON.stringify(profesional)}</h1> */}
+            <article>
+              <h1 className={styles.cardNombre}>
+                {profesional[0]?.nombreProfesional + " " + profesional[0]?.apellidoProfesional}
+              </h1>
+              <img src={profesional[0]?.urlFoto} alt="" />
+            </article>
+            <article>
+              <h1 className={styles.cardInformation}>{profesional[0]?.correoProfesional}</h1>
+              <h1 className={styles.cardInformation}>{profesional[0]?.celularProfesional}</h1>
+              <h1 className={styles.cardInformation}>{profesional[0]?.nombrePais}</h1>
+              <h1 className={styles.cardInformation}>{profesional[0]?.direccionDomicilio}</h1>
+            </article>
+          </div>
         </>
       )}
     </ContainerPrimary>
