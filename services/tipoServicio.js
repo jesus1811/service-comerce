@@ -11,7 +11,7 @@ export const getTipoServices = async (setState, setLoader) => {
     })
     .catch((err) => {
       Swal.fire({
-        title: JSON.stringify(err),
+        title: "error de conexion con el servidor",
         icon: "error",
       });
     });

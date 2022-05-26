@@ -11,7 +11,7 @@ export const getProfesionalServices = async (idProfesional, setData, setLoder) =
     })
     .catch((err) => {
       Swal.fire({
-        title: JSON.stringify(err),
+        title: "error de conexion con el servidor",
         icon: "error",
       });
     });

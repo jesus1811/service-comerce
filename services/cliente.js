@@ -21,7 +21,7 @@ export const validarclienteServices = async (email, password, setState, state, s
       })
       .catch((err) => {
         Swal.fire({
-          title: JSON.stringify(err),
+          title: "error de conexion con el servidor",
           icon: "error",
         });
       }));
@@ -49,7 +49,7 @@ export const postClienteServices = async (dni, nombre, apellido, correo, passwor
     })
     .catch((err) => {
       Swal.fire({
-        title: JSON.stringify(err),
+        title: "error de conexion con el servidor",
         icon: "error",
       });
     });
@@ -67,7 +67,7 @@ export const putPasswordCliente = async (id, password) => {
     })
     .catch((err) => {
       Swal.fire({
-        title: JSON.stringify(err),
+        title: "error de conexion con el servidor",
         icon: "error",
       });
     });

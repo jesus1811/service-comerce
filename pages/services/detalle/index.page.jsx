@@ -4,6 +4,7 @@ import { ContainerPrimary, Header } from "../../../components/layouts";
 import { DataContext } from "../../../context/Provider";
 import { getProfesionalServices } from "../../../services/profesional";
 import { getServicioIdServices, getServiciosForProfesionalServices } from "../../../services/servicio";
+import { ServicioProfesional } from "./components";
 import styles from "./detalle.module.scss";
 
 const Detalle = () => {
@@ -44,15 +45,7 @@ const Detalle = () => {
             {serviciosProfesional.map((servicioProfesional, index) => {
               return (
                 <>
-                  <article className={styles.card} key={index}>
-                    <img src={servicioProfesional.foto} alt="" className={styles.images} />
-                    <div className={styles.containerPrecio}>
-                      <h1 className={styles.title}>{servicioProfesional.NombreServicio}</h1>
-                      <p className={styles.precio}>S/.{servicioProfesional.precio}</p>
-                    </div>
-
-                    <div className={styles.containerButtons}></div>
-                  </article>
+                  <ServicioProfesional servicioProfesional={servicioProfesional} key={index} />
                 </>
               );
             })}

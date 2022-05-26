@@ -11,7 +11,7 @@ export const getServicioServices = async (setData, setLoder) => {
     })
     .catch((err) => {
       Swal.fire({
-        title: JSON.stringify(err),
+        title: "error de conexion con el servidor",
         icon: "error",
       });
     });
@@ -25,7 +25,7 @@ export const getServicioIdServices = async (id, setData, setLoder) => {
     })
     .catch((err) => {
       Swal.fire({
-        title: JSON.stringify(err),
+        title: "error de conexion con el servidor",
         icon: "error",
       });
     });
@@ -40,7 +40,7 @@ export const getServiciosForProfesionalServices = async (idProfesional, setData,
     })
     .catch((err) => {
       Swal.fire({
-        title: JSON.stringify(err),
+        title: "error de conexion con el servidor",
         icon: "error",
       });
     });
