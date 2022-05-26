@@ -1,17 +1,15 @@
-@mixin button($bg, $color) {
+@import "../../../sass/mixins.scss";
+@import "../../../sass/variables.scss";
+@mixin commonbutton {
   padding: 9px 29px;
-  color: $color;
-  background-color: $bg;
   border-radius: 4px;
   transition: all ease-out 200ms;
-  font-size: 24px;
-  &:hover {
-    background: $bg;
-  }
 }
 .button {
-  @include button(#122335, white);
+  @include button(24px, $primary-600, $neutralSecundary);
+  @include commonbutton();
 }
 .buttonDark {
-  @include button(#4491A4, white);
+  @include button(24px, $secundary-700, $neutralSecundary);
+  @include commonbutton();
 }

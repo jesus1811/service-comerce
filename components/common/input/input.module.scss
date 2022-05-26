@@ -1,15 +1,16 @@
+@import "../../../sass/mixins.scss";
+@import "../../../sass/variables.scss";
 .input {
-    font-size: 20px;
-    color: white;
-    padding: 2px 8px;
-    outline: none;
-    background: transparent;
-    border-bottom: solid 3px white;
-    border-radius: 4px;
-    &:focus{
-      border-color: #0d1925;
-    }
+  @include text(20px, $neutralSecundary, initial);
+  padding: 2px 8px;
+  outline: none;
+  background: transparent;
+  border-bottom: solid 3px $neutralSecundary;
+  border-radius: 4px;
+  &:focus {
+    border-color: $primary-600;
   }
-  .input::placeholder{
-    color: white;
-  }
+}
+.input::placeholder {
+  color: $neutralSecundary;
+}

@@ -10,12 +10,12 @@
   color: $color;
   text-align: $align;
 }
-@mixin button($size, $color) {
+@mixin button($size, $bg, $color) {
   padding: 8px 16px;
   font-size: $size;
   background: $bg;
   color: $color;
-  border: solid 2px $color;
+  border: solid 2px $bg;
 }
 @mixin buttonOutline($size, $color) {
   padding: 8px 16px;
