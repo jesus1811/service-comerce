@@ -13,27 +13,28 @@ const MenuHome = () => {
   const { store } = useContext(DataContext);
   const router = useRouter();
   useEffect(() => {
-    // store?.user.length == 0 && router.push("/");
     getTipoServices(setTipoServicios, setLoader);
   }, [loader]);
   return (
-    <ContainerPrimary>
-      <Header />
-      <div className={styles.containerDiv}>
-        {loader ? (
-          <Loading />
-        ) : (
-          <>
-            <h1 className={store.onDark ? styles.titleDark : styles.title}>ELIJA SU CATEGORÍA DE INTERES</h1>
-            <div className={styles.containerImages}>
-              {tipoServicios.map((tipoServicio, index) => {
-                return <TipoServicio tipoServicio={tipoServicio} key={index} />;
-              })}
-            </div>
-          </>
-        )}
-      </div>
-    </ContainerPrimary>
+    <>
+      <ContainerPrimary>
+        <Header />
+        <div className={styles.containerDiv}>
+          {loader ? (
+            <Loading />
+          ) : (
+            <>
+              <h1 className={store.onDark ? styles.titleDark : styles.title}>ELIJA SU CATEGORÍA DE INTERES</h1>
+              <div className={styles.containerImages}>
+                {tipoServicios.map((tipoServicio, index) => {
+                  return <TipoServicio tipoServicio={tipoServicio} key={index} />;
+                })}
+              </div>
+            </>
+          )}
+        </div>
+      </ContainerPrimary>
+    </>
   );
 };
 

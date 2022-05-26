@@ -1,12 +1,10 @@
-@mixin title($color) {
-  font-size: 36px;
-  color: $color;
-  text-align: center;
+@import "../sass/mixins.scss";
+@import "../sass/variables.scss";
+.title {
+  @include text(36px, $primary-500, center);
   font-weight: 500;
 }
-.title {
-  @include title(#122335);
-}
 .titleDark {
-  @include title(#d2f8f7);
+  @include text(36px, $secundary-600, center);
+  font-weight: 500;
 }

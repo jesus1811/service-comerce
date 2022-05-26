@@ -61,7 +61,6 @@ const Detalle = () => {
             Informacion personal del profesional
           </h1>
           <div className={styles.containerProfesional}>
-            {/* <h1 className={store.onDark ? styles.titleDark : styles.title}>{JSON.stringify(profesional)}</h1> */}
             <article>
               <h1 className={styles.cardNombre}>
                 {profesional[0]?.nombreProfesional + " " + profesional[0]?.apellidoProfesional}

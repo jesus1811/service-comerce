@@ -1,29 +1,22 @@
-@mixin title($color) {
-  font-size: 36px;
-  color: $color;
-  text-align: center;
+@import "../../sass/mixins.scss";
+@import "../../sass/variables.scss";
+.title {
+  @include text(36px, $primary-500, center);
   font-weight: 500;
 }
-.title {
-  @include title(#122335);
-}
 .titleDark {
-  @include title(#D2F8F7);
+  @include text(36px, $secundary-600, center);
+  font-weight: 500;
 }
 .containerImages {
   width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  @include flex(initial, space-around, center, initial);
   flex-wrap: wrap;
   gap: 20px;
 }
 .containerDiv {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(column, space-between, center, initial);
   gap: 20px;
 }

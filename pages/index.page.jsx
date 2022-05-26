@@ -26,14 +26,14 @@ const Home = () => {
 
   return (
     <ContainerPrimary>
-      <div className={styles.containerCeleste}>
-        <h2 className={styles.titleBlue}>Bienvenido a Montalvo</h2>
+      <div className={styles.containerPrimary}>
+        <h2 className={styles.titlePrimary}>Bienvenido a Montalvo</h2>
         <img className={styles.image} src="./login.png" alt="" />
         <p className={styles.description}>¿ no tienes cuenta ?</p>
         <Button onClick={() => router.push("/register")}>Registrar</Button>
       </div>
-      <div className={store?.onDark ? styles.containerDark : styles.containerGray}>
-        <h1 className={styles.titleWhite}>Ingresa Aqui </h1>
+      <div className={store?.onDark ? styles.containerDark : styles.containerSecundary}>
+        <h1 className={styles.titleSecundary}>Ingresa Aqui </h1>
         <div className={styles.containerInputs}>
           <Input {...email} placeholder="Correo Electronico" />
           <Input {...password} placeholder="Contraseña" />

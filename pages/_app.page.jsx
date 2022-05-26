@@ -1,5 +1,5 @@
 import { ContextProvider } from "../context/Provider";
-import "../styles/globals.scss";
+import "../sass/globals.scss";
 
 function MyApp({ Component, pageProps }) {
   return (

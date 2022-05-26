@@ -1,60 +1,49 @@
-@mixin container($color) {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+@import "../sass/variables.scss";
+@import "../sass/mixins.scss";
+@mixin commonContainer {
   gap: 20px;
-  background-color: $color;
   padding: 20px;
   border-radius: 4px;
   width: 100%;
   max-width: 600px;
 }
-.containerCeleste {
-  @include container(#a1c8d1);
+.containerPrimary {
+  @include flex(column, space-around, center, $secundary-500);
+  @include commonContainer();
 }
-.containerGray {
-  @include container(#717b86);
+.containerSecundary {
+  @include flex(column, space-around, center, $neutralTertiary);
+  @include commonContainer();
 }
 .containerDark {
-  @include container(#0b3b47);
+  @include flex(column, space-around, center, $primary-500);
+  @include commonContainer();
 }
-@mixin title($size, $color) {
-  font-size: $size;
-  color: $color;
-  text-align: center;
+.titlePrimary {
+  @include text(24px, $primary-500, center);
   font-weight: 700;
 }
-.titleWhite {
-  @include title(24px, white);
+.titleSecundary {
+  @include text(24px, $neutralSecundary, center);
+  font-weight: 700;
 }
-.titleBlue {
-  @include title(24px, #0d1925);
-}
-
 .image {
   width: 161px;
   height: 161px;
   border-radius: 50%;
+  aspect-ratio: 1/1;
 }
 .description {
-  font-size: 15px;
-  color: #000000;
-  text-align: center;
+  @include text(18px, $neturalPrimary, center);
   font-weight: 400;
 }
 
 .containerInputs {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flex(column, center, center, initial);
   gap: 30px;
   width: 100%;
 }
 .containerButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex(column, center, center, initial);
   gap: 15px;
 }

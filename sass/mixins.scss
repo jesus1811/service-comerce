@@ -1,0 +1,26 @@
+@mixin flex($direction, $justify, $align, $color) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  background: $color;
+}
+@mixin text($size, $color, $align) {
+  font-size: $size;
+  color: $color;
+  text-align: $align;
+}
+@mixin button($size, $color) {
+  padding: 8px 16px;
+  font-size: $size;
+  background: $bg;
+  color: $color;
+  border: solid 2px $color;
+}
+@mixin buttonOutline($size, $color) {
+  padding: 8px 16px;
+  font-size: $size;
+  background: transparent;
+  color: $color;
+  border: solid 2px $color;
+}

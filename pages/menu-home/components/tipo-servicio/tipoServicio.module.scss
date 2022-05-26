@@ -1,26 +1,21 @@
+@import "../../../../sass/mixins.scss";
+@import "../../../../sass/variables.scss";
 .images {
-  flex: 220px;
   width: 100%;
   max-width: 300px;
   border-radius: 5px;
   object-fit: cover;
+  aspect-ratio: 1/1;
 }
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flex(column, center, center, initial);
   gap: 20px;
 }
-@mixin title($color) {
-  font-size: 36px;
-  color: $color;
-  font-weight: 500;
-  text-align: center;
-}
 .titleCard {
-  @include title(#15758d);
+  @include text(36px, $secundary-700, center);
+  font-weight: 500;
 }
 .titleCardDark {
-  @include title(white);
+  @include text(36px, $neutralSecundary, center);
+  font-weight: 500;
 }

@@ -36,13 +36,13 @@ const Register = () => {
 
   return (
     <ContainerPrimary>
-      <div className={styles.celeste}>
+      <div className={styles.containerPrimary}>
         <h1 className={styles.titleBlue}>Bienvenido a Montalvo </h1>
         <img className={styles.image} src="./login.png" alt="" />
         <p className={styles.description}>¿ Ya tienes una cuenta ?</p>
         <Button onClick={() => router.push("/")}>Ir al login</Button>
       </div>
-      <div className={store.onDark ? styles.containerDark : styles.gray}>
+      <div className={store.onDark ? styles.containerDark : styles.containerSecundary}>
         <h1 className={styles.title}>Registrate aqui</h1>
         <div className={styles.containerInputs}>
           <Input placeholder="DNI" type="number" onChange={(e) => setDni(e.target.value.slice(0, 8))} value={dni} />

@@ -1,22 +1,18 @@
-
+@import "../../sass/mixins.scss";
+@import "../../sass/variables.scss";
 .containerCard {
+  @include flex(initial, space-around, center, initial);
   width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   flex-wrap: wrap;
   gap: 20px;
 }
-@mixin title($color) {
-  font-size: 36px;
-  color: $color;
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 15px
-}
 .titleMain {
-  @include title(#122335);
+  @include text(36px, $primary-500, center);
+  font-weight: 600;
+  margin: 15px 0;
 }
 .titleMainDark {
-  @include title(#D2F8F7);
+  @include text(36px, $secundary-600, center);
+  font-weight: 600;
+  margin: 15px 0;
 }
