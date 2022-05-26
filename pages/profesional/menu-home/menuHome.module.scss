@@ -1,5 +1,5 @@
-@import "../../sass/variables.scss";
-@import "../../sass/mixins.scss";
+@import "../../../sass/mixins.scss";
+@import "../../../sass/variables.scss";
 .title {
   @include text(36px, $primary-500, center);
   font-weight: 500;

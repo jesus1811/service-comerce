@@ -15,23 +15,21 @@ const Historial = () => {
     getComprobanteServices(idCliente, setComprobantes, setLoader);
   }, [loader]);
   return (
-    <>
-      <ContainerPrimary>
-        <Header />
-        {loader ? (
-          <Loading />
-        ) : (
-          <>
-            <h1 className={store.onDark ? styles.titleMainDark : styles.titleMain}>Historial de Compras</h1>
-            <div className={styles.containerCard}>
-              {comprobantes.map((comprobante, index) => {
-                return <Comprobante comprobante={comprobante} key={index} />;
-              })}
-            </div>
-          </>
-        )}
-      </ContainerPrimary>
-    </>
+    <ContainerPrimary>
+      <Header />
+      {loader ? (
+        <Loading />
+      ) : (
+        <>
+          <h1 className={store.onDark ? styles.titleMainDark : styles.titleMain}>Historial de Compras</h1>
+          <div className={styles.containerCard}>
+            {comprobantes.map((comprobante, index) => {
+              return <Comprobante comprobante={comprobante} key={index} />;
+            })}
+          </div>
+        </>
+      )}
+    </ContainerPrimary>
   );
 };
 

@@ -18,3 +18,29 @@ export const getProfesionalServices = async (idProfesional, setData, setLoader) 
       setLoader(false);
     });
 };
+export const validarProfesionalServices = async (email, password, setState, state, setLoader) => {
+  email != 0 &&
+    password != 0 &&
+    (await axios
+      .post(BASE_URL + "/api/login", {
+        email,
+        password,
+      })
+      .then(({ data }) => {
+        data.length != 0
+          ? (setState({ ...state, user: data }),
+            localStorage.setItem("store", JSON.stringify({ ...state, user: data })))
+          : Swal.fire({
+              title: "Correo y/o Contraseña Incorrecta",
+            });
+      })
+      .catch((err) => {
+        Swal.fire({
+          title: "error de conexion con el servidor",
+          icon: "error",
+        });
+      })
+      .finally(() => {
+        setLoader(true);
+      }));
+};

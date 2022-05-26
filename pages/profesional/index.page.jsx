@@ -1,13 +1,12 @@
 import { useRouter } from "next/router";
 import { useState, useContext, useEffect } from "react";
-import { Button, Input } from "../components/common";
-import { ContainerPrimary } from "../components/layouts";
-import { DataContext } from "../context/Provider";
-import useField from "../hooks/useField";
-import { validarclienteServices } from "../services/cliente";
-import styles from "./index.module.scss";
+import { Button, Input } from "../../components/common";
+import { ContainerPrimary } from "../../components/layouts";
+import { DataContext } from "../../context/Provider";
+import useField from "../../hooks/useField";
+import styles from "./profesional.module.scss";
 
-const Home = () => {
+const Profesional = () => {
   const email = useField("email");
   const password = useField("password");
 
@@ -16,23 +15,24 @@ const Home = () => {
   const router = useRouter();
 
   useEffect(() => {
-    store?.user.length != 0 && router.push("/menu-home");
+    // store?.user.length != 0 && router.push("/menu-home");
     setLoader(false);
   }, [loader]);
   const handleClickValidate = (e) => {
     e.preventDefault();
-    validarclienteServices(email.value, password.value, setStore, store, setLoader);
+    router.push("/profesional/menu-home");
+    // validarclienteServices(email.value, password.value, setStore, store, setLoader);
   };
-  const handleClickProfesional = (e) => {
+  const handleClickCliente = (e) => {
     e.preventDefault();
-    router.push("/profesional")
+    router.push("/");
   };
 
   return (
     <ContainerPrimary>
       <div className={styles.containerPrimary}>
         <h2 className={styles.titlePrimary}>Bienvenido a MONTALVO</h2>
-        <h2 className={styles.titlePrimary}>Esta en modo Cliente</h2>
+        <h2 className={styles.titlePrimary}>Esta en modo Profesional</h2>
         <img className={styles.image} src="./login.png" alt="" />
         <p className={styles.description}>¿ no tienes cuenta ?</p>
         <Button onClick={() => router.push("/register")}>Registrar</Button>
@@ -44,7 +44,7 @@ const Home = () => {
           <Input {...password} placeholder="Contraseña" />
           <div className={styles.containerButton}>
             <Button onClick={handleClickValidate}>Ingresar</Button>
-            <Button onClick={handleClickProfesional}>Ir a Modo Profesional</Button>
+            <Button onClick={handleClickCliente}>Modo Cliente</Button>
           </div>
         </div>
       </div>
@@ -52,4 +52,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Profesional;
