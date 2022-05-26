@@ -41,6 +41,7 @@ const Header = () => {
           <LinkNav path="/user">
             <img src={store?.user[0]?.urlFoto} alt="" className={styles.perfil} />
           </LinkNav>
+          <LinkNav path="/historial">Historial de Compras</LinkNav>
           <button
             className={styles.logout}
             onClick={() => {

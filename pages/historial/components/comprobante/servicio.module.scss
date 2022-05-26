@@ -1,0 +1,52 @@
+@mixin card($bg) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  max-width: 300px;
+  width: 90%;
+  background-color: $bg;
+}
+.card {
+  @include card(white);
+}
+@mixin title($color) {
+  font-size: 32px;
+  color: $color;
+  text-align: center;
+}
+.title {
+  @include title(#06232a);
+}
+.titleDark {
+  @include title(#06232a);
+}
+.containerPrecio{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.precio {
+  font-size: 24px;
+  color: #169997;
+}
+.profesional {
+  font-size: 18px;
+  color: #15758d;
+}
+.images {
+  flex: 2px;
+  width: 100%;
+  min-height: 250px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.containerButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
