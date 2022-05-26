@@ -7,12 +7,14 @@ export const getTipoServices = async (setState, setLoader) => {
     .get(BASE_URL + "/api/tipoServicio")
     .then((res) => {
       setState(res.data);
-      setLoader(false);
     })
     .catch((err) => {
       Swal.fire({
         title: "error de conexion con el servidor",
         icon: "error",
       });
+    })
+    .finally(() => {
+      setLoader(false);
     });
 };

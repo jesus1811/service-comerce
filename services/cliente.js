@@ -13,8 +13,7 @@ export const validarclienteServices = async (email, password, setState, state, s
       .then(({ data }) => {
         data.length != 0
           ? (setState({ ...state, user: data }),
-            localStorage.setItem("store", JSON.stringify({ ...state, user: data })),
-            setLoader(true))
+            localStorage.setItem("store", JSON.stringify({ ...state, user: data })))
           : Swal.fire({
               title: "Correo y/o Contraseña Incorrecta",
             });
@@ -24,6 +23,9 @@ export const validarclienteServices = async (email, password, setState, state, s
           title: "error de conexion con el servidor",
           icon: "error",
         });
+      })
+      .finally(() => {
+        setLoader(true);
       }));
 };
 export const postClienteServices = async (dni, nombre, apellido, correo, password, celular, foto, router) => {
