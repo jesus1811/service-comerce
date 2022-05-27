@@ -27,8 +27,9 @@ const Detalle = () => {
         <Loading />
       ) : (
         <>
+        <h1 className={store.onDark ? styles.titleDark : styles.title}>Detalle del Servicio</h1>
           <article className={store.onDark ? styles.cardDark : styles.card}>
-            <img className={styles.image} src={servicio[0]?.foto} alt="" />
+            <img className={styles.imageService} src={servicio[0]?.foto} alt="" />
             <h1 className={styles.nameService}>{servicio[0]?.NombreServicio}</h1>
             <p className={styles.text}>{servicio[0]?.descripcion}</p>
             <p className={styles.nameService}>S/. {servicio[0]?.precio}</p>

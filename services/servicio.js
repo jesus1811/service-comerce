@@ -51,3 +51,30 @@ export const getServiciosForProfesionalServices = async (idProfesional, setData,
       setLoader(false);
     });
 };
+export const postServicioServcices = async (nombre, descripcion, tipo, precio, profesional, foto) => {
+  await axios
+    .post(BASE_URL + "/api/servicio", {
+      nombre,
+      descripcion,
+      tipo,
+      precio,
+      profesional,
+      foto:
+        "https://firebasestorage.googleapis.com/v0/b/crud-image-1acb8.appspot.com/o/" +
+        foto +
+        "?alt=media&token=449b3048-6b97-42b5-8436-9f926747cc05",
+    })
+    .then(({ data }) => {
+      Swal.fire({
+        title: data,
+        icon: "success",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      Swal.fire({
+        title: "error de conexion con el servidor",
+        icon: "error",
+      });
+    });
+};

@@ -62,7 +62,7 @@ const Detalle = () => {
           {serviciosProfesional.map((value, index) => {
             return (
               <article className={store.onDark ? styles.cardDark : styles.card} key={index}>
-                <img className={styles.image} src={value.foto} alt={value.nombreProfesional} />
+                <img className={styles.imageServicio} src={value.foto} alt={value.nombreProfesional} />
                 <p className={styles.nameService}>{value.NombreServicio}</p>
                 <p className={styles.nameService}>S/. {value.precio}</p>
                 <p className={styles.text}>{value.NombreTipoServicio}</p>

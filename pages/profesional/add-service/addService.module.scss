@@ -2,7 +2,7 @@
 @import "../../../sass/mixins.scss";
 @mixin commonFile {
   position: relative;
-  width: 100%;
+  width: 90%;
   border-radius: 4px;
   padding: 8px 16px;
 }
@@ -13,6 +13,17 @@
   width: 100%;
   max-width: 600px;
 }
+.select {
+  @include text(18px, $neutralSecundary, initial);
+  padding: 2px 8px;
+  outline: none;
+  background: $primary-600;
+  border-radius: 4px;
+}
+.select::placeholder {
+  color: $neutralSecundary;
+}
+
 .title {
   @include text(42px, $primary-500, center);
   font-weight: 500;

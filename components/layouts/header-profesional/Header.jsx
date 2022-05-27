@@ -50,7 +50,7 @@ const Header = () => {
           <LinkNav path="#">
             <img src={store?.userProfesional[0]?.urlFoto} alt="" className={styles.perfil} />
           </LinkNav>
-          <LinkNav path="#">Mis Cursos</LinkNav>
+          <LinkNav path="#">Mis Servicios</LinkNav>
           <button
             className={styles.logout}
             onClick={() => {
