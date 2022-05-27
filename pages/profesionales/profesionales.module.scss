@@ -1,0 +1,41 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
+.container {
+  @include flex(column, center, center, initial);
+  width: 90%;
+  min-height: 100%;
+  gap: 40px;
+}
+.title {
+  @include text(40px, $primary-500, center);
+  font-weight: 500;
+}
+.titleDark {
+  @include text(40px, $secundary-600, center);
+  font-weight: 500;
+}
+.image {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 50%;
+}
+.cardDark {
+  @include flex(column, center, initial, $neutralSecundary);
+  padding: 20px;
+  border-radius: 4px;
+  gap: 5px;
+}
+.card {
+  @include flex(column, center, initial, $neutralbg);
+  padding: 20px;
+  border-radius: 4px;
+  gap: 5px;
+}
+.name {
+  @include text(30px, $primary-500, initial);
+  font-weight: bold
+}
+.text {
+  @include text(21px, $primary-500, initial);
+}

@@ -44,3 +44,19 @@ export const validarProfesionalServices = async (email, password, setState, stat
         setLoader(true);
       }));
 };
+export const getProfesionalesServices = async (setState, setLoader) => {
+  await axios
+    .get(BASE_URL + "/api/profesional")
+    .then(({ data }) => {
+      setState(data);
+    })
+    .catch(() => {
+      Swal.fire({
+        title: "error de conexion con el servidor",
+        icon: "error",
+      });
+    })
+    .finally(() => {
+      setLoader(false);
+    });
+};

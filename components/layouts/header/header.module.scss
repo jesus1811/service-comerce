@@ -69,7 +69,7 @@
   @media screen and (max-width: 1024px) {
     @include flex(column, space-around, center, $bg);
     position: absolute;
-    width: 140px;
+    width: 50%;
     opacity: 0;
     display: none;
     gap: 0;
