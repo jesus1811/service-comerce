@@ -1,3 +1,5 @@
+@import "../../../../sass/variables.scss";
+@import "../../../../sass/mixins.scss";
 @mixin card($bg) {
   display: flex;
   flex-direction: column;
@@ -9,45 +11,37 @@
   min-height: 300px;
   background-color: $bg;
 }
-.card {
-  @include card(white);
-}
-@mixin title($color) {
-  font-size: 32px;
-  color: $color;
-  text-align: center;
-}
-.title {
-  @include title(#06232a);
-}
-.titleDark {
-  @include title(#06232a);
-}
-.containerPrecio{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-.precio {
-  font-size: 24px;
-  color: #169997;
-}
-.profesional {
-  font-size: 18px;
-  color: #15758d;
-}
-.images {
-  flex: 2px;
-  width: 100%;
-  min-height: 250px;
-  border-radius: 5px;
+.image {
+  aspect-ratio: 1/1;
   object-fit: cover;
+  width: 100%;
+  height: 275px;
+  border-radius: 50%;
 }
-.containerButtons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+.cardDark {
+  @include flex(column, center, initial, $neutralSecundary);
+  padding: 20px;
+  border-radius: 4px;
+  gap: 5px;
+  margin: 20px 0;
+  width: 90%;
+}
+.card {
+  @include flex(column, center, initial, $neutralbg);
+  padding: 20px;
+  border-radius: 4px;
+  gap: 5px;
+  margin: 20px 0;
+  width: 90%;
+}
+.name {
+  @include text(30px, $primary-500, initial);
+  font-weight: bold;
+}
+.text {
+  @include text(21px, $primary-500, initial);
+}
+.nameService {
+  @include text(32px, $primary-500, initial);
+  font-weight: bolder;
 }

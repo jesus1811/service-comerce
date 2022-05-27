@@ -8,24 +8,22 @@ const Servicio = ({ servicio }) => {
   const { store } = useContext(DataContext);
   const router = useRouter();
   return (
-    <article className={styles.card}>
-      <h1 className={store.onDark ? styles.titleDark : styles.title}>{servicio.NombreServicio}</h1>
-      <img src={servicio.foto} alt="" className={styles.images} />
-      <div className={styles.containerPrecio}>
-        <p className={styles.precio}>S/. {servicio.precio}</p>
-        <p className={styles.profesional}>{servicio.nombreProfesional + " " + servicio.apellidoProfesional}</p>
-      </div>
+    <article className={store.onDark ? styles.cardDark : styles.card}>
+      <img className={styles.image} src={servicio.foto} alt={servicio.nombreProfesional} />
+      <p className={styles.nameService}>{servicio.NombreServicio}</p>
+      <p className={styles.nameService}>S/. {servicio.precio}</p>
+      <p className={styles.text}>
+        {servicio.nombreProfesional} {servicio.apellidoProfesional}
+      </p>
 
-      <div className={styles.containerButtons}>
-        <Button
-          onClick={() => {
-            router.push("services/detalle");
-            localStorage.setItem("servicio", JSON.stringify(servicio));
-          }}
-        >
-          Ver Detalle
-        </Button>
-      </div>
+      <Button
+        onClick={() => {
+          router.push("services/detalle");
+          localStorage.setItem("servicio", JSON.stringify(servicio));
+        }}
+      >
+        Ver Detalle
+      </Button>
     </article>
   );
 };

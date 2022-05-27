@@ -36,23 +36,8 @@ const Detalle = () => {
           </div>
 
           <Button onClick={() => {}}>solicitar servicio</Button>
-
-          <h1 className={store?.onDark ? styles.titleMainDark : styles.titleMain}>Otros servicios del profesional</h1>
-
           <br />
-
-          <div className={styles.containerCard}>
-            {serviciosProfesional.map((servicioProfesional, index) => {
-              return (
-                <>
-                  <ServicioProfesional servicioProfesional={servicioProfesional} key={index} />
-                </>
-              );
-            })}
-          </div>
-          <h1 className={store.onDark ? styles.titleMainDark : styles.titleMain}>
-            Informacion personal del profesional
-          </h1>
+          <h1 className={store.onDark ? styles.titleMainDark : styles.titleMain}>Informacion Personal del Provedor</h1>
           <div className={styles.containerProfesional}>
             <article>
               <h1 className={styles.cardNombre}>

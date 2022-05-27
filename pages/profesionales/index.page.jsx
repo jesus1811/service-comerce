@@ -35,12 +35,6 @@ const Profesionales = () => {
                     {profesional.nombreProfesional} {profesional.apellidoProfesional}
                   </p>
                   <Button onClick={() => handleClickRedirect(profesional.idProfesional)}>Ver Detalle</Button>
-                  {/* <p className={styles.text}>{profesional.DNI}</p>
-
-                  <p className={styles.text}>{profesional.correoProfesional}</p>
-                  <p className={styles.text}>{profesional.celularProfesional}</p>
-                  <p className={styles.text}>{profesional.nombrePais}</p>
-                  <p className={styles.text}>{profesional.direccionDomicilio}</p> */}
                 </article>
               );
             })}
