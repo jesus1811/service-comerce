@@ -1,3 +1,5 @@
+@import "../../../../../sass/variables.scss";
+@import "../../../../../sass/mixins.scss";
 @mixin card($bg) {
   display: flex;
   width: 100%;
@@ -7,7 +9,6 @@
   align-items: center;
   max-width: 165px;
   min-height: 200px;
-  aspect-ratio: 1/1;
   background-color: $bg;
 }
 .card {
@@ -16,8 +17,9 @@
 .containerPrecio {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: inital;
 }
 .images {
   min-height: 50px;
@@ -30,4 +32,7 @@
   font-size: 25px;
   color: #169997;
   flex: 1;
+}
+.title{
+  @include text(18px,$primary-500,initial)
 }

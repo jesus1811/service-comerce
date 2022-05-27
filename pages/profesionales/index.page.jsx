@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
-import { Loading } from "../../components/common";
+import { useRouter } from "next/router";
+import { Button, Loading } from "../../components/common";
 import { ContainerPrimary, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { getProfesionalesServices } from "../../services/profesional";
@@ -9,6 +10,11 @@ const Profesionales = () => {
   const [profesionales, setProfesionales] = useState([]);
   const [loader, setLoader] = useState(true);
   const { store } = useContext(DataContext);
+  const router = useRouter();
+  const handleClickRedirect = (e) => {
+    e.preventDefault();
+    router.push("/profesionales/detalle");
+  };
   useEffect(() => {
     getProfesionalesServices(setProfesionales, setLoader);
   }, [loader]);
@@ -28,12 +34,13 @@ const Profesionales = () => {
                   <p className={styles.name}>
                     {profesional.nombreProfesional} {profesional.apellidoProfesional}
                   </p>
-                  <p className={styles.text}>{profesional.DNI}</p>
+                  <Button onClick={handleClickRedirect}>Ver Detalle</Button>
+                  {/* <p className={styles.text}>{profesional.DNI}</p>
 
                   <p className={styles.text}>{profesional.correoProfesional}</p>
                   <p className={styles.text}>{profesional.celularProfesional}</p>
                   <p className={styles.text}>{profesional.nombrePais}</p>
-                  <p className={styles.text}>{profesional.direccionDomicilio}</p>
+                  <p className={styles.text}>{profesional.direccionDomicilio}</p> */}
                 </article>
               );
             })}
