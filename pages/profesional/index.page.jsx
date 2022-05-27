@@ -4,6 +4,7 @@ import { Button, Input } from "../../components/common";
 import { ContainerPrimary } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import useField from "../../hooks/useField";
+import { validarProfesionalServices } from "../../services/profesional";
 import styles from "./profesional.module.scss";
 
 const Profesional = () => {
@@ -15,13 +16,12 @@ const Profesional = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // store?.user.length != 0 && router.push("/menu-home");
+    store?.userProfesional.length != 0 && router.push("/profesional/menu-home");
     setLoader(false);
   }, [loader]);
   const handleClickValidate = (e) => {
     e.preventDefault();
-    router.push("/profesional/menu-home");
-    // validarclienteServices(email.value, password.value, setStore, store, setLoader);
+    validarProfesionalServices(email.value, password.value, setStore, store, setLoader);
   };
   const handleClickCliente = (e) => {
     e.preventDefault();

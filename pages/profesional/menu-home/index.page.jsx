@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/router";
 import { DataContext } from "../../../context/Provider";
 import { Loading } from "../../../components/common";
-import { ContainerPrimary, Header } from "../../../components/layouts";
+import { ContainerPrimary, Header, HeaderProfesional } from "../../../components/layouts";
 import styles from "./menuHome.module.scss";
 
 const MenuHome = () => {
@@ -15,7 +15,7 @@ const MenuHome = () => {
   return (
     <>
       <ContainerPrimary>
-        <Header />
+      <HeaderProfesional/>
         <div className={styles.containerDiv}>
           <h1 className={store.onDark ? styles.titleDark : styles.title}>Administracion de Cursos</h1>
         </div>

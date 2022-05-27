@@ -1,0 +1,14 @@
+@import "../../../../../sass/variables.scss";
+@import "../../../../../sass/mixins.scss";
+.link {
+  @include flex(initial, center, center, initial);
+  @include text(20px, $neutralSecundary, initial);
+  padding: 8px 16px;
+  transition: all ease-out 150ms;
+  cursor: pointer;
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+}

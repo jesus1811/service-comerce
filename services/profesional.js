@@ -22,14 +22,14 @@ export const validarProfesionalServices = async (email, password, setState, stat
   email != 0 &&
     password != 0 &&
     (await axios
-      .post(BASE_URL + "/api/login", {
+      .post(BASE_URL + "/api/loginProfesional", {
         email,
         password,
       })
       .then(({ data }) => {
         data.length != 0
-          ? (setState({ ...state, user: data }),
-            localStorage.setItem("store", JSON.stringify({ ...state, user: data })))
+          ? (setState({ ...state, userProfesional: data }),
+            localStorage.setItem("store", JSON.stringify({ ...state, userProfesional: data })))
           : Swal.fire({
               title: "Correo y/o Contraseña Incorrecta",
             });

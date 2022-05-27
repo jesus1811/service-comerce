@@ -1,0 +1,106 @@
+@import "../../../sass/variables.scss";
+@import "../../../sass/mixins.scss";
+@mixin commonContainer {
+  width: 100%;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  z-index: 50;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.container {
+  @include flex(column, center, center, $neutralTertiary);
+  @include commonContainer();
+}
+.containerDark {
+  @include flex(column, center, center, $primary-500);
+  @include commonContainer();
+}
+.logout {
+  @include flex(initial, center, center, initial);
+  @include text(20px, $neutralSecundary, initial);
+  padding: 8px 16px;
+  transition: all ease-out 150ms;
+  cursor: pointer;
+  &:hover {
+    color: $neutralSecundary;
+  }
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+}
+.containerDiv {
+  @include flex(initial, space-between, center, initial);
+  width: 80%;
+  height: 100%;
+}
+.perfil {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+.logo {
+  width: 35px;
+}
+.link {
+  @include text(30px, $neutralSecundary, center);
+  cursor: pointer;
+  font-weight: 600;
+}
+.image {
+  width: 35px;
+  display: none;
+  color: blue;
+
+  @media screen and (max-width: 1024px) {
+    display: block;
+  }
+}
+@mixin commonNavigation($bg) {
+  width: 100%;
+  gap: 20px;
+  transition: all ease-out 150ms;
+
+  @media screen and (max-width: 1024px) {
+    @include flex(column, space-around, center, $bg);
+    position: absolute;
+    width: 140px;
+    opacity: 0;
+    display: none;
+    gap: 0;
+    bottom: 56px;
+    right: 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+}
+.navigation {
+  @include flex(initial, flex-end, initial, initial);
+  @include commonNavigation($neutralTertiary);
+}
+
+.navigationDark {
+  @include flex(initial, flex-end, initial, initial);
+  @include commonNavigation($primary-500);
+}
+@mixin commonChecked {
+  opacity: 1;
+  min-height: 240px;
+  padding: 0 20px;
+  display: flex;
+}
+.checkedNav {
+  display: none;
+
+  &:checked ~ .navigation {
+    @include commonChecked();
+  }
+  &:checked ~ .navigationDark {
+    @include commonChecked();
+  }
+}
