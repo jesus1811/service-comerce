@@ -27,31 +27,24 @@ const Detalle = () => {
         <Loading />
       ) : (
         <>
-          <h1 className={styles.titleMain}>{servicio[0]?.NombreServicio}</h1>
-          <img src={servicio[0]?.foto} alt="" width="200px" height="200px" className={styles.images} />
-          <br />
-          <div className={styles.containerDesc}>
-            <h1 className={styles.desripcion}>{servicio[0]?.descripcion}</h1>
-            <h1 className={styles.precio}>S/. {servicio[0]?.precio}</h1>
-          </div>
-
-          <Button onClick={() => {}}>solicitar servicio</Button>
-          <br />
-          <h1 className={store.onDark ? styles.titleMainDark : styles.titleMain}>Informacion Personal del Provedor</h1>
-          <div className={styles.containerProfesional}>
-            <article>
-              <h1 className={styles.cardNombre}>
-                {profesional[0]?.nombreProfesional + " " + profesional[0]?.apellidoProfesional}
-              </h1>
-              <img src={profesional[0]?.urlFoto} alt="" />
-            </article>
-            <article>
-              <h1 className={styles.cardInformation}>{profesional[0]?.correoProfesional}</h1>
-              <h1 className={styles.cardInformation}>{profesional[0]?.celularProfesional}</h1>
-              <h1 className={styles.cardInformation}>{profesional[0]?.nombrePais}</h1>
-              <h1 className={styles.cardInformation}>{profesional[0]?.direccionDomicilio}</h1>
-            </article>
-          </div>
+          <article className={store.onDark ? styles.cardDark : styles.card}>
+            <img className={styles.image} src={servicio[0]?.foto} alt="" />
+            <h1 className={styles.nameService}>{servicio[0]?.NombreServicio}</h1>
+            <p className={styles.text}>{servicio[0]?.descripcion}</p>
+            <p className={styles.nameService}>S/. {servicio[0]?.precio}</p>
+            <Button onClick={() => {}}>solicitar servicio</Button>
+          </article>
+          <h1 className={store.onDark ? styles.titleDark : styles.title}>Informacion Personal del Provedor</h1>
+          <article className={store.onDark ? styles.cardDark : styles.card}>
+            <img className={styles.image} src={profesional[0]?.urlFoto} alt="" />
+            <h1 className={styles.nameService}>
+              {profesional[0]?.nombreProfesional} {profesional[0]?.apellidoProfesional}
+            </h1>
+            <p className={styles.text}>{profesional[0]?.correoProfesional}</p>
+            <p className={styles.text}>{profesional[0]?.celularProfesional}</p>
+            <p className={styles.text}>{profesional[0]?.nombrePais}</p>
+            <p className={styles.text}>{profesional[0]?.direccionDomicilio}</p>
+          </article>
         </>
       )}
     </ContainerPrimary>
