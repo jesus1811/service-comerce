@@ -11,8 +11,8 @@ const Profesionales = () => {
   const [loader, setLoader] = useState(true);
   const { store } = useContext(DataContext);
   const router = useRouter();
-  const handleClickRedirect = (e) => {
-    e.preventDefault();
+  const handleClickRedirect = (idProfesional) => {
+    localStorage.setItem("idProfesional", JSON.stringify(idProfesional));
     router.push("/profesionales/detalle");
   };
   useEffect(() => {
@@ -34,7 +34,7 @@ const Profesionales = () => {
                   <p className={styles.name}>
                     {profesional.nombreProfesional} {profesional.apellidoProfesional}
                   </p>
-                  <Button onClick={handleClickRedirect}>Ver Detalle</Button>
+                  <Button onClick={() => handleClickRedirect(profesional.idProfesional)}>Ver Detalle</Button>
                   {/* <p className={styles.text}>{profesional.DNI}</p>
 
                   <p className={styles.text}>{profesional.correoProfesional}</p>
