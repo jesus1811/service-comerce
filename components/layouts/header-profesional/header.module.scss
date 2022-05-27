@@ -46,6 +46,7 @@
 }
 .logo {
   width: 35px;
+  aspect-ratio: 1/1;
 }
 .link {
   @include text(30px, $neutralSecundary, center);

@@ -30,6 +30,15 @@ const Header = () => {
             localStorage.setItem("store", JSON.stringify({ ...store, onDark: !store.onDark }));
           }}
         />
+        <Link href="/profesional/add-service">
+          <a className={styles.link} smooth={true}>
+            {store.onDark ? (
+              <img src="/agregarDark.svg" alt="montalvo" className={styles.logo} />
+            ) : (
+              <img src="/agregar.svg" alt="montalvo" className={styles.logo} />
+            )}
+          </a>
+        </Link>
         <label htmlFor="check" className="btnCheck">
           {store?.onDark ? (
             <img src="/menuDark.svg" alt="" className={styles.image} />

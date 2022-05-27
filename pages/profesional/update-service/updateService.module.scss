@@ -1,0 +1,51 @@
+@import "../../../sass/variables.scss";
+@import "../../../sass/mixins.scss";
+@mixin commonFile {
+  position: relative;
+  width: 100%;
+  border-radius: 4px;
+  padding: 8px 16px;
+}
+@mixin commonContainer {
+  gap: 20px;
+  padding: 20px;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 600px;
+}
+.title {
+  @include text(42px, $primary-500, center);
+  font-weight: 500;
+  margin: 15px 0;
+}
+.titleDark {
+  @include text(42px, $secundary-600, center);
+  font-weight: 500;
+  margin: 15px 0;
+}
+.card {
+  @include flex(column, space-around, center, $neutralTertiary);
+  @include commonContainer();
+}
+.cardDark {
+  @include flex(column, space-around, center, $primary-500);
+  @include commonContainer();
+}
+.file {
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+.titleFile {
+  @include text(18px, $neutralSecundary, center);
+}
+.containerFile {
+  @include flex(column, center, center, $primary-600);
+  @include commonFile();
+}
+.containerFileDark {
+  @include flex(column, center, center, $secundary-700);
+  @include commonFile();
+}
