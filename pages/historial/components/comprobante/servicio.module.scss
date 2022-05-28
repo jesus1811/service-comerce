@@ -1,3 +1,5 @@
+@import "../../../../sass/variables.scss";
+@import "../../../../sass/mixins.scss";
 @mixin card($bg) {
   display: flex;
   flex-direction: column;
@@ -8,8 +10,11 @@
   width: 90%;
   background-color: $bg;
 }
+.cardDark {
+  @include card($neutralSecundary);
+}
 .card {
-  @include card(white);
+  @include card($neutralbg);
 }
 @mixin title($color) {
   font-size: 32px;
@@ -22,7 +27,7 @@
 .titleDark {
   @include title(#06232a);
 }
-.containerPrecio{
+.containerPrecio {
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -8,8 +8,9 @@ const Comprobante = ({ comprobante }) => {
   const { store } = useContext(DataContext);
   const router = useRouter();
   return (
-    <article className={styles.card}>
+    <article className={store.onDark ? styles.cardDark : styles.card}>
       <h1 className={store.onDark ? styles.titleDark : styles.title}>{comprobante.fecha}</h1>
+      <h1 className={store.onDark ? styles.titleDark : styles.title}>{comprobante.NombreServicio}</h1>
       <h1 className={store.onDark ? styles.titleDark : styles.title}>{comprobante.plataformaDePago}</h1>
       <Button>Ver Detalle</Button>
     </article>

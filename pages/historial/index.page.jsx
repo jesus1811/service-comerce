@@ -21,7 +21,7 @@ const Historial = () => {
         <Loading />
       ) : (
         <>
-          <h1 className={store.onDark ? styles.titleMainDark : styles.titleMain}>Historial de Compras</h1>
+          <h1 className={store.onDark ? styles.titleMainDark : styles.titleMain}>Historial de Servicios Solicitados</h1>
           <div className={styles.containerCard}>
             {comprobantes.map((comprobante, index) => {
               return <Comprobante comprobante={comprobante} key={index} />;
