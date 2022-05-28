@@ -2,8 +2,9 @@ import { useEffect, useState, useContext } from "react";
 import { Button, Loading } from "../../../components/common";
 import { ContainerPrimary, Header } from "../../../components/layouts";
 import { DataContext } from "../../../context/Provider";
+import { postComprobanteServices } from "../../../services/comprobante";
 import { getProfesionalServices } from "../../../services/profesional";
-import { getServicioIdServices} from "../../../services/servicio";
+import { getServicioIdServices } from "../../../services/servicio";
 import styles from "./detalle.module.scss";
 
 const Detalle = () => {
@@ -16,6 +17,14 @@ const Detalle = () => {
     getServicioIdServices(idServicio, setServicio, setLoader);
     getProfesionalServices(idProfesional, setProfesional, setLoader);
   }, [loader]);
+  const fecha = new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear();
+  const handleClickPlin = () => {
+    postComprobanteServices(fecha, store.user[0].idCliente, 2, JSON.parse(localStorage.getItem("servicio")).idServicio);
+    //2
+  };
+  const handleClickYape = () => {
+    postComprobanteServices(fecha, store.user[0].idCliente, 1, JSON.parse(localStorage.getItem("servicio")).idServicio);
+  };
 
   return (
     <ContainerPrimary>
@@ -24,13 +33,14 @@ const Detalle = () => {
         <Loading />
       ) : (
         <>
-        <h1 className={store.onDark ? styles.titleDark : styles.title}>Detalle del Servicio</h1>
+          <h1 className={store.onDark ? styles.titleDark : styles.title}>Detalle del Servicio</h1>
           <article className={store.onDark ? styles.cardDark : styles.card}>
             <img className={styles.imageService} src={servicio[0]?.foto} alt="" />
             <h1 className={styles.nameService}>{servicio[0]?.NombreServicio}</h1>
             <p className={styles.text}>{servicio[0]?.descripcion}</p>
             <p className={styles.nameService}>S/. {servicio[0]?.precio}</p>
-            <Button onClick={() => {}}>solicitar servicio</Button>
+            <Button onClick={handleClickPlin}>pagar por Plin</Button>
+            <Button onClick={handleClickYape}>pagar por Yape</Button>
           </article>
           <h1 className={store.onDark ? styles.titleDark : styles.title}>Informacion Personal del Provedor</h1>
           <article className={store.onDark ? styles.cardDark : styles.card}>

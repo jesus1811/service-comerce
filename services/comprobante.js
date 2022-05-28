@@ -27,7 +27,28 @@ export const getComprobanteByIdServices = async (idComprobante, setData, setLoad
     })
     .catch((err) => {
       Swal.fire({
-        title: JSON.stringify(err),
+        title: "error de conexion con el servidor",
+        icon: "error",
+      });
+    });
+};
+export const postComprobanteServices = async (fecha, idCliente, idMetodo, idServicio) => {
+  await axios
+    .post(BASE_URL + "/api/comprobante", {
+      fecha,
+      idCliente,
+      idMetodo,
+      idServicio,
+    })
+    .then(({ data }) => {
+      Swal.fire({
+        title: data,
+        icon: "success",
+      });
+    })
+    .catch(() => {
+      Swal.fire({
+        title: "error de conexion con el servidor",
         icon: "error",
       });
     });
