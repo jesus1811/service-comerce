@@ -7,12 +7,16 @@ import styles from "./servicio.module.scss";
 const Comprobante = ({ comprobante }) => {
   const { store } = useContext(DataContext);
   const router = useRouter();
+  const handleClickRedirect = () => {
+    localStorage.setItem("idComprobanteElectronico", JSON.stringify(comprobante.idComprobanteElectronico));
+    router.push("/historial/detalle");
+  };
   return (
     <article className={store.onDark ? styles.cardDark : styles.card}>
       <h1 className={store.onDark ? styles.titleDark : styles.title}>{comprobante.fecha}</h1>
       <h1 className={store.onDark ? styles.titleDark : styles.title}>{comprobante.NombreServicio}</h1>
       <h1 className={store.onDark ? styles.titleDark : styles.title}>{comprobante.plataformaDePago}</h1>
-      <Button>Ver Detalle</Button>
+      <Button onClick={handleClickRedirect}>Ver Detalle</Button>
     </article>
   );
 };

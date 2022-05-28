@@ -18,3 +18,17 @@ export const getComprobanteServices = async (idProfesional, setData, setLoader) 
       setLoader(false);
     });
 };
+export const getComprobanteByIdServices = async (idComprobante, setData, setLoader) => {
+  await axios
+    .get(BASE_URL + "/api/comprobante/" + idComprobante)
+    .then(({ data }) => {
+      setData(data);
+      setLoader(false);
+    })
+    .catch((err) => {
+      Swal.fire({
+        title: JSON.stringify(err),
+        icon: "error",
+      });
+    });
+};
