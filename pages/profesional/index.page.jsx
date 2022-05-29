@@ -35,7 +35,7 @@ const Profesional = () => {
         <h2 className={styles.titlePrimary}>Esta en modo Profesional</h2>
         <img className={styles.image} src="./login.png" alt="" />
         <p className={styles.description}>¿ no tienes cuenta ?</p>
-        <Button onClick={() => router.push("/register")}>Registrar</Button>
+        <Button onClick={() => router.push("/profesional/register")}>Registrar</Button>
       </div>
       <div className={store?.onDark ? styles.containerDark : styles.containerSecundary}>
         <h1 className={styles.titleSecundary}>Ingresa Aqui </h1>
