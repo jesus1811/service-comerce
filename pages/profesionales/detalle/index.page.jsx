@@ -43,10 +43,22 @@ const Detalle = () => {
                   <h1 className={styles.nameService}>
                     {profesionalSingle.nombreProfesional} {profesionalSingle.apellidoProfesional}
                   </h1>
-                  <p className={styles.text}>Correo: {profesionalSingle.correoProfesional}</p>
-                  <p className={styles.text}>Celular: {profesionalSingle.celularProfesional}</p>
-                  <p className={styles.text}>Pais: {profesionalSingle.nombrePais}</p>
-                  <p className={styles.text}>Direccion: {profesionalSingle.direccionDomicilio}</p>
+                  <span className={styles.span}>
+                    <img src="/correo.svg" alt="" />
+                    <p className={styles.text}>{profesionalSingle.correoProfesional}</p>
+                  </span>
+                  <span className={styles.span}>
+                    <img src="/celular.svg" alt="" />
+                    <p className={styles.text}>{profesionalSingle.celularProfesional}</p>
+                  </span>
+                  <span className={styles.span}>
+                    <img src="/pais.svg" alt="" />
+                    <p className={styles.text}>{profesionalSingle.nombrePais}</p>
+                  </span>
+                  <span className={styles.span}>
+                    <img src="/direccion.svg" alt="" />
+                    <p className={styles.text}>{profesionalSingle.direccionDomicilio}</p>
+                  </span>
                 </article>
               </>
             );

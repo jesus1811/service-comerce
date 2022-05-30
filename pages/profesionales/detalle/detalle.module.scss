@@ -52,3 +52,11 @@
   height: 275px;
   border-radius: 4px;
 }
+.span {
+  width: 100%;
+  @include flex(initial,initial,center,initial);
+  gap: 20px;
+  img {
+    width: 42px;
+  }
+}
