@@ -14,18 +14,13 @@
   min-height: 100%;
   gap: 40px;
 }
-@mixin commonCard {
-  padding: 20px;
-  border-radius: 4px;
+.cardDark {
+  @include card($neutralSecundary);
   gap: 5px;
 }
-.cardDark {
-  @include flex(column, center, initial, $neutralSecundary);
-  @include commonCard();
-}
 .card {
-  @include flex(column, center, initial, $neutralbg);
-  @include commonCard();
+  @include card($neutralbg);
+  gap: 5px;
 }
 .image {
   aspect-ratio: 1/1;

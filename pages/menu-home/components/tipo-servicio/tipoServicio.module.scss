@@ -1,15 +1,13 @@
 @import "../../../../sass/mixins.scss";
 @import "../../../../sass/variables.scss";
-.card {
-  @include flex(column, center, center, initial);
-  gap: 20px;
+.cardDark {
+  @include card($neutralSecundary);
 }
-.titleCard {
-  @include text(36px, $secundary-700, center);
-  font-weight: 500;
+.card{
+  @include card($neutralbg)
 }
-.titleCardDark {
-  @include text(36px, $neutralSecundary, center);
+.title {
+  @include text(36px, $primary-500, center);
   font-weight: 500;
 }
 .images {

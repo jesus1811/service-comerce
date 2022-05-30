@@ -19,8 +19,8 @@ const TipoServicio = ({ tipoServicio }) => {
     router.push("/services");
   };
   return (
-    <div className={styles.card}>
-      <h2 className={store.onDark ? styles.titleCardDark : styles.titleCard}>{tipoServicio.nombreTipoServicio}</h2>
+    <div className={store.onDark ? styles.cardDark : styles.card}>
+      <h2 className={styles.title}>{tipoServicio.nombreTipoServicio}</h2>
       <img className={styles.images} src={tipoServicio.urlServicio} alt="" width={220} height={220} />
       <Button onClick={handleClickStorage}>Ingresar</Button>
     </div>

@@ -24,3 +24,28 @@
   color: $color;
   border: solid 2px $color;
 }
+@mixin card($color) {
+  @include flex(column, center, initial, $color);
+  padding: 15px;
+  border-radius: 4px;
+  gap: 20px;
+  margin: 20px 0;
+  width: 95%;
+}
+
+// .cardDark {
+//   @include flex(column, center, initial, $neutralSecundary);
+//   padding: 20px;
+//   border-radius: 4px;
+//   gap: 5px;
+//   margin: 20px 0;
+//   width: 90%;
+// }
+// .card {
+//   @include flex(column, center, initial, $neutralbg);
+//   padding: 20px;
+//   border-radius: 4px;
+//   gap: 5px;
+//   margin: 20px 0;
+//   width: 90%;
+// }

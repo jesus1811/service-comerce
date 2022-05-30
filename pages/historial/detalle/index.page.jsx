@@ -17,9 +17,10 @@ const Detalle = () => {
   return (
     <ContainerPrimary>
       <Header />
-      <h1 className={store.onDark ? styles.titleDarkMain : styles.titleMain}>Boleta</h1>
-      <h1 className={store.onDark ? styles.titleDark : styles.title}>Provedor</h1>
+      <h1 className={store.onDark ? styles.titleDark : styles.title}>Boleta</h1>
+
       <article className={store.onDark ? styles.cardDark : styles.card}>
+        <h1 className={styles.subTitle}>Provedor</h1>
         <img className={styles.image} src={comprobanteDetalle[0]?.fotoProfesional} alt="" />
         <p className={styles.text}>Codigo Provedor: {comprobanteDetalle[0]?.idProfesional}</p>
         <p className={styles.text}>
@@ -28,8 +29,8 @@ const Detalle = () => {
         <p className={styles.text}>Celular: {comprobanteDetalle[0]?.celularProfesional}</p>
         <p className={styles.text}>Docimilio: {comprobanteDetalle[0]?.direccionDomicilio}</p>
       </article>
-      <h1 className={store.onDark ? styles.titleDark : styles.title}>Cliente</h1>
       <article className={store.onDark ? styles.cardDark : styles.card}>
+        <h1 className={styles.subTitle}>Cliente</h1>
         <img className={styles.image} src={comprobanteDetalle[0]?.urlFoto} alt="" />
         <p className={styles.text}>Codigo Cliente: {comprobanteDetalle[0]?.idCliente}</p>
         <p className={styles.text}>
@@ -37,8 +38,8 @@ const Detalle = () => {
         </p>
         <p className={styles.text}>Celular: {comprobanteDetalle[0]?.celularCliente}</p>
       </article>
-      <h1 className={store.onDark ? styles.titleDark : styles.title}>Servicios Contratados</h1>
       <article className={store.onDark ? styles.cardDark : styles.card}>
+        <h1 className={styles.subTitle}>Servicios Contratados</h1>
         <img className={styles.image} src={comprobanteDetalle[0]?.foto} alt="" />
         <p className={styles.text}>Fecha: {comprobanteDetalle[0]?.fecha}</p>
         <p className={styles.text}>Nombre: {comprobanteDetalle[0]?.NombreServicio}</p>

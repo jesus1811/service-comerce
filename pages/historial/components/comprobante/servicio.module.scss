@@ -6,12 +6,12 @@
   width: 90%;
 }
 .cardDark {
-  @include flex(column, center, center, $neutralSecundary);
-  @include commonCard();
+  @include card($neutralSecundary);
+  gap: initial;
 }
 .card {
-  @include flex(column, center, center, $neutralbg);
-  @include commonCard();
+  @include card($neutralbg);
+  gap: initial;
 }
 .title {
   @include text(32px, $primary-500, center);

@@ -1,26 +1,12 @@
 @import "../../../sass/variables.scss";
 @import "../../../sass/mixins.scss";
-
-.container {
-  @include flex(column, center, center, initial);
-  width: 90%;
-  min-height: 100%;
-  gap: 40px;
-}
-@mixin commonCard {
-  padding: 20px;
-  border-radius: 4px;
-  gap: 5px;
-  margin: 20px 0;
-  width: 90%;
-}
 .cardDark {
-  @include flex(column, center, initial, $neutralSecundary);
-  @include commonCard();
+  @include card($neutralSecundary);
+  gap: 5px;
 }
 .card {
-  @include flex(column, center, initial, $neutralbg);
-  @include commonCard();
+  @include card($neutralbg);
+  gap: 5px;
 }
 .image {
   aspect-ratio: 1/1;
@@ -54,7 +40,7 @@
 }
 .span {
   width: 100%;
-  @include flex(initial,initial,center,initial);
+  @include flex(initial, initial, center, initial);
   gap: 20px;
   img {
     width: 42px;

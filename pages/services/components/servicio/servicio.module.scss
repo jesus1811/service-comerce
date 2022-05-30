@@ -1,16 +1,5 @@
 @import "../../../../sass/variables.scss";
 @import "../../../../sass/mixins.scss";
-@mixin card($bg) {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  max-width: 300px;
-  width: 90%;
-  min-height: 300px;
-  background-color: $bg;
-}
 .image {
   aspect-ratio: 1/1;
   object-fit: cover;
@@ -19,20 +8,12 @@
   border-radius: 4px;
 }
 .cardDark {
-  @include flex(column, center, initial, $neutralSecundary);
-  padding: 20px;
-  border-radius: 4px;
+  @include card($neutralSecundary);
   gap: 5px;
-  margin: 20px 0;
-  width: 90%;
 }
 .card {
-  @include flex(column, center, initial, $neutralbg);
-  padding: 20px;
-  border-radius: 4px;
+  @include card($neutralbg);
   gap: 5px;
-  margin: 20px 0;
-  width: 90%;
 }
 .name {
   @include text(30px, $primary-500, initial);

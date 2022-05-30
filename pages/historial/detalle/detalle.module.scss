@@ -1,35 +1,24 @@
 @import "../../../sass/variables.scss";
 @import "../../../sass/mixins.scss";
-.titleMain {
+.title {
   @include text(60px, $primary-500, center);
   font-weight: 500;
 }
-.titleDarkMain {
+.titleDark {
   @include text(60px, $secundary-600, center);
   font-weight: 500;
 }
-.title {
+.subTitle {
   @include text(35px, $primary-500, center);
   font-weight: 500;
 }
-.titleDark {
-  @include text(35px, $secundary-600, center);
-  font-weight: 500;
-}
-@mixin commonCard {
-  padding: 20px;
-  border-radius: 4px;
-  gap: 5px;
-  width: 90%;
-  margin: 20px 0;
-}
 .cardDark {
-  @include flex(column, center, initial, $neutralSecundary);
-  @include commonCard();
+  @include card($neutralSecundary);
+  gap: 5px;
 }
 .card {
-  @include flex(column, center, initial, $neutralbg);
-  @include commonCard();
+  @include card($neutralbg);
+  gap: 5px;
 }
 .image {
   aspect-ratio: 1/1;
