@@ -4,6 +4,7 @@
   padding: 9px 29px;
   border-radius: 4px;
   transition: all ease-out 200ms;
+  font-weight: bold;
 }
 .button {
   @include button(24px, $primary-600, $neutralSecundary);

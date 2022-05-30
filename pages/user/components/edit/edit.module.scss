@@ -1,13 +1,7 @@
-.title {
-  font-size: 36px;
-  color: #0d1925;
-  font-weight: 700;
-}
+@import "../../../../sass/variables.scss";
+@import "../../../../sass/mixins.scss";
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  @include flex(column, space-around, center, $secundary-500);
   gap: 20px;
   background-color: #a1c8d1;
   padding: 20px;
@@ -15,8 +9,12 @@
   width: 100%;
   max-width: 600px;
 }
+.title {
+  @include text(36px, $primary-600, initial);
+  font-weight: 700;
+}
+
 .card {
-  display: flex;
-  flex-direction: column;
+  @include flex(column, initial, initial, initial);
   gap: 15px;
 }

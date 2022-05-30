@@ -36,6 +36,10 @@
   @include text(15px, $neturalPrimary, center);
   font-weight: 400;
 }
+.title {
+  @include text(24px, $neutralSecundary, center);
+  font-weight: 700;
+}
 .containerInputs {
   @include flex(column, center, center, initial);
   gap: 10px;
@@ -44,13 +48,7 @@
   @include flex(initial, center, center, initial);
   gap: 15px;
 }
-.title {
-  @include text(24px, $neutralSecundary, center);
-  font-weight: 700;
-}
-.description {
-  @include text(20px, $neturalPrimary, center);
-}
+
 @mixin commonFile {
   position: relative;
   width: 100%;

@@ -21,30 +21,30 @@ const Detalle = () => {
       <h1 className={store.onDark ? styles.titleDark : styles.title}>Provedor</h1>
       <article className={store.onDark ? styles.cardDark : styles.card}>
         <img className={styles.image} src={comprobanteDetalle[0]?.fotoProfesional} alt="" />
-        <p className={styles.name}>Codigo Provedor: {comprobanteDetalle[0]?.idProfesional}</p>
-        <p className={styles.name}>
+        <p className={styles.text}>Codigo Provedor: {comprobanteDetalle[0]?.idProfesional}</p>
+        <p className={styles.text}>
           Nombre: {comprobanteDetalle[0]?.nombreProfesional} {comprobanteDetalle[0]?.apellidoProfesional}
         </p>
-        <p className={styles.name}>Celular: {comprobanteDetalle[0]?.celularProfesional}</p>
-        <p className={styles.name}>Docimilio: {comprobanteDetalle[0]?.direccionDomicilio}</p>
+        <p className={styles.text}>Celular: {comprobanteDetalle[0]?.celularProfesional}</p>
+        <p className={styles.text}>Docimilio: {comprobanteDetalle[0]?.direccionDomicilio}</p>
       </article>
       <h1 className={store.onDark ? styles.titleDark : styles.title}>Cliente</h1>
       <article className={store.onDark ? styles.cardDark : styles.card}>
         <img className={styles.image} src={comprobanteDetalle[0]?.urlFoto} alt="" />
-        <p className={styles.name}>Codigo Cliente: {comprobanteDetalle[0]?.idCliente}</p>
-        <p className={styles.name}>
+        <p className={styles.text}>Codigo Cliente: {comprobanteDetalle[0]?.idCliente}</p>
+        <p className={styles.text}>
           Nombre: {comprobanteDetalle[0]?.nombreCliente} {comprobanteDetalle[0]?.apellidoCliente}
         </p>
-        <p className={styles.name}>Celular: {comprobanteDetalle[0]?.celularCliente}</p>
+        <p className={styles.text}>Celular: {comprobanteDetalle[0]?.celularCliente}</p>
       </article>
       <h1 className={store.onDark ? styles.titleDark : styles.title}>Servicios Contratados</h1>
       <article className={store.onDark ? styles.cardDark : styles.card}>
         <img className={styles.image} src={comprobanteDetalle[0]?.foto} alt="" />
-        <p className={styles.name}>Fecha: {comprobanteDetalle[0]?.fecha}</p>
-        <p className={styles.name}>Nombre: {comprobanteDetalle[0]?.NombreServicio}</p>
-        <p className={styles.name}>Tipo: {comprobanteDetalle[0]?.nombreTipoServicio}</p>
-        <p className={styles.name}>Total Pagado: S/.{comprobanteDetalle[0]?.precio}</p>
-        <p className={styles.name}>Plataforma de Pago: {comprobanteDetalle[0]?.plataformaDePago}</p>
+        <p className={styles.text}>Fecha: {comprobanteDetalle[0]?.fecha}</p>
+        <p className={styles.text}>Nombre: {comprobanteDetalle[0]?.NombreServicio}</p>
+        <p className={styles.text}>Tipo: {comprobanteDetalle[0]?.nombreTipoServicio}</p>
+        <p className={styles.text}>Total Pagado: S/.{comprobanteDetalle[0]?.precio}</p>
+        <p className={styles.text}>Plataforma de Pago: {comprobanteDetalle[0]?.plataformaDePago}</p>
       </article>
     </ContainerPrimary>
   );

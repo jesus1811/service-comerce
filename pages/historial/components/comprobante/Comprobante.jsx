@@ -13,9 +13,9 @@ const Comprobante = ({ comprobante }) => {
   };
   return (
     <article className={store.onDark ? styles.cardDark : styles.card}>
-      <h1 className={store.onDark ? styles.titleDark : styles.title}>{comprobante.fecha}</h1>
-      <h1 className={store.onDark ? styles.titleDark : styles.title}>{comprobante.NombreServicio}</h1>
-      <h1 className={store.onDark ? styles.titleDark : styles.title}>{comprobante.plataformaDePago}</h1>
+      <h1 className={styles.title}>{comprobante.fecha}</h1>
+      <h1 className={styles.title}>{comprobante.NombreServicio}</h1>
+      <h1 className={styles.title}>{comprobante.plataformaDePago}</h1>
       <Button onClick={handleClickRedirect}>Ver Detalle</Button>
     </article>
   );

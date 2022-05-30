@@ -1,31 +1,28 @@
-@mixin container($color) {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+@import "../../../../sass/variables.scss";
+@import "../../../../sass/mixins.scss";
+.celeste {
+  @include flex(column, space-around, center, $secundary-500);
   gap: 20px;
-  background-color: $color;
   padding: 20px;
   border-radius: 4px;
   width: 100%;
   max-width: 500px;
 }
-.celeste {
-  @include container(#a1c8d1);
-}
-@mixin title($size, $color) {
-  font-size: $size;
-  color: $color;
+.titleBlue {
+  @include text(36px, $primary-600, initial);
   font-weight: 700;
 }
-.titleWhite {
-  @include title(24px, white);
-}
-.titleBlue {
-  @include title(36px, #0d1925);
-}
 .titleSub {
-  @include title(24px, #0d1925);
+  @include text(24px, $primary-600, initial);
+  font-weight: 700;
+}
+.card {
+  @include flex(column, initial, initial, initial);
+  gap: 15px;
+}
+.containerImage {
+  @include flex(column, center, center, initial);
+  width: 100%;
 }
 .image {
   width: 161px;
@@ -34,19 +31,6 @@
   object-fit: cover;
 }
 .description {
-  font-size: 18px;
-  color: #000000;
+  @include text(18px, $primary-600, initial);
   font-weight: 400;
-}
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-.containerImage {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
 }

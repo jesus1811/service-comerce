@@ -19,7 +19,7 @@ const User = () => {
       {onUserEdit ? (
         <Edit onClick={editPassword} onChange={(e) => setPassword(e.target.value)} password={password} />
       ) : (
-        <List onClick={() => setOnUserEdit(true)} />
+        <List onClick={()=>alert("en mantimiento")} />
       )}
     </ContainerPrimary>
   );

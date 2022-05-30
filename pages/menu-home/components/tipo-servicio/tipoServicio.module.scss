@@ -1,12 +1,5 @@
 @import "../../../../sass/mixins.scss";
 @import "../../../../sass/variables.scss";
-.images {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 5px;
-  object-fit: cover;
-  aspect-ratio: 1/1;
-}
 .card {
   @include flex(column, center, center, initial);
   gap: 20px;
@@ -18,4 +11,11 @@
 .titleCardDark {
   @include text(36px, $neutralSecundary, center);
   font-weight: 500;
+}
+.images {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+  object-fit: cover;
+  aspect-ratio: 1/1;
 }

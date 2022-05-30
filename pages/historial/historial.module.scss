@@ -1,11 +1,5 @@
 @import "../../sass/mixins.scss";
 @import "../../sass/variables.scss";
-.containerCard {
-  @include flex(initial, space-around, center, initial);
-  width: 100%;
-  flex-wrap: wrap;
-  gap: 40px;
-}
 .titleMain {
   @include text(36px, $primary-500, center);
   font-weight: 600;
@@ -15,4 +9,10 @@
   @include text(36px, $secundary-600, center);
   font-weight: 600;
   margin: 15px 0;
+}
+.containerCard {
+  @include flex(initial, space-around, center, initial);
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 40px;
 }
