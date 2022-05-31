@@ -74,3 +74,17 @@ export const putPasswordCliente = async (id, password) => {
       });
     });
 };
+export const getClienteForProfesionalServices = async (idProfesional, setData, setLoader) => {
+  await axios
+    .get(BASE_URL + "/api/clienteForProfesional/" + idProfesional)
+    .then(({ data }) => {
+      setData(data);
+      setLoader(false);
+    })
+    .catch(() => {
+      Swal.fire({
+        title: "error de conexion con el servidor",
+        icon: "error",
+      });
+    });
+};

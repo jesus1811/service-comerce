@@ -6,13 +6,15 @@ import { DataContext } from "../../../context/Provider";
 import { getProfesionalServices } from "../../../services/profesional";
 import styles from "./detalle.module.scss";
 import { getServiciosForProfesionalServices } from "../../../services/servicio";
+import { getClienteForProfesionalServices } from "../../../services/cliente";
 
 const Detalle = () => {
   const [profesional, setProfesional] = useState([]);
   const [serviciosProfesional, setServiciosProfesional] = useState([]);
   const [loader, setLoader] = useState(true);
   const [loaderService, setLoaderService] = useState(true);
-  const [mantenimiento, setMantenimiento] = useState(true);
+  const [loaderClientes, setLoaderClientes] = useState(true);
+  const [clientes, setClientes] = useState([]);
   const { store } = useContext(DataContext);
   const router = useRouter();
   const handleClickRedirect = () => {
@@ -22,6 +24,7 @@ const Detalle = () => {
     const idProfesional = JSON.parse(localStorage.getItem("idProfesional"));
     getProfesionalServices(idProfesional, setProfesional, setLoader);
     getServiciosForProfesionalServices(idProfesional, setServiciosProfesional, setLoaderService);
+    getClienteForProfesionalServices(idProfesional, setClientes, setLoaderClientes);
   }, []);
   return (
     <ContainerPrimary>
@@ -84,7 +87,21 @@ const Detalle = () => {
         </>
       )}
       <h1 className={store.onDark ? styles.titleDark : styles.title}>¿Que Clientes Confian en Mi?</h1>
-      {mantenimiento ? <Loading /> : null}
+      {loaderClientes ? (
+        <Loading />
+      ) : (
+        <>
+          {clientes.map((cliente, index) => {
+            return (
+              <article className={store.onDark ? styles.cardDark : styles.card} key={index}>
+                <img className={styles.imageServicio} src={cliente.urlFoto} alt="" />
+                <p className={styles.nameService}>{cliente.nombreCliente}</p>
+                <p className={styles.nameService}>{cliente.apellidoCliente}</p>
+              </article>
+            );
+          })}
+        </>
+      )}
     </ContainerPrimary>
   );
 };
