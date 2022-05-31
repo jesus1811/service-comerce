@@ -6,13 +6,6 @@
   border-radius: 4px;
   padding: 8px 16px;
 }
-@mixin commonContainer {
-  gap: 20px;
-  padding: 20px;
-  border-radius: 4px;
-  width: 100%;
-  max-width: 600px;
-}
 .select {
   @include text(18px, $neutralSecundary, initial);
   padding: 2px 8px;
@@ -35,12 +28,12 @@
   margin: 15px 0;
 }
 .card {
-  @include flex(column, space-around, center, $neutralTertiary);
-  @include commonContainer();
+  @include card($neutralTertiary);
+  align-items: center;
 }
 .cardDark {
-  @include flex(column, space-around, center, $primary-500);
-  @include commonContainer();
+  @include card($primary-500);
+  align-items: center;
 }
 .file {
   opacity: 0;
