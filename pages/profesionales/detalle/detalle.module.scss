@@ -19,6 +19,10 @@
   @include text(32px, $primary-500, initial);
   font-weight: bolder;
 }
+.nameCenter {
+  @include text(20px, $primary-500, initial);
+  font-weight: bolder;
+}
 .text {
   @include text(21px, $primary-500, initial);
 }
@@ -45,4 +49,24 @@
   img {
     width: 42px;
   }
+}
+.cardClienteDark {
+  @include card($neutralSecundary);
+  flex-direction: initial;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+.cardCliente {
+  @include card($neutralbg);
+  flex-direction: initial;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+.imageCliente {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  width: 90px;
+  border-radius: 50%;
 }

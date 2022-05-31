@@ -93,10 +93,11 @@ const Detalle = () => {
         <>
           {clientes.map((cliente, index) => {
             return (
-              <article className={store.onDark ? styles.cardDark : styles.card} key={index}>
-                <img className={styles.imageServicio} src={cliente.urlFoto} alt="" />
-                <p className={styles.nameService}>{cliente.nombreCliente}</p>
-                <p className={styles.nameService}>{cliente.apellidoCliente}</p>
+              <article className={store.onDark ? styles.cardClienteDark : styles.cardCliente} key={index}>
+                <img className={styles.imageCliente} src={cliente.urlFoto} alt="" />
+                <p className={styles.nameCenter}>
+                  {cliente.nombreCliente} {cliente.apellidoCliente}
+                </p>
               </article>
             );
           })}
