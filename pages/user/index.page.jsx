@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { ContainerPrimary, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
-import { putPasswordCliente } from "../../services/cliente";
+import { putPasswordCliente } from "../../services/cliente.service";
 import { Edit, List } from "./components";
 
 const User = () => {

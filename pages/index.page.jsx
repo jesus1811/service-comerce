@@ -4,7 +4,7 @@ import { Button, Input } from "../components/common";
 import { ContainerPrimary } from "../components/layouts";
 import { DataContext } from "../context/Provider";
 import useField from "../hooks/useField";
-import { validarclienteServices } from "../services/cliente";
+import { validarclienteServices } from "../services/cliente.service";
 import styles from "./index.module.scss";
 
 const Home = () => {

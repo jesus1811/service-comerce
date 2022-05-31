@@ -4,10 +4,10 @@ import { useRouter } from "next/router";
 import { DataContext } from "../../../context/Provider";
 import { ContainerPrimary } from "../../../components/layouts";
 import { Button, Input } from "../../../components/common";
-import { app } from "../../../services/firebase";
+import { app } from "../../../services/firebase.service";
 import useField from "../../../hooks/useField";
-import { getPaisesServices } from "../../../services/pais";
-import { postProfesional } from "../../../services/profesional";
+import { getPaisesServices } from "../../../services/pais.service";
+import { postProfesional } from "../../../services/profesional.service";
 const Register = () => {
   const [dni, setDni] = useState("");
   const [nombre, setNombre] = useState("");

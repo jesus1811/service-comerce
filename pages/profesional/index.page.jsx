@@ -4,7 +4,7 @@ import { Button, Input } from "../../components/common";
 import { ContainerPrimary } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import useField from "../../hooks/useField";
-import { validarProfesionalServices } from "../../services/profesional";
+import { validarProfesionalServices } from "../../services/profesional.service";
 import styles from "./profesional.module.scss";
 
 const Profesional = () => {

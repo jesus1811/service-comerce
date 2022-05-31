@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Loading } from "../../components/common";
 import { ContainerPrimary, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
-import { getComprobanteServices } from "../../services/comprobante";
+import { getComprobanteServices } from "../../services/comprobante.service";
 import { Comprobante } from "./components";
 import styles from "./historial.module.scss";
 

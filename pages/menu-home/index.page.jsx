@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/router";
 import { Loading } from "../../components/common";
 import { ContainerPrimary, Header } from "../../components/layouts";
-import { getTipoServices } from "../../services/tipoServicio";
+import { getTipoServices } from "../../services/tipoServicio.service";
 import styles from "./menuHome.module.scss";
 import { DataContext } from "../../context/Provider";
 import { TipoServicio } from "./components";

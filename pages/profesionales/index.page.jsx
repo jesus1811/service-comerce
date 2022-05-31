@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { Button, Loading } from "../../components/common";
 import { ContainerPrimary, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
-import { getProfesionalesServices } from "../../services/profesional";
+import { getProfesionalesServices } from "../../services/profesional.service";
 import styles from "./profesionales.module.scss";
 
 const Profesionales = () => {

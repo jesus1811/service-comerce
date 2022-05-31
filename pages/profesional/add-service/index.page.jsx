@@ -3,9 +3,9 @@ import { Button, Input } from "../../../components/common";
 import { ContainerPrimary, HeaderProfesional } from "../../../components/layouts";
 import { DataContext } from "../../../context/Provider";
 import useField from "../../../hooks/useField";
-import { app } from "../../../services/firebase";
-import { postServicioServcices } from "../../../services/servicio";
-import { getTipoServices } from "../../../services/tipoServicio";
+import { app } from "../../../services/firebase.service";
+import { postServicioServcices } from "../../../services/servicio.service";
+import { getTipoServices } from "../../../services/tipoServicio.service";
 import styles from "./addService.module.scss";
 
 const AddService = () => {

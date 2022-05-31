@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import { Button, Loading } from "../../../components/common";
 import { ContainerPrimary, Header } from "../../../components/layouts";
 import { DataContext } from "../../../context/Provider";
-import { getProfesionalServices } from "../../../services/profesional";
+import { getProfesionalServices } from "../../../services/profesional.service";
 import styles from "./detalle.module.scss";
-import { getServiciosForProfesionalServices } from "../../../services/servicio";
-import { getClienteForProfesionalServices } from "../../../services/cliente";
+import { getServiciosForProfesionalServices } from "../../../services/servicio.service";
+import { getClienteForProfesionalServices } from "../../../services/cliente.service";
 
 const Detalle = () => {
   const [profesional, setProfesional] = useState([]);

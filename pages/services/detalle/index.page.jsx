@@ -2,9 +2,9 @@ import { useEffect, useState, useContext } from "react";
 import { Button, Loading } from "../../../components/common";
 import { ContainerPrimary, Header } from "../../../components/layouts";
 import { DataContext } from "../../../context/Provider";
-import { postComprobanteServices } from "../../../services/comprobante";
-import { getProfesionalServices } from "../../../services/profesional";
-import { getServicioIdServices } from "../../../services/servicio";
+import { postComprobanteServices } from "../../../services/comprobante.service";
+import { getProfesionalServices } from "../../../services/profesional.service";
+import { getServicioIdServices } from "../../../services/servicio.service";
 import styles from "./detalle.module.scss";
 
 const Detalle = () => {

@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { Loading } from "../../components/common";
 import { ContainerPrimary, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
-import { getServicioServices } from "../../services/servicio";
+import { getServicioServices } from "../../services/servicio.service";
 import { Servicio } from "./components";
 import styles from "./services.module.scss";
 

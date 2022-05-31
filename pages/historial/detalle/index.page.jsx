@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { Button } from "../../../components/common";
 import { ContainerPrimary, Header } from "../../../components/layouts";
 import { DataContext } from "../../../context/Provider";
-import { getComprobanteByIdServices } from "../../../services/comprobante";
+import { getComprobanteByIdServices } from "../../../services/comprobante.service";
 import styles from "./detalle.module.scss";
 
 const Detalle = () => {
@@ -39,7 +39,7 @@ const Detalle = () => {
         <p className={styles.text}>Celular: {comprobanteDetalle[0]?.celularCliente}</p>
       </article>
       <article className={store.onDark ? styles.cardDark : styles.card}>
-        <h1 className={styles.subTitle}>Servicios Contratados</h1>
+        <h1 className={styles.subTitle}>Servicio Contratado</h1>
         <img className={styles.image} src={comprobanteDetalle[0]?.foto} alt="" />
         <p className={styles.text}>Fecha: {comprobanteDetalle[0]?.fecha}</p>
         <p className={styles.text}>Nombre: {comprobanteDetalle[0]?.NombreServicio}</p>

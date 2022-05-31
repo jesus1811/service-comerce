@@ -2,8 +2,8 @@ import { useState, useContext } from "react";
 import { Button, Input } from "../../components/common";
 import styles from "./register.module.scss";
 import { useRouter } from "next/router";
-import { postClienteServices } from "../../services/cliente";
-import { app } from "../../services/firebase";
+import { postClienteServices } from "../../services/cliente.service";
+import { app } from "../../services/firebase.service";
 import { ContainerPrimary } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 
