@@ -17,9 +17,6 @@ const Detalle = () => {
   const [clientes, setClientes] = useState([]);
   const { store } = useContext(DataContext);
   const router = useRouter();
-  const handleClickRedirect = () => {
-    router.push("/profesionales");
-  };
   useEffect(() => {
     const idProfesional = JSON.parse(localStorage.getItem("idProfesional"));
     getProfesionalServices(idProfesional, setProfesional, setLoader);
@@ -29,7 +26,6 @@ const Detalle = () => {
   return (
     <ContainerPrimary>
       <Header />
-      <Button onClick={handleClickRedirect}>Regresar</Button>
       {loader ? (
         <Loading />
       ) : (

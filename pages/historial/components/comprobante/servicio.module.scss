@@ -16,3 +16,7 @@
 .title {
   @include text(32px, $primary-500, center);
 }
+.name {
+  @include text(34px, $primary-500, center);
+  font-weight: bold;
+}
