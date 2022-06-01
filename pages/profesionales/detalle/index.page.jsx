@@ -73,9 +73,22 @@ const Detalle = () => {
           {serviciosProfesional.map((value, index) => {
             return (
               <article className={store.onDark ? styles.cardDark : styles.card} key={index}>
+                <p className={styles.nameService}>{value.descuento > 0 && "en Oferta " + value.descuento + "%"}</p>
                 <img className={styles.imageServicio} src={value.foto} alt={value.nombreProfesional} />
                 <p className={styles.nameService}>{value.NombreServicio}</p>
-                <p className={styles.nameService}>S/. {value.precio}</p>
+                {value.descuento > 0 ? (
+                  <>
+                    <p className={styles.descuento}>Antes S/. {value.precio}</p>
+                    <p className={styles.nameService}>
+                      Ahora S/.{value.precio - value.precio * (value.descuento / 100)}
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p className={styles.nameService}>S/. {value.precio}</p>
+                  </>
+                )}
+
                 <p className={styles.text}>{value.NombreTipoServicio}</p>
               </article>
             );

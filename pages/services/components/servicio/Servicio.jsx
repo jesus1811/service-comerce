@@ -9,13 +9,13 @@ const Servicio = ({ servicio }) => {
   const router = useRouter();
   return (
     <article className={store.onDark ? styles.cardDark : styles.card}>
+      <p className={styles.nameService}>{servicio.descuento > 0 && "en Oferta " + servicio.descuento + "%"}</p>
       <img className={styles.image} src={servicio.foto} alt={servicio.nombreProfesional} />
       <p className={styles.nameService}>{servicio.NombreServicio}</p>
-      <p className={styles.nameService}>S/. {servicio.precio}</p>
+      <p className={styles.nameService}>S/. {servicio.precio - servicio.precio * (servicio.descuento / 100)}</p>
       <p className={styles.text}>
         {servicio.nombreProfesional} {servicio.apellidoProfesional}
       </p>
-
       <Button
         onClick={() => {
           router.push("services/detalle");

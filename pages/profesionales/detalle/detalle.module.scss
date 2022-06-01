@@ -25,6 +25,11 @@
 .text {
   @include text(21px, $primary-500, initial);
 }
+.descuento{
+  @include text(23px, $primary-500, initial);
+  font-weight: bold;
+
+}
 .title {
   @include text(40px, $primary-500, center);
   font-weight: 500;

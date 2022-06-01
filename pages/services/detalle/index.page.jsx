@@ -35,10 +35,25 @@ const Detalle = () => {
         <>
           <h1 className={store.onDark ? styles.titleDark : styles.title}>Detalle del Servicio</h1>
           <article className={store.onDark ? styles.cardDark : styles.card}>
+            <p className={styles.nameService}>
+              {servicio[0]?.descuento > 0 && "en Oferta " + servicio[0]?.descuento + "%"}
+            </p>
             <img className={styles.imageService} src={servicio[0]?.foto} alt="" />
             <h1 className={styles.nameService}>{servicio[0]?.NombreServicio}</h1>
             <p className={styles.text}>{servicio[0]?.descripcion}</p>
-            <p className={styles.nameService}>S/. {servicio[0]?.precio}</p>
+            {servicio[0]?.descuento > 0 ? (
+              <>
+                <p className={styles.descuento}>Antes S/. {servicio[0]?.precio}</p>
+                <p className={styles.nameService}>
+                  Ahora S/.{servicio[0]?.precio - servicio[0]?.precio * (servicio[0]?.descuento / 100)}
+                </p>
+              </>
+            ) : (
+              <>
+                <p className={styles.nameService}>S/. {servicio[0]?.precio}</p>
+              </>
+            )}
+
             <Button onClick={handleClickPlin}>pagar por Plin</Button>
             <Button onClick={handleClickYape}>pagar por Yape</Button>
           </article>
