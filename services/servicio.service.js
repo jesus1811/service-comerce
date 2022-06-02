@@ -78,3 +78,25 @@ export const postServicioServcices = async (nombre, descripcion, tipo, precio, p
       });
     });
 };
+export const putServiceServices = async (idServicio, nombre, descripcion, precio, descuento) => {
+  await axios
+    .put(BASE_URL + "/api/servicio/" + idServicio, {
+      nombre,
+      descripcion,
+      precio,
+      descuento,
+    })
+    .then(({ data }) => {
+      Swal.fire({
+        title: JSON.stringify(data, null, 2),
+        icon: "success",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      Swal.fire({
+        title: "error de conexion con el servidor",
+        icon: "error",
+      });
+    });
+};

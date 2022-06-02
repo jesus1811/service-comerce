@@ -29,7 +29,8 @@ export const validarProfesionalServices = async (email, password, setState, stat
       .then(({ data }) => {
         data.length != 0
           ? (setState({ ...state, userProfesional: data }),
-            localStorage.setItem("store", JSON.stringify({ ...state, userProfesional: data })))
+            localStorage.setItem("store", JSON.stringify({ ...state, userProfesional: data })),
+            localStorage.setItem("idProfesional", JSON.stringify(data)))
           : Swal.fire({
               title: "Correo y/o Contraseña Incorrecta",
             });
