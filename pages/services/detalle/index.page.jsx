@@ -24,9 +24,11 @@ const Detalle = () => {
     getProfesionalServices(idProfesional, setProfesional, setLoaderProfesional);
   }, []);
   useEffect(() => {
-    const { idServicio } = JSON.parse(localStorage.getItem("servicio"));
-    getValoraciones(idServicio, setValoraciones, setLoaderValoraciones);
-  }, [loaderValoraciones]);
+    setInterval(() => {
+      const { idServicio } = JSON.parse(localStorage.getItem("servicio"));
+      getValoraciones(idServicio, setValoraciones, setLoaderValoraciones);
+    }, 1000);
+  }, []);
   const fecha = new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear();
   const handleClickPlin = () => {
     postComprobanteServices(
@@ -43,6 +45,7 @@ const Detalle = () => {
   const handleClickAddValoracion = () => {
     const { idServicio } = JSON.parse(localStorage.getItem("servicio"));
     postValoracion(comentario.value, idServicio, store?.user[0]?.idCliente, setLoaderValoraciones);
+    comentario.setValue("");
   };
 
   return (
@@ -94,7 +97,6 @@ const Detalle = () => {
                     </p>
                   </div>
                   <p className={styles.nameCenter}>{valoracion.comentario}</p>
-                  {/* <p className={styles.nameCenter}>{JSON.stringify(valoracion)}</p> */}
                 </article>
               </>
             );
