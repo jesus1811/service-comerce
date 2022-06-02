@@ -44,10 +44,18 @@ const Detalle = () => {
         <p className={styles.text}>Fecha: {comprobanteDetalle[0]?.fecha}</p>
         <p className={styles.text}>Nombre: {comprobanteDetalle[0]?.NombreServicio}</p>
         <p className={styles.text}>Tipo: {comprobanteDetalle[0]?.nombreTipoServicio}</p>
-        <p className={styles.text}>
-          Total Pagado: S/.
-          {comprobanteDetalle[0]?.precio - comprobanteDetalle[0]?.precio * (comprobanteDetalle[0]?.descuento / 100)}
-        </p>
+        {comprobanteDetalle[0]?.precio - comprobanteDetalle[0]?.total === 0 ? (
+          <>
+            <p className={styles.text}>Total a Pagar: S/.{comprobanteDetalle[0]?.total}</p>
+          </>
+        ) : (
+          <>
+            <p className={styles.text}>Precio Base: S/.{comprobanteDetalle[0]?.precio}</p>
+            <p className={styles.text}>Descuento: S/.{comprobanteDetalle[0]?.precio - comprobanteDetalle[0]?.total}</p>
+            <p className={styles.text}>Total a Pagar: S/.{comprobanteDetalle[0]?.total}</p>
+          </>
+        )}
+
         <p className={styles.text}>Plataforma de Pago: {comprobanteDetalle[0]?.plataformaDePago}</p>
       </article>
     </ContainerPrimary>

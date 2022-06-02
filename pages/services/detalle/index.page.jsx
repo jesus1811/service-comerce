@@ -11,6 +11,7 @@ const Detalle = () => {
   const [servicio, setServicio] = useState([]);
   const [profesional, setProfesional] = useState([]);
   const [loader, setLoader] = useState(true);
+  const [total, setTotal] = useState(null);
   const { store } = useContext(DataContext);
   useEffect(() => {
     const { idServicio, idProfesional } = JSON.parse(localStorage.getItem("servicio"));
@@ -19,8 +20,13 @@ const Detalle = () => {
   }, [loader]);
   const fecha = new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear();
   const handleClickPlin = () => {
-    postComprobanteServices(fecha, store.user[0].idCliente, 2, JSON.parse(localStorage.getItem("servicio")).idServicio);
-    //2
+    postComprobanteServices(
+      fecha,
+      store.user[0].idCliente,
+      2,
+      JSON.parse(localStorage.getItem("servicio")).idServicio,
+      servicio[0]?.precio - servicio[0]?.precio * (servicio[0]?.descuento / 100)
+    );
   };
   const handleClickYape = () => {
     postComprobanteServices(fecha, store.user[0].idCliente, 1, JSON.parse(localStorage.getItem("servicio")).idServicio);

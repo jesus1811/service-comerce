@@ -32,13 +32,14 @@ export const getComprobanteByIdServices = async (idComprobante, setData, setLoad
       });
     });
 };
-export const postComprobanteServices = async (fecha, idCliente, idMetodo, idServicio) => {
+export const postComprobanteServices = async (fecha, idCliente, idMetodo, idServicio, total) => {
   await axios
     .post(BASE_URL + "/api/comprobante", {
       fecha,
       idCliente,
       idMetodo,
       idServicio,
+      total,
     })
     .then(({ data }) => {
       Swal.fire({
