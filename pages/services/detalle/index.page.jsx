@@ -40,7 +40,13 @@ const Detalle = () => {
     );
   };
   const handleClickYape = () => {
-    postComprobanteServices(fecha, store.user[0].idCliente, 1, JSON.parse(localStorage.getItem("servicio")).idServicio);
+    postComprobanteServices(
+      fecha,
+      store.user[0].idCliente,
+      1,
+      JSON.parse(localStorage.getItem("servicio")).idServicio,
+      servicio[0]?.precio - servicio[0]?.precio * (servicio[0]?.descuento / 100)
+    );
   };
   const handleClickAddValoracion = () => {
     const { idServicio } = JSON.parse(localStorage.getItem("servicio"));
