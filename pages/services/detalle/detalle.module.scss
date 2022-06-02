@@ -35,10 +35,9 @@
   @include text(30px, $primary-500, initial);
   font-weight: bold;
 }
-.descuento{
+.descuento {
   @include text(23px, $primary-500, initial);
   font-weight: bold;
-
 }
 .text {
   @include text(21px, $primary-500, initial);
@@ -46,4 +45,41 @@
 .nameService {
   @include text(32px, $primary-500, initial);
   font-weight: bolder;
+}
+.cardClienteDark {
+  @include card($neutralSecundary);
+  flex-direction: initial;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+.cardCliente {
+  @include card($neutralbg);
+  flex-direction: initial;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+.imageCliente {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  width: 90px;
+  border-radius: 50%;
+}
+.nameCenter {
+  @include text(19px, $primary-500, initial);
+  font-weight: bolder;
+  flex: 3;
+}
+.user {
+  flex: 1;
+}
+
+.cardComentario {
+  @include card($neutralTertiary);
+  align-items: center;
+}
+.cardDarkComentario {
+  @include card($primary-500);
+  align-items: center;
 }
