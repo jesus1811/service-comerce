@@ -17,7 +17,7 @@ export const postValoracion = async (comentario, idServicio, idCliente, setLoade
   comentario != "" &&
     (await axios
       .post(BASE_URL + "/api/valoracion", {
-        comentario: JSON.stringify(comentario),
+        comentario,
         idServicio,
         idCliente,
       })
