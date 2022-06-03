@@ -14,20 +14,21 @@ export const getValoraciones = async (idServicio, setData, setLoader) => {
     });
 };
 export const postValoracion = async (comentario, idServicio, idCliente, setLoader) => {
-  await axios
-    .post(BASE_URL + "/api/valoracion", {
-      comentario,
-      idServicio,
-      idCliente,
-    })
-    .then(({ data }) => {
-      Swal.fire({
-        title: data,
-        icon: "success",
-      });
-      setLoader(true);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  comentario != "" &&
+    (await axios
+      .post(BASE_URL + "/api/valoracion", {
+        comentario: JSON.stringify(comentario),
+        idServicio,
+        idCliente,
+      })
+      .then(({ data }) => {
+        Swal.fire({
+          title: data,
+          icon: "success",
+        });
+        setLoader(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      }));
 };
