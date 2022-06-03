@@ -11,10 +11,6 @@ export const getValoraciones = async (idServicio, setData, setLoader) => {
     })
     .catch((err) => {
       console.log(err);
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
     });
 };
 export const postValoracion = async (comentario, idServicio, idCliente, setLoader) => {
@@ -33,9 +29,5 @@ export const postValoracion = async (comentario, idServicio, idCliente, setLoade
     })
     .catch((err) => {
       console.log(err);
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
     });
 };

@@ -7,15 +7,10 @@ export const getProfesionalServices = async (idProfesional, setData, setLoader) 
     .get(BASE_URL + "/api/profesional/" + idProfesional)
     .then(({ data }) => {
       setData(data);
+      setLoader(false);
     })
     .catch((err) => {
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
-    })
-    .finally(() => {
-      setLoader(false);
+      console.log(err);
     });
 };
 export const validarProfesionalServices = async (email, password, setState, state, setLoader) => {
@@ -34,15 +29,10 @@ export const validarProfesionalServices = async (email, password, setState, stat
           : Swal.fire({
               title: "Correo y/o Contraseña Incorrecta",
             });
+        setLoader(true);
       })
       .catch((err) => {
-        Swal.fire({
-          title: "error de conexion con el servidor",
-          icon: "error",
-        });
-      })
-      .finally(() => {
-        setLoader(true);
+        console.log(err);
       }));
 };
 export const getProfesionalesServices = async (setState, setLoader) => {
@@ -50,15 +40,10 @@ export const getProfesionalesServices = async (setState, setLoader) => {
     .get(BASE_URL + "/api/profesional")
     .then(({ data }) => {
       setState(data);
-    })
-    .catch(() => {
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
-    })
-    .finally(() => {
       setLoader(false);
+    })
+    .catch((err) => {
+      console.log(err);
     });
 };
 export const postProfesional = async (dni, nombre, apellido, correo, password, celular, foto, pais, domicilio) => {
@@ -79,14 +64,11 @@ export const postProfesional = async (dni, nombre, apellido, correo, password, c
     })
     .then(({ data }) => {
       Swal.fire({
-        title: JSON.stringify(data),
+        title: data,
         icon: "success",
       });
     })
-    .catch(() => {
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
+    .catch((err) => {
+      console.log(err);
     });
 };

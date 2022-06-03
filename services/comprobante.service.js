@@ -7,15 +7,10 @@ export const getComprobanteServices = async (idProfesional, setData, setLoader) 
     .get(BASE_URL + "/api/comprobantes/" + idProfesional)
     .then(({ data }) => {
       setData(data);
+      setLoader(false);
     })
     .catch((err) => {
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
-    })
-    .finally(() => {
-      setLoader(false);
+      console.log(err);
     });
 };
 export const getComprobanteByIdServices = async (idComprobante, setData, setLoader) => {
@@ -26,10 +21,7 @@ export const getComprobanteByIdServices = async (idComprobante, setData, setLoad
       setLoader(false);
     })
     .catch((err) => {
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
+      console.log(err);
     });
 };
 export const postComprobanteServices = async (fecha, idCliente, idMetodo, idServicio, total) => {
@@ -47,10 +39,7 @@ export const postComprobanteServices = async (fecha, idCliente, idMetodo, idServ
         icon: "success",
       });
     })
-    .catch(() => {
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
+    .catch((err) => {
+      console.log(err);
     });
 };

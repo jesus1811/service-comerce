@@ -13,6 +13,8 @@ const MenuHome = () => {
   const { store } = useContext(DataContext);
   const router = useRouter();
   useEffect(() => {
+    const cliente = JSON.parse(localStorage.getItem("cliente")) || [];
+    cliente.length == 0 && router.push("/");
     getTipoServices(setTipoServicios, setLoader);
   }, [loader]);
   return (

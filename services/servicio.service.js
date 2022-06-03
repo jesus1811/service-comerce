@@ -7,15 +7,10 @@ export const getServicioServices = async (setData, setLoader) => {
     .get(BASE_URL + "/api/servicio")
     .then(({ data }) => {
       setData(data);
+      setLoader(false);
     })
     .catch((err) => {
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
-    })
-    .finally(() => {
-      setLoader(false);
+      console.log(err);
     });
 };
 export const getServicioIdServices = async (id, setData, setLoader) => {
@@ -23,15 +18,10 @@ export const getServicioIdServices = async (id, setData, setLoader) => {
     .get(BASE_URL + "/api/servicio/" + id)
     .then(({ data }) => {
       setData(data);
+      setLoader(false);
     })
     .catch((err) => {
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
-    })
-    .finally(() => {
-      setLoader(false);
+      console.log(err);
     });
 };
 
@@ -40,15 +30,10 @@ export const getServiciosForProfesionalServices = async (idProfesional, setData,
     .get(BASE_URL + "/api/serviciosForProfesional/" + idProfesional)
     .then(({ data }) => {
       setData(data);
+      setLoader(false);
     })
     .catch((err) => {
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
-    })
-    .finally(() => {
-      setLoader(false);
+      console.log(err);
     });
 };
 export const postServicioServcices = async (nombre, descripcion, tipo, precio, profesional, foto) => {
@@ -72,10 +57,6 @@ export const postServicioServcices = async (nombre, descripcion, tipo, precio, p
     })
     .catch((err) => {
       console.log(err);
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
     });
 };
 export const putServiceServices = async (idServicio, nombre, descripcion, precio, descuento) => {
@@ -88,15 +69,11 @@ export const putServiceServices = async (idServicio, nombre, descripcion, precio
     })
     .then(({ data }) => {
       Swal.fire({
-        title: JSON.stringify(data, null, 2),
+        title: data,
         icon: "success",
       });
     })
     .catch((err) => {
       console.log(err);
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
     });
 };

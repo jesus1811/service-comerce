@@ -13,19 +13,15 @@ export const validarclienteServices = async (email, password, setState, state, s
       .then(({ data }) => {
         data.length != 0
           ? (setState({ ...state, user: data }),
-            localStorage.setItem("store", JSON.stringify({ ...state, user: data })))
+            localStorage.setItem("store", JSON.stringify({ ...state, user: data })),
+            localStorage.setItem("cliente", JSON.stringify({ ...state, user: data })))
           : Swal.fire({
               title: "Correo y/o Contraseña Incorrecta",
             });
+        setLoader(true);
       })
       .catch((err) => {
-        Swal.fire({
-          title: "error de conexion con el servidor",
-          icon: "error",
-        });
-      })
-      .finally(() => {
-        setLoader(true);
+        console.log(err);
       }));
 };
 export const postClienteServices = async (dni, nombre, apellido, correo, password, celular, foto, router) => {
@@ -50,10 +46,7 @@ export const postClienteServices = async (dni, nombre, apellido, correo, passwor
       router.push("/");
     })
     .catch((err) => {
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
+      console.log(err);
     });
 };
 export const putPasswordCliente = async (id, password) => {
@@ -68,10 +61,7 @@ export const putPasswordCliente = async (id, password) => {
       });
     })
     .catch((err) => {
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
+      console.log(err);
     });
 };
 export const getClienteForProfesionalServices = async (idProfesional, setData, setLoader) => {
@@ -81,10 +71,7 @@ export const getClienteForProfesionalServices = async (idProfesional, setData, s
       setData(data);
       setLoader(false);
     })
-    .catch(() => {
-      Swal.fire({
-        title: "error de conexion con el servidor",
-        icon: "error",
-      });
+    .catch((err) => {
+      console.log(err);
     });
 };
