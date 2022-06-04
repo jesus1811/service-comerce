@@ -1,16 +1,25 @@
 @import "../../../sass/mixins.scss";
 @import "../../../sass/variables.scss";
-.input {
-  @include text(20px, $neutralSecundary, initial);
-  padding: 2px 8px;
+@mixin commonInput {
+  padding: 8px 16px;
   outline: none;
+  font-weight: bold;
   background: transparent;
-  border-bottom: solid 3px $neutralSecundary;
-  border-radius: 4px;
-  &:focus {
-    border-color: $primary-600;
-  }
+}
+.input {
+  @include text(20px, $primary, initial);
+  border-bottom: solid 2px $primary;
+  @include commonInput();
 }
 .input::placeholder {
-  color: $neutralSecundary;
+  color: $primary;
+  font-weight: bold;
+}
+.inputDark {
+  @include text(20px, $neutralWhite, initial);
+  border-bottom: solid 2px $neutralWhite;
+  @include commonInput();
+}
+.inputDark::placeholder {
+  color: $neutralWhite;
 }

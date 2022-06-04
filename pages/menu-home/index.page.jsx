@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/router";
-import { Loading } from "../../components/common";
+import { Loading, TitleMain } from "../../components/common";
 import { ContainerPrimary, Header } from "../../components/layouts";
 import { getTipoServices } from "../../services/tipoServicio.service";
 import styles from "./menuHome.module.scss";
@@ -26,7 +26,7 @@ const MenuHome = () => {
             <Loading />
           ) : (
             <>
-              <h1 className={store.onDark ? styles.titleDark : styles.title}>ELIJA SU CATEGORÍA DE INTERES</h1>
+              <TitleMain>Elija su Categoria de Interes</TitleMain>
               <div className={styles.containerImages}>
                 {tipoServicios.map((tipoServicio, index) => {
                   return <TipoServicio tipoServicio={tipoServicio} key={index} />;

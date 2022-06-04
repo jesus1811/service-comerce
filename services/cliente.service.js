@@ -2,7 +2,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 const BASE_URL = process.env.NEXT_PUBLIC_URL;
 
-export const validarclienteServices = async (email, password, setState, state, setLoader) => {
+export const validarclienteServices = async (email, password, setState, state, setLoader, setError) => {
   email != 0 &&
     password != 0 &&
     (await axios
@@ -14,10 +14,9 @@ export const validarclienteServices = async (email, password, setState, state, s
         data.length != 0
           ? (setState({ ...state, user: data }),
             localStorage.setItem("store", JSON.stringify({ ...state, user: data })),
-            localStorage.setItem("cliente", JSON.stringify({ ...state, user: data })))
-          : Swal.fire({
-              title: "Correo y/o Contraseña Incorrecta",
-            });
+            localStorage.setItem("cliente", JSON.stringify({ ...state, user: data })),
+            setError(false))
+          : setError(true);
         setLoader(true);
       })
       .catch((err) => {

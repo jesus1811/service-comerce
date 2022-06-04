@@ -1,18 +1,19 @@
 import { useContext, useState } from "react";
 import { useRouter } from "next/router";
-import { Button } from "../../../../components/common";
+import { Button, SubTitle } from "../../../../components/common";
 import { DataContext } from "../../../../context/Provider";
 import styles from "./servicio.module.scss";
+import { Card } from "../../../../components/layouts";
 
 const Servicio = ({ servicio }) => {
   const { store } = useContext(DataContext);
   const router = useRouter();
   return (
-    <article className={store.onDark ? styles.cardDark : styles.card}>
+    <Card>
       <p className={styles.nameService}>{servicio.descuento > 0 && "en Oferta " + servicio.descuento + "%"}</p>
       <img className={styles.image} src={servicio.foto} alt={servicio.nombreProfesional} />
-      <p className={styles.nameService}>{servicio.NombreServicio}</p>
-      <p className={styles.nameService}>S/. {servicio.precio - servicio.precio * (servicio.descuento / 100)}</p>
+      <SubTitle>{servicio.NombreServicio}</SubTitle>
+      <SubTitle>Precio : S/. {servicio.precio - servicio.precio * (servicio.descuento / 100)}</SubTitle>
       <p className={styles.text}>
         {servicio.nombreProfesional} {servicio.apellidoProfesional}
       </p>
@@ -24,7 +25,7 @@ const Servicio = ({ servicio }) => {
       >
         Ver Detalle
       </Button>
-    </article>
+    </Card>
   );
 };
 

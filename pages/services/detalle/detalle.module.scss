@@ -67,7 +67,7 @@
   border-radius: 50%;
 }
 .nameCenter {
-  @include text(19px, $primary-500, initial);
+  @include text(19px, $neutralWhite, initial);
   font-weight: bolder;
   flex: 3;
 }

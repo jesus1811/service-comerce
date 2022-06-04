@@ -1,16 +1,23 @@
 @import "../../../sass/mixins.scss";
 @import "../../../sass/variables.scss";
 @mixin commonbutton {
-  padding: 9px 29px;
+  padding: 8px 16px;
   border-radius: 4px;
   transition: all ease-out 200ms;
   font-weight: bold;
 }
 .button {
-  @include button(24px, $primary-600, $neutralSecundary);
+  @include button(20px, $primary, $neutralWhite);
   @include commonbutton();
 }
 .buttonDark {
-  @include button(24px, $secundary-700, $neutralSecundary);
+  @include button(20px, $neutralWhite, $primary);
   @include commonbutton();
+}
+.outline {
+  @include buttonOutline(20px, $primary);
+  @include commonbutton();
+}
+.outlineDark {
+  @include buttonOutline(20px, $neutralWhite);
 }

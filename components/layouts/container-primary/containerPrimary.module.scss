@@ -1,3 +1,4 @@
+@import "../../../sass/variables.scss";
 @mixin container($bg) {
   width: 100%;
   min-height: 100vh;
@@ -9,8 +10,8 @@
   padding: 20px 20px 100px 20px;
 }
 .container {
-  @include container(white);
+  @include container($backGround);
 }
 .containerDark {
-  @include container(#050A10);
+  @include container($backGroundDark);
 }

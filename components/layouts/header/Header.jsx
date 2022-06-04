@@ -22,7 +22,7 @@ const Header = () => {
           </a>
         </Link>
         <DarkModeSwitch
-          sunColor="#0B3B47"
+          sunColor="#272e3a"
           size={35}
           checked={store?.onDark}
           onChange={() => {

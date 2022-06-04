@@ -23,13 +23,17 @@
   background: transparent;
   color: $color;
   border: solid 2px $color;
+  &:hover {
+    background: $color;
+    color: #ffffff;
+  }
 }
 @mixin card($color) {
   @include flex(column, center, initial, $color);
-  padding: 15px;
+  padding: 20px;
   border-radius: 4px;
   gap: 20px;
   margin: 20px 0;
   width: 95%;
-  max-width: 800px;
+  max-width: 700px;
 }

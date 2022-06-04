@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useState, useContext, useEffect } from "react";
-import { Button, Input } from "../components/common";
+import { Button, Description, Input, SubTitle, TitleMain } from "../components/common";
 import { ContainerPrimary } from "../components/layouts";
 import { DataContext } from "../context/Provider";
 import useField from "../hooks/useField";
@@ -10,9 +10,9 @@ import styles from "./index.module.scss";
 const Home = () => {
   const email = useField("email");
   const password = useField("password");
-
   const [loader, setLoader] = useState(true);
   const { store, setStore } = useContext(DataContext);
+  const [error, setError] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -21,30 +21,37 @@ const Home = () => {
   }, [loader]);
   const handleClickValidate = (e) => {
     e.preventDefault();
-    validarclienteServices(email.value, password.value, setStore, store, setLoader);
+    validarclienteServices(email.value, password.value, setStore, store, setLoader, setError);
   };
   const handleClickProfesional = (e) => {
     e.preventDefault();
-    router.push("/profesional")
+    router.push("/profesional");
   };
 
   return (
     <ContainerPrimary>
-      <div className={styles.containerPrimary}>
-        <h2 className={styles.titlePrimary}>Bienvenido a MONTALVO</h2>
-        <h2 className={styles.titlePrimary}>Esta en modo Cliente</h2>
+      <div className={store?.onDark ? styles.containerDark : styles.containerSecundary}>
+        <TitleMain>Montalvo</TitleMain>
+        <Description>plataforma de multiservicios</Description>
         <img className={styles.image} src="./login.png" alt="" />
-        <p className={styles.description}>¿ no tienes cuenta ?</p>
-        <Button onClick={() => router.push("/register")}>Registrar</Button>
+        <div className={styles.containerButtons}>
+          <Button onClick={() => router.push("/register")}>Registrar</Button>
+          <Button onClick={handleClickProfesional} variant>
+            Profesional
+          </Button>
+        </div>
       </div>
       <div className={store?.onDark ? styles.containerDark : styles.containerSecundary}>
-        <h1 className={styles.titleSecundary}>Ingresa Aqui </h1>
+        <SubTitle>Acceso</SubTitle>
         <div className={styles.containerInputs}>
           <Input {...email} placeholder="Correo Electronico" />
           <Input {...password} placeholder="Contraseña" />
+          {error ? (
+            <h2 className={store.onDark ? styles.errorDark : styles.error}>Usuario y/o contraseña incorrecta</h2>
+          ) : null}
+
           <div className={styles.containerButton}>
             <Button onClick={handleClickValidate}>Ingresar</Button>
-            <Button onClick={handleClickProfesional}>Ir a Modo Profesional</Button>
           </div>
         </div>
       </div>

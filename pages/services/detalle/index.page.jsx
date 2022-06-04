@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
-import { Button, Input, Loading } from "../../../components/common";
-import { ContainerPrimary, Header } from "../../../components/layouts";
+import { Button, Description, Input, Loading, SubTitle, TitleMain } from "../../../components/common";
+import { Card, ContainerPrimary, Header } from "../../../components/layouts";
 import { DataContext } from "../../../context/Provider";
 import useField from "../../../hooks/useField";
 import { postComprobanteServices } from "../../../services/comprobante.service";
@@ -22,13 +22,12 @@ const Detalle = () => {
     const { idServicio, idProfesional } = JSON.parse(localStorage.getItem("servicio"));
     getServicioIdServices(idServicio, setServicio, setLoader);
     getProfesionalServices(idProfesional, setProfesional, setLoaderProfesional);
+    getValoraciones(idServicio, setValoraciones, setLoaderValoraciones);
   }, []);
   useEffect(() => {
-    setInterval(() => {
-      const { idServicio } = JSON.parse(localStorage.getItem("servicio"));
-      getValoraciones(idServicio, setValoraciones, setLoaderValoraciones);
-    }, 1000);
-  }, []);
+    const { idServicio, idProfesional } = JSON.parse(localStorage.getItem("servicio"));
+    getValoraciones(idServicio, setValoraciones, setLoaderValoraciones);
+  }, [loaderValoraciones]);
   const fecha = new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear();
   const handleClickPlin = () => {
     postComprobanteServices(
@@ -57,37 +56,37 @@ const Detalle = () => {
   return (
     <ContainerPrimary>
       <Header />
-      <h1 className={store.onDark ? styles.titleDark : styles.title}>Detalle del Servicio</h1>
+      <TitleMain>Detalle del Servicio</TitleMain>
       {loader ? (
         <Loading />
       ) : (
         <>
-          <article className={store.onDark ? styles.cardDark : styles.card}>
+          <Card>
             <p className={styles.nameService}>
               {servicio[0]?.descuento > 0 && "en Oferta " + servicio[0]?.descuento + "%"}
             </p>
             <img className={styles.imageService} src={servicio[0]?.foto} alt="" />
-            <h1 className={styles.nameService}>{servicio[0]?.NombreServicio}</h1>
-            <p className={styles.text}>{servicio[0]?.descripcion}</p>
+            <SubTitle>{servicio[0]?.NombreServicio}</SubTitle>
+            <Description>{servicio[0]?.descripcion}</Description>
             {servicio[0]?.descuento > 0 ? (
               <>
-                <p className={styles.descuento}>Antes S/. {servicio[0]?.precio}</p>
-                <p className={styles.nameService}>
+                <SubTitle>Antes S/. {servicio[0]?.precio}</SubTitle>
+                <SubTitle>
                   Ahora S/.{servicio[0]?.precio - servicio[0]?.precio * (servicio[0]?.descuento / 100)}
-                </p>
+                </SubTitle>
               </>
             ) : (
               <>
-                <p className={styles.nameService}>S/. {servicio[0]?.precio}</p>
+                <SubTitle>S/. {servicio[0]?.precio}</SubTitle>
               </>
             )}
 
             <Button onClick={handleClickPlin}>pagar por Plin</Button>
             <Button onClick={handleClickYape}>pagar por Yape</Button>
-          </article>
+          </Card>
         </>
       )}
-      <h1 className={store.onDark ? styles.titleDark : styles.title}>Comentarios</h1>
+      <SubTitle>Comentarios</SubTitle>
       {loaderValoraciones ? (
         <Loading />
       ) : (
@@ -95,39 +94,36 @@ const Detalle = () => {
           {valoraciones.map((valoracion, index) => {
             return (
               <>
-                <article className={store.onDark ? styles.cardClienteDark : styles.cardCliente} key={index}>
-                  <div className={styles.user}>
-                    <img className={styles.imageCliente} src={valoracion.urlFoto} alt="" />
-                    <p className={styles.nameCenter}>
-                      {valoracion.nombreCliente} {valoracion.apellidoCliente}
-                    </p>
-                  </div>
-                  <p className={styles.nameCenter}>{valoracion.comentario}</p>
-                </article>
+                <Card>
+                  <img className={styles.imageCliente} src={valoracion.urlFoto} alt="" />
+                  <Description> {valoracion.nombreCliente} {valoracion.apellidoCliente}</Description>
+                  <Description>{valoracion.comentario}</Description>
+                </Card>
               </>
             );
           })}
-          <article className={store.onDark ? styles.cardDarkComentario : styles.cardComentario}>
+          <Card>
             <Input {...comentario} />
             <Button onClick={handleClickAddValoracion}>Agregar Comentario</Button>
-          </article>
+          </Card>
         </>
       )}
-      <h1 className={store.onDark ? styles.titleDark : styles.title}>Informacion Personal del Provedor</h1>
+      <SubTitle>Informacion Personal del Provedor</SubTitle>
       {loaderProfesional ? (
         <Loading />
       ) : (
         <>
-          <article className={store.onDark ? styles.cardDark : styles.card}>
+          <Card>
             <img className={styles.image} src={profesional[0]?.urlFoto} alt="" />
-            <h1 className={styles.nameService}>
+            <SubTitle>
+              {" "}
               {profesional[0]?.nombreProfesional} {profesional[0]?.apellidoProfesional}
-            </h1>
-            <p className={styles.text}>{profesional[0]?.correoProfesional}</p>
-            <p className={styles.text}>{profesional[0]?.celularProfesional}</p>
-            <p className={styles.text}>{profesional[0]?.nombrePais}</p>
-            <p className={styles.text}>{profesional[0]?.direccionDomicilio}</p>
-          </article>
+            </SubTitle>
+            <Description>{profesional[0]?.correoProfesional}</Description>
+            <Description>{profesional[0]?.celularProfesional}</Description>
+            <Description>{profesional[0]?.nombrePais}</Description>
+            <Description>{profesional[0]?.direccionDomicilio}</Description>
+          </Card>
         </>
       )}
     </ContainerPrimary>

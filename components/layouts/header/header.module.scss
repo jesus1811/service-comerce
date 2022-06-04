@@ -10,11 +10,11 @@
   bottom: 0;
 }
 .container {
-  @include flex(column, center, center, $neutralTertiary);
+  @include flex(column, center, center, #E6E6E6);
   @include commonContainer();
 }
 .containerDark {
-  @include flex(column, center, center, $primary-500);
+  @include flex(column, center, center, $primary);
   @include commonContainer();
 }
 .logout {

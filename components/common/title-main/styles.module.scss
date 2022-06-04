@@ -1,0 +1,12 @@
+@import "../../../sass/variables.scss";
+@import "../../../sass/mixins.scss";
+.titlePrimary {
+  @include text(45px, $primary, center);
+  font-weight: 700;
+  line-height: 53px;
+}
+.titlePrimaryDark {
+  @include text(45px, $neutralWhite, center);
+  font-weight: 700;
+  line-height: 53px;
+}

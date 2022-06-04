@@ -1,8 +1,9 @@
 import { useContext, Suspense, lazy } from "react";
-import { Button } from "../../../../components/common";
+import { Button, SubTitle } from "../../../../components/common";
 import { DataContext } from "../../../../context/Provider";
 import styles from "./tipoServicio.module.scss";
 import { useRouter } from "next/router";
+import { Card } from "../../../../components/layouts";
 
 const TipoServicio = ({ tipoServicio }) => {
   const router = useRouter();
@@ -19,11 +20,11 @@ const TipoServicio = ({ tipoServicio }) => {
     router.push("/services");
   };
   return (
-    <div className={store.onDark ? styles.cardDark : styles.card}>
-      <h2 className={styles.title}>{tipoServicio.nombreTipoServicio}</h2>
+    <Card>
+      <SubTitle>{tipoServicio.nombreTipoServicio}</SubTitle>
       <img className={styles.images} src={tipoServicio.urlServicio} alt="" width={220} height={220} />
       <Button onClick={handleClickStorage}>Ingresar</Button>
-    </div>
+    </Card>
   );
 };
 export default TipoServicio;
