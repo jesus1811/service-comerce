@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { Button, Description, Input, Loading, SubTitle, TitleMain } from "../../../components/common";
-import { Card, ContainerPrimary, Header } from "../../../components/layouts";
+import { Card, Container, Header } from "../../../components/layouts";
 import { DataContext } from "../../../context/Provider";
 import useField from "../../../hooks/useField";
 import { postComprobanteServices } from "../../../services/comprobante.service";
@@ -54,7 +54,7 @@ const Detalle = () => {
   };
 
   return (
-    <ContainerPrimary>
+    <Container>
       <Header />
       <TitleMain>Detalle del Servicio</TitleMain>
       {loader ? (
@@ -96,7 +96,10 @@ const Detalle = () => {
               <>
                 <Card>
                   <img className={styles.imageCliente} src={valoracion.urlFoto} alt="" />
-                  <Description> {valoracion.nombreCliente} {valoracion.apellidoCliente}</Description>
+                  <Description>
+                    {" "}
+                    {valoracion.nombreCliente} {valoracion.apellidoCliente}
+                  </Description>
                   <Description>{valoracion.comentario}</Description>
                 </Card>
               </>
@@ -126,7 +129,7 @@ const Detalle = () => {
           </Card>
         </>
       )}
-    </ContainerPrimary>
+    </Container>
   );
 };
 

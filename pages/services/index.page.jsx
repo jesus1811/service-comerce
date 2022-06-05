@@ -1,10 +1,10 @@
 import { useEffect, useState, useContext } from "react";
-import { Loading } from "../../components/common";
-import { ContainerPrimary, Header } from "../../components/layouts";
+import { Container, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { getServicioServices } from "../../services/servicio.service";
+import { Loading, Title } from "../../styled-components";
 import { Servicio } from "./components";
-import styles from "./services.module.scss";
+import { ContainerCard } from "./styled";
 
 const Services = () => {
   const [loader, setLoader] = useState(true);
@@ -15,21 +15,21 @@ const Services = () => {
   }, [loader]);
 
   return (
-    <ContainerPrimary>
+    <Container>
       <Header />
       {loader ? (
         <Loading />
       ) : (
         <>
-          <h1 className={store.onDark ? styles.titleMainDark : styles.titleMain}>{store.categoria}</h1>
-          <div className={styles.containerCard}>
+          <Title center>{store.categoria}</Title>
+          <ContainerCard>
             {servicios.map((servicio, index) => {
               return servicio.NombreTipoServicio == store.categoria && <Servicio servicio={servicio} key={index} />;
             })}
-          </div>
+          </ContainerCard>
         </>
       )}
-    </ContainerPrimary>
+    </Container>
   );
 };
 

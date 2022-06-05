@@ -33,7 +33,7 @@ const Home = () => {
 
   return (
     <Container>
-      <Card>
+      <Card center>
         <Title center>MONTALVO</Title>
         <Description>plataforma de multiservicios</Description>
         <Image src="./login.png" alt="login" />
@@ -44,7 +44,7 @@ const Home = () => {
           </Button>
         </ContainerButtons>
       </Card>
-      <Card>
+      <Card center>
         <Subtitle>Acceso</Subtitle>
         <ContainerInputs>
           <Input {...email} placeholder="Correo Electronico" />

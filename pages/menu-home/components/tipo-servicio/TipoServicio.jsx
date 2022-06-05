@@ -1,13 +1,13 @@
-import { useContext, Suspense, lazy } from "react";
-import { Button, SubTitle } from "../../../../components/common";
-import { DataContext } from "../../../../context/Provider";
-import styles from "./tipoServicio.module.scss";
+import { useContext } from "react";
 import { useRouter } from "next/router";
-import { Card } from "../../../../components/layouts";
+import { Button, Card, Subtitle } from "../../../../styled-components";
+import { Images } from "./styled";
+import { DataContext } from "../../../../context/Provider";
 
 const TipoServicio = ({ tipoServicio }) => {
   const router = useRouter();
-  const { store, setStore } = useContext(DataContext);
+  const { store,setStore } = useContext(DataContext);
+
   const handleClickStorage = () => {
     setStore({ ...store, categoria: tipoServicio.nombreTipoServicio });
     localStorage.setItem(
@@ -20,9 +20,9 @@ const TipoServicio = ({ tipoServicio }) => {
     router.push("/services");
   };
   return (
-    <Card>
-      <SubTitle>{tipoServicio.nombreTipoServicio}</SubTitle>
-      <img className={styles.images} src={tipoServicio.urlServicio} alt="" width={220} height={220} />
+    <Card center>
+      <Subtitle center>{tipoServicio.nombreTipoServicio}</Subtitle>
+      <Images src={tipoServicio.urlServicio} alt={tipoServicio.nombreTipoServicio} />
       <Button onClick={handleClickStorage}>Ingresar</Button>
     </Card>
   );
