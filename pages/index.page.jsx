@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import { useState, useContext, useEffect } from "react";
-import { Button, Description, Input, SubTitle, TitleMain } from "../components/common";
-import { ContainerPrimary } from "../components/layouts";
+import { Container } from "../components/layouts";
 import { DataContext } from "../context/Provider";
 import useField from "../hooks/useField";
 import { validarclienteServices } from "../services/cliente.service";
-import styles from "./index.module.scss";
+import { Button, Description, Input, Subtitle, Title, Card } from "../styled-components";
+import { ContainerButtons, ContainerInputs, Error, Image } from "./styled";
 
 const Home = () => {
   const email = useField("email");
@@ -27,35 +27,35 @@ const Home = () => {
     e.preventDefault();
     router.push("/profesional");
   };
+  const handleClickRedirectRegistrar = () => {
+    router.push("/register");
+  };
 
   return (
-    <ContainerPrimary>
-      <div className={store?.onDark ? styles.containerDark : styles.containerSecundary}>
-        <TitleMain>Montalvo</TitleMain>
+    <Container>
+      <Card>
+        <Title center>MONTALVO</Title>
         <Description>plataforma de multiservicios</Description>
-        <img className={styles.image} src="./login.png" alt="" />
-        <div className={styles.containerButtons}>
-          <Button onClick={() => router.push("/register")}>Registrar</Button>
+        <Image src="./login.png" alt="login" />
+        <ContainerButtons>
+          <Button onClick={handleClickRedirectRegistrar}>Registrar</Button>
           <Button onClick={handleClickProfesional} variant>
             Profesional
           </Button>
-        </div>
-      </div>
-      <div className={store?.onDark ? styles.containerDark : styles.containerSecundary}>
-        <SubTitle>Acceso</SubTitle>
-        <div className={styles.containerInputs}>
+        </ContainerButtons>
+      </Card>
+      <Card>
+        <Subtitle>Acceso</Subtitle>
+        <ContainerInputs>
           <Input {...email} placeholder="Correo Electronico" />
           <Input {...password} placeholder="Contraseña" />
-          {error ? (
-            <h2 className={store.onDark ? styles.errorDark : styles.error}>Usuario y/o contraseña incorrecta</h2>
-          ) : null}
-
-          <div className={styles.containerButton}>
-            <Button onClick={handleClickValidate}>Ingresar</Button>
-          </div>
-        </div>
-      </div>
-    </ContainerPrimary>
+          {error ? <Error>Usuario y/o contraseña incorrecta</Error> : null}
+        </ContainerInputs>
+        <ContainerButtons>
+          <Button onClick={handleClickValidate}>Ingresar</Button>
+        </ContainerButtons>
+      </Card>
+    </Container>
   );
 };
 

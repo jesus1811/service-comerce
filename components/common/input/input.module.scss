@@ -9,7 +9,10 @@
 .input {
   @include text(20px, $primary, initial);
   border-bottom: solid 2px $primary;
-  @include commonInput();
+  padding: 8px 16px;
+  outline: none;
+  font-weight: bold;
+  background: transparent;
 }
 .input::placeholder {
   color: $primary;
