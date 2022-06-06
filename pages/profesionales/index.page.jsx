@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
-import { Button, Loading } from "../../components/common";
-import { ContainerPrimary, Header } from "../../components/layouts";
+import { Container, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { getProfesionalesServices } from "../../services/profesional.service";
-import styles from "./profesionales.module.scss";
+import {  ContainerCard, Loading, Title } from "../../styled-components";
+import { Profesional } from "./components";
 
 const Profesionales = () => {
   const [profesionales, setProfesionales] = useState([]);
@@ -19,29 +19,21 @@ const Profesionales = () => {
     getProfesionalesServices(setProfesionales, setLoader);
   }, [loader]);
   return (
-    <ContainerPrimary>
+    <Container>
       <Header />
-      <h1 className={store.onDark ? styles.titleDark : styles.title}>Provedores</h1>
-      <div className={styles.container}>
+      <Title>Provedores</Title>
+      <ContainerCard>
         {loader ? (
           <Loading />
         ) : (
           <>
             {profesionales.map((profesional, index) => {
-              return (
-                <article className={store.onDark ? styles.cardDark : styles.card} key={index}>
-                  <img className={styles.image} src={profesional.urlFoto} alt="" />
-                  <p className={styles.name}>
-                    {profesional.nombreProfesional} {profesional.apellidoProfesional}
-                  </p>
-                  <Button onClick={() => handleClickRedirect(profesional.idProfesional)}>Ver Detalle</Button>
-                </article>
-              );
+              return <Profesional key={index} profesional={profesional} handleClickRedirect={handleClickRedirect} />;
             })}
           </>
         )}
-      </div>
-    </ContainerPrimary>
+      </ContainerCard>
+    </Container>
   );
 };
 

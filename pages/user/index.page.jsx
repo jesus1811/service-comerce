@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { ContainerPrimary, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { putPasswordCliente } from "../../services/cliente.service";
+import { Title } from "../../styled-components";
 import { Edit, List } from "./components";
 
 const User = () => {
@@ -16,11 +16,8 @@ const User = () => {
   return (
     <ContainerPrimary>
       <Header />
-      {onUserEdit ? (
-        <Edit onClick={editPassword} onChange={(e) => setPassword(e.target.value)} password={password} />
-      ) : (
-        <List onClick={()=>alert("en mantimiento")} />
-      )}
+      <Title>Perfil</Title>
+      {onUserEdit ? null : <List onClick={() => alert("en mantimiento")} />}
     </ContainerPrimary>
   );
 };

@@ -1,9 +1,9 @@
 import { useContext, useState, useEffect } from "react";
-import { Button } from "../../../components/common";
-import { ContainerPrimary, Header } from "../../../components/layouts";
+import { Container, Header } from "../../../components/layouts";
 import { DataContext } from "../../../context/Provider";
 import { getComprobanteByIdServices } from "../../../services/comprobante.service";
-import styles from "./detalle.module.scss";
+import { ContainerCard, Title } from "../../../styled-components";
+import { Cliente,Provedor, Servicio } from "../components";
 
 const Detalle = () => {
   const { store } = useContext(DataContext);
@@ -15,50 +15,15 @@ const Detalle = () => {
     getComprobanteByIdServices(idComprobante, setComprobanteDetalle, setLoader);
   }, []);
   return (
-    <ContainerPrimary>
+    <Container>
       <Header />
-      <h1 className={store.onDark ? styles.titleDark : styles.title}>Boleta</h1>
-
-      <article className={store.onDark ? styles.cardDark : styles.card}>
-        <h1 className={styles.subTitle}>Provedor</h1>
-        <img className={styles.image} src={comprobanteDetalle[0]?.fotoProfesional} alt="" />
-        <p className={styles.text}>Codigo Provedor: {comprobanteDetalle[0]?.idProfesional}</p>
-        <p className={styles.text}>
-          Nombre: {comprobanteDetalle[0]?.nombreProfesional} {comprobanteDetalle[0]?.apellidoProfesional}
-        </p>
-        <p className={styles.text}>Celular: {comprobanteDetalle[0]?.celularProfesional}</p>
-        <p className={styles.text}>Docimilio: {comprobanteDetalle[0]?.direccionDomicilio}</p>
-      </article>
-      <article className={store.onDark ? styles.cardDark : styles.card}>
-        <h1 className={styles.subTitle}>Cliente</h1>
-        <img className={styles.image} src={comprobanteDetalle[0]?.urlFoto} alt="" />
-        <p className={styles.text}>Codigo Cliente: {comprobanteDetalle[0]?.idCliente}</p>
-        <p className={styles.text}>
-          Nombre: {comprobanteDetalle[0]?.nombreCliente} {comprobanteDetalle[0]?.apellidoCliente}
-        </p>
-        <p className={styles.text}>Celular: {comprobanteDetalle[0]?.celularCliente}</p>
-      </article>
-      <article className={store.onDark ? styles.cardDark : styles.card}>
-        <h1 className={styles.subTitle}>Servicio Contratado</h1>
-        <img className={styles.image} src={comprobanteDetalle[0]?.foto} alt="" />
-        <p className={styles.text}>Fecha: {comprobanteDetalle[0]?.fecha}</p>
-        <p className={styles.text}>Nombre: {comprobanteDetalle[0]?.NombreServicio}</p>
-        <p className={styles.text}>Tipo: {comprobanteDetalle[0]?.nombreTipoServicio}</p>
-        {comprobanteDetalle[0]?.precio - comprobanteDetalle[0]?.total === 0 ? (
-          <>
-            <p className={styles.text}>Total a Pagar: S/.{comprobanteDetalle[0]?.total}</p>
-          </>
-        ) : (
-          <>
-            <p className={styles.text}>Precio Base: S/.{comprobanteDetalle[0]?.precio}</p>
-            <p className={styles.text}>Descuento: S/.{comprobanteDetalle[0]?.precio - comprobanteDetalle[0]?.total}</p>
-            <p className={styles.text}>Total a Pagar: S/.{comprobanteDetalle[0]?.total}</p>
-          </>
-        )}
-
-        <p className={styles.text}>Plataforma de Pago: {comprobanteDetalle[0]?.plataformaDePago}</p>
-      </article>
-    </ContainerPrimary>
+      <Title>Boleta de Pago</Title>
+      <ContainerCard>
+        <Provedor comprobanteDetalle={comprobanteDetalle} />
+        <Cliente comprobanteDetalle={comprobanteDetalle} />
+        <Servicio comprobanteDetalle={comprobanteDetalle} />
+      </ContainerCard>
+    </Container>
   );
 };
 

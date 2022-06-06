@@ -1,10 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import { Loading } from "../../components/common";
-import { ContainerPrimary, Header } from "../../components/layouts";
+import { Container, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { getComprobanteServices } from "../../services/comprobante.service";
+import { Title } from "../../styled-components";
 import { Comprobante } from "./components";
-import styles from "./historial.module.scss";
+import { ContainerCard } from "./styled";
 
 const Historial = () => {
   const [comprobantes, setComprobantes] = useState([]);
@@ -15,21 +16,21 @@ const Historial = () => {
     getComprobanteServices(idCliente, setComprobantes, setLoader);
   }, [loader]);
   return (
-    <ContainerPrimary>
+    <Container>
       <Header />
+      <Title center>Historial de Servicios Solicitados</Title>
       {loader ? (
         <Loading />
       ) : (
         <>
-          <h1 className={store.onDark ? styles.titleMainDark : styles.titleMain}>Historial de Servicios Solicitados</h1>
-          <div className={styles.containerCard}>
+          <ContainerCard>
             {comprobantes.map((comprobante, index) => {
               return <Comprobante comprobante={comprobante} key={index} />;
             })}
-          </div>
+          </ContainerCard>
         </>
       )}
-    </ContainerPrimary>
+    </Container>
   );
 };
 

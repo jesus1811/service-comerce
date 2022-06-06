@@ -38,7 +38,7 @@ const Detalle = () => {
     <Container>
       <Header />
       <Title center>Detalle del Servicio</Title>
-      {loader ? <Loading /> : <ServicioDetalle servicio={servicio} />}
+      {loader ? <Loading /> : <ServicioDetalle servicio={servicio} fecha={fecha} store={store} />}
       <Subtitle center>Comentarios</Subtitle>
       {loaderValoraciones ? (
         <Loading />

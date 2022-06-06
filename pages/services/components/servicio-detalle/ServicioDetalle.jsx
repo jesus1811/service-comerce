@@ -2,7 +2,7 @@ import { postComprobanteServices } from "../../../../services/comprobante.servic
 import { Button, Card, Description, Oferta, Subtitle } from "../../../../styled-components";
 import { Image } from "./styled";
 
-const ServicioDetalle = ({ servicio }) => {
+const ServicioDetalle = ({ servicio, fecha, store }) => {
   const handleClickPlin = () => {
     postComprobanteServices(
       fecha,
