@@ -12,22 +12,20 @@ const Services = () => {
   const { store } = useContext(DataContext);
   useEffect(() => {
     getServicioServices(setServicios, setLoader);
-  }, [loader]);
+  }, []);
 
   return (
     <Container>
       <Header />
+      <Title center>{store.categoria}</Title>
       {loader ? (
         <Loading />
       ) : (
-        <>
-          <Title center>{store.categoria}</Title>
-          <ContainerCard>
-            {servicios.map((servicio, index) => {
-              return servicio.NombreTipoServicio == store.categoria && <Servicio servicio={servicio} key={index} />;
-            })}
-          </ContainerCard>
-        </>
+        <ContainerCard>
+          {servicios.map((servicio, index) => {
+            return servicio.NombreTipoServicio == store.categoria && <Servicio servicio={servicio} key={index} />;
+          })}
+        </ContainerCard>
       )}
     </Container>
   );

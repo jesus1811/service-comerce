@@ -1,18 +1,15 @@
-import { useContext, useState } from "react";
 import { useRouter } from "next/router";
-// import { Button, SubTitle } from "../../../../components/common";
-import { DataContext } from "../../../../context/Provider";
-import styles from "./servicio.module.scss";
-import { Button, Card, Description, Subtitle } from "../../../../styled-components";
-import { ContainerText } from "./styled";
+import { Button, Card, Description, Oferta, Subtitle } from "../../../../styled-components";
+import { ContainerText, Image } from "./styled";
 
 const Servicio = ({ servicio }) => {
-  const { store } = useContext(DataContext);
   const router = useRouter();
   return (
-    <Card center>
-      <Subtitle center>{servicio.descuento > 0 && "en Oferta " + servicio.descuento + "%"}</Subtitle>
-      <img className={styles.image} src={servicio.foto} alt={servicio.nombreProfesional} />
+    <Card>
+      {servicio.descuento > 0 ? (
+        <Oferta center>{"en Oferta " + servicio.descuento + "%"}</Oferta>
+      ) : null}
+      <Image src={servicio.foto} alt={servicio.nombreProfesional} />
       <ContainerText>
         <Subtitle>{servicio.NombreServicio}</Subtitle>
         <Subtitle>Precio : S/. {servicio.precio - servicio.precio * (servicio.descuento / 100)}</Subtitle>

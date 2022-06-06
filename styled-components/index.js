@@ -5,3 +5,4 @@ export * from "./Loading";
 export * from "./Subtitle";
 export * from "./Title";
 export * from "./Card";
+export * from "./Oferta";
