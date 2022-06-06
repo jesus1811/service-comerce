@@ -4,7 +4,7 @@ import styles from "./linkNav.module.scss";
 const LinkNav = ({ children, path }) => {
   return (
     <Link href={path}>
-      <a className={styles.link + " links__a"} smooth={true}>
+      <a className={styles.link}>
         {children}
       </a>
     </Link>

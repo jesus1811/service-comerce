@@ -2,7 +2,7 @@
 @import "../../../../../sass/mixins.scss";
 .link {
   @include flex(initial, center, center, initial);
-  @include text(20px, $neutralSecundary, initial);
+  @include text(20px, black, initial);
   padding: 8px 16px;
   transition: all ease-out 150ms;
   cursor: pointer;

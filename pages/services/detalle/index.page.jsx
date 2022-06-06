@@ -1,11 +1,11 @@
 import { useEffect, useState, useContext } from "react";
-import { Button, Description, Input, Loading, SubTitle, TitleMain } from "../../../components/common";
 import { Card, Container, Header } from "../../../components/layouts";
 import { DataContext } from "../../../context/Provider";
 import useField from "../../../hooks/useField";
 import { getProfesionalServices } from "../../../services/profesional.service";
 import { getServicioIdServices } from "../../../services/servicio.service";
 import { getValoraciones, postValoracion } from "../../../services/valoracion.service";
+import { Button, Input, Loading, Subtitle, Title } from "../../../styled-components";
 import { Comentarios, Profesional, ServicioDetalle } from "../components";
 
 const Detalle = () => {
@@ -37,9 +37,9 @@ const Detalle = () => {
   return (
     <Container>
       <Header />
-      <TitleMain>Detalle del Servicio</TitleMain>
+      <Title center>Detalle del Servicio</Title>
       {loader ? <Loading /> : <ServicioDetalle servicio={servicio} />}
-      <SubTitle>Comentarios</SubTitle>
+      <Subtitle center>Comentarios</Subtitle>
       {loaderValoraciones ? (
         <Loading />
       ) : (
@@ -53,12 +53,8 @@ const Detalle = () => {
           </Card>
         </>
       )}
-      <SubTitle>Informacion Personal del Provedor</SubTitle>
-      {loaderProfesional ? (
-        <Loading />
-      ) : (
-        <Profesional profesional={profesional} />
-      )}
+      <Subtitle center>Informacion Personal del Provedor</Subtitle>
+      {loaderProfesional ? <Loading /> : <Profesional profesional={profesional} />}
     </Container>
   );
 };

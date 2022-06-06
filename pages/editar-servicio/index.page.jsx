@@ -1,20 +1,21 @@
-import { useContext, useState, useEffect } from "react";
-import { Button, Input } from "../../../components/common";
-import { ContainerPrimary, HeaderProfesional } from "../../../components/layouts";
-import { DataContext } from "../../../context/Provider";
-import useField from "../../../hooks/useField";
-import { getServicioIdServices, putServiceServices } from "../../../services/servicio.service";
-import styles from "./updateService.module.scss";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { Container, HeaderProfesional } from "../../components/layouts";
+import useField from "../../hooks/useField";
+import { putServiceServices } from "../../services/servicio.service";
+import { Button, Card, Input, Title } from "../../styled-components";
 
-const UpdateService = () => {
+const EditarServicio = () => {
   const nombre = useField("text");
   const descripcion = useField("text");
   const precio = useField("number");
   const descuento = useField("number");
-  const { store } = useContext(DataContext);
+  const router = useRouter();
+
   const handleClickPutService = () => {
     const { idServicio } = JSON.parse(localStorage.getItem("servicio"));
     putServiceServices(idServicio, nombre.value, descripcion.value, precio.value, descuento.value);
+    router.push("/menu-home-profesional")
   };
   useEffect(() => {
     const servicio = JSON.parse(localStorage.getItem("servicio"));
@@ -24,18 +25,18 @@ const UpdateService = () => {
     descuento.setValue(servicio.descuento);
   }, []);
   return (
-    <ContainerPrimary>
+    <Container>
       <HeaderProfesional />
-      <h1 className={store.onDark ? styles.titleDark : styles.title}>Editar Servicio</h1>
-      <article className={store.onDark ? styles.cardDark : styles.card}>
+      <Title>Editar Servicio</Title>
+      <Card>
         <Input {...nombre} placeholder="Nombre" value={nombre.value} />
         <Input {...descripcion} placeholder="Descripcion" />
         <Input {...precio} placeholder="Precio S/." />
         <Input {...descuento} placeholder="descuento %" />
         <Button onClick={handleClickPutService}>Editar Servicio</Button>
-      </article>
-    </ContainerPrimary>
+      </Card>
+    </Container>
   );
 };
 
-export default UpdateService;
+export default EditarServicio;

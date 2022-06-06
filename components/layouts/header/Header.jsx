@@ -2,60 +2,50 @@ import { useContext } from "react";
 import { useRouter } from "next/router";
 import { DataContext } from "../../../context/Provider";
 import Link from "next/link";
-import styles from "./header.module.scss";
 import { LinkNav } from "./components";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
+import { CheckBox, Container, Icon, Logout, Perfil } from "./styled";
+import { Navigation } from "../../../styled-components";
 const Header = () => {
   const router = useRouter();
   const { store, setStore } = useContext(DataContext);
   return (
-    <section className={store?.onDark ? styles.containerDark : styles.container}>
-      <div className={styles.containerDiv}>
-        <input type="checkbox" id="check" className={styles.checkedNav} />
-        <Link href="/menu-home">
-          <a className={styles.link} smooth={true}>
-            {store.onDark ? (
-              <img src="/homeDark.svg" alt="montalvo" className={styles.logo} />
-            ) : (
-              <img src="/home.svg" alt="montalvo" className={styles.logo} />
-            )}
-          </a>
-        </Link>
-        <DarkModeSwitch
-          sunColor="#272e3a"
-          size={35}
-          checked={store?.onDark}
-          onChange={() => {
-            setStore({ ...store, onDark: !store.onDark });
-            localStorage.setItem("store", JSON.stringify({ ...store, onDark: !store.onDark }));
+    <Container>
+      <CheckBox type="checkbox" id="check" />
+      <Link href="/menu-home">
+        <a smooth={true}>
+          {store.onDark ? <Icon src="/homeDark.svg" alt="montalvo" /> : <Icon src="/home.svg" alt="montalvo" />}
+        </a>
+      </Link>
+      <DarkModeSwitch
+        sunColor="#272e3a"
+        size={35}
+        checked={store?.onDark}
+        onChange={() => {
+          setStore({ ...store, onDark: !store.onDark });
+          localStorage.setItem("store", JSON.stringify({ ...store, onDark: !store.onDark }));
+        }}
+      />
+      <label htmlFor="check">
+        {store?.onDark ? <Icon src="/menuDark.svg" alt="menu" /> : <Icon src="/menu.svg" alt="menu" />}
+      </label>
+      <Navigation id="navigation">
+        <LinkNav path="/user">
+          <Perfil src={store?.user[0]?.urlFoto} alt="usuario" />
+        </LinkNav>
+        <LinkNav path="/historial">Historial de Compras</LinkNav>
+        <LinkNav path="/profesionales">Provedores</LinkNav>
+        <Logout
+          onClick={() => {
+            setStore({ ...store, user: [] });
+            localStorage.setItem("store", JSON.stringify({ ...store, user: [] }));
+            router.push("/");
           }}
-        />
-        <label htmlFor="check" className="btnCheck">
-          {store?.onDark ? (
-            <img src="/menuDark.svg" alt="" className={styles.image} />
-          ) : (
-            <img src="/menu.svg" alt="" className={styles.image} />
-          )}
-        </label>
-        <nav className={store?.onDark ? styles.navigationDark : styles.navigation}>
-          <LinkNav path="/user">
-            <img src={store?.user[0]?.urlFoto} alt="" className={styles.perfil} />
-          </LinkNav>
-          <LinkNav path="/historial">Historial de Compras</LinkNav>
-          <LinkNav path="/profesionales">Provedores</LinkNav>
-          <button
-            className={styles.logout}
-            onClick={() => {
-              setStore({ ...store, user: [] });
-              localStorage.setItem("store", JSON.stringify({ ...store, user: [] }));
-              router.push("/");
-            }}
-          >
-            Cerrar Sesión
-          </button>
-        </nav>
-      </div>
-    </section>
+        >
+          Cerrar Sesión
+        </Logout>
+      </Navigation>
+    </Container>
   );
 };
 export default Header;

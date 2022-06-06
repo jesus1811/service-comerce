@@ -18,18 +18,18 @@ const MenuHome = () => {
   return (
     <Container>
       <Header />
-      {loader ? (
-        <Loading />
-      ) : (
-        <>
-          <Title center>Elija su Categoria de Interes</Title>
-          <ContainerCard>
+      <Title center>Elija su Categoria de Interes</Title>
+      <ContainerCard>
+        {loader ? (
+          <Loading />
+        ) : (
+          <>
             {tipoServicios.map((tipoServicio, index) => {
               return <TipoServicio tipoServicio={tipoServicio} key={index} />;
             })}
-          </ContainerCard>
-        </>
-      )}
+          </>
+        )}
+      </ContainerCard>
     </Container>
   );
 };
