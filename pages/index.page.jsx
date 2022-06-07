@@ -5,8 +5,8 @@ import { DataContext } from "../context/Provider";
 import useField from "../hooks/useField";
 import { validarclienteServices } from "../services/cliente.service";
 import { Button, Description, Input, Subtitle, Title, Card } from "../styled-components";
-import {  ContainerInputs, Error, Image } from "./Styled";
-import { ContainerButtons } from "./styled-components";
+import {  ContainerInputs, Error, Image } from "./styled";
+import { ContainerButtons } from "./styled-components/ContainerButtons";
 
 const Home = () => {
   const email = useField("email");
