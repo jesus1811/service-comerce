@@ -6,7 +6,8 @@ import { app } from "../../services/firebase.service";
 import { postServicioServcices } from "../../services/servicio.service";
 import { getTipoServices } from "../../services/tipoServicio.service";
 import { Button, Card, Input, Title } from "../../styled-components";
-import { ContainerFile, File, Select, Subtitle } from "./Styled";
+import { ContainerFile, File, Select, Subtitle } from "./styled";
+// import { ContainerFile, File, Select, Subtitle } from "./Styled";
 
 const AgregarServicio = () => {
   const nombre = useField("text");
@@ -53,14 +54,14 @@ const AgregarServicio = () => {
         </Select>
         <Input {...precio} placeholder="Precio S/." />
         <ContainerFile>
-            <Subtitle>Agregar foto</Subtitle>
-            <File
-              type="file"
-              onChange={(e) => {
-                setArchivo(e.target.files[0]);
-              }}
-            />
-          </ContainerFile>
+          <Subtitle>Agregar foto</Subtitle>
+          <File
+            type="file"
+            onChange={(e) => {
+              setArchivo(e.target.files[0]);
+            }}
+          />
+        </ContainerFile>
         <Button onClick={handleClickAddService}>Agregar Servicio</Button>
       </Card>
     </Container>
