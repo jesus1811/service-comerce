@@ -5,7 +5,7 @@ import { DataContext } from "../context/Provider";
 import useField from "../hooks/useField";
 import { validarclienteServices } from "../services/cliente.service";
 import { Button, Description, Input, Subtitle, Title, Card } from "../styled-components";
-import { ContainerButtons, ContainerInputs, Error, Image } from "./Styles";
+import { ContainerButtons, ContainerInputs, Error, Image } from "./Styled";
 
 const Home = () => {
   const email = useField("email");
@@ -34,7 +34,7 @@ const Home = () => {
   return (
     <Container>
       <Card center>
-        <Title center>MONTALVO edit</Title>
+        <Title center>MONTALVO edit ahora si</Title>
         <Description>plataforma de multiservicios</Description>
         <Image src="./login.png" alt="login" />
         <ContainerButtons>
