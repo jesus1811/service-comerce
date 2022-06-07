@@ -5,7 +5,7 @@ import { DataContext } from "../context/Provider";
 import useField from "../hooks/useField";
 import { validarclienteServices } from "../services/cliente.service";
 import { Button, Description, Input, Subtitle, Title, Card } from "../styled-components";
-import { ContainerInputs, ContainerButtons, Error, Image } from "./styled-components/Hola";
+import { ContainerInputs, ContainerButtons, Error, Image } from "./Hola";
 const Home = () => {
   const email = useField("email");
   const password = useField("password");
