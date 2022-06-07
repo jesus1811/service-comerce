@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, Description, Subtitle } from "../../../../styled-components";
 import { Image } from "./Styled";
-
 const Cliente = ({ comprobanteDetalle }) => {
   return (
     <Card center>
