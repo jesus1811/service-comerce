@@ -4,7 +4,7 @@ import { DataContext } from "../../context/Provider";
 import { getServicioServices } from "../../services/servicio.service";
 import { Loading, Title } from "../../styled-components";
 import { Servicio } from "./components";
-import { ContainerCard } from "./styled";
+import { ContainerCard } from "./Styled";
 
 const Services = () => {
   const [loader, setLoader] = useState(true);
