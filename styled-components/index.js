@@ -8,4 +8,4 @@ export * from "./Card";
 export * from "./Oferta";
 export * from "./Navigation";
 export * from "./containerCard";
-export * from "../pages/Hola";
+export * from "../pages/Styled";
