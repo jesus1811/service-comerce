@@ -12,11 +12,11 @@ const Header = () => {
   return (
     <Container>
       <CheckBox type="checkbox" id="check" />
-      <Link href="/profesional/menu-home">
+      <Link href="/menu-home-profesional">
         <a>{store.onDark ? <Icon src="/homeDark.svg" alt="montalvo" /> : <Icon src="/home.svg" alt="montalvo" />}</a>
       </Link>
       <DarkModeSwitch
-        sunColor="#0B3B47"
+        sunColor="#343d4c"
         size={35}
         checked={store?.onDark}
         onChange={() => {
@@ -24,7 +24,7 @@ const Header = () => {
           localStorage.setItem("store", JSON.stringify({ ...store, onDark: !store.onDark }));
         }}
       />
-      <Link href="/profesional/add-service">
+      <Link href="/agregar-servicio">
         <a>
           {store.onDark ? <Icon src="/agregarDark.svg" alt="montalvo" /> : <Icon src="/agregar.svg" alt="montalvo" />}
         </a>

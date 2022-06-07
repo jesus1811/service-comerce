@@ -1,17 +1,17 @@
 import { useContext } from "react";
-import { ContainerPrimary, Header } from "../components/layouts";
+import { Container, Header } from "../components/layouts";
 import { DataContext } from "../context/Provider";
-import styles from "./page404.module.scss";
+import { Title } from "../styled-components";
 
 const Custom404 = () => {
   const { store } = useContext(DataContext);
   return (
     <>
-      <ContainerPrimary>
+      <Container>
         <Header />
-        <img src="/error404.svg" alt="" />
-        <h1 className={store.onDark ? styles.titleDark : styles.title}>Pagina no Encontrada</h1>
-      </ContainerPrimary>
+        <img src="/error404.svg" alt="error404" />
+        <Title>Pagina no Encontrada</Title>
+      </Container>
     </>
   );
 };

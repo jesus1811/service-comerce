@@ -15,7 +15,7 @@ const MenuHomeProfesional = () => {
   return (
     <Container>
       <HeaderProfesional />
-      <Title center> Administración de Cursos</Title>
+      <Title center> Administración de mis Cursos</Title>
       <ContainerCard>
         {loader ? (
           <Loading />
