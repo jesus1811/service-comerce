@@ -5,7 +5,7 @@ import { DataContext } from "../context/Provider";
 import useField from "../hooks/useField";
 import { validarclienteServices } from "../services/cliente.service";
 import { Button, Description, Input, Subtitle, Title, Card } from "../styled-components";
-import { ContainerInputs, ContainerButtons, Error, Image } from "./Hola";
+import { ContainerInputs, ContainerButtons, Error, Image } from "../styled-components";
 const Home = () => {
   const email = useField("email");
   const password = useField("password");
@@ -13,7 +13,6 @@ const Home = () => {
   const { store, setStore } = useContext(DataContext);
   const [error, setError] = useState(false);
   const router = useRouter();
-
   useEffect(() => {
     store?.user.length != 0 && router.push("/menu-home");
     setLoader(false);
