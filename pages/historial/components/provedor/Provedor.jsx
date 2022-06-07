@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Description, Subtitle } from "../../../../styled-components";
-import { Image } from "./Styled";
+import { Image } from "./styled";
 
 const Provedor = ({ comprobanteDetalle }) => {
   return (
