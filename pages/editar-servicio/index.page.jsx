@@ -15,7 +15,6 @@ const EditarServicio = () => {
   const handleClickPutService = () => {
     const { idServicio } = JSON.parse(localStorage.getItem("servicio"));
     putServiceServices(idServicio, nombre.value, descripcion.value, precio.value, descuento.value);
-    router.push("/menu-home-profesional")
   };
   useEffect(() => {
     const servicio = JSON.parse(localStorage.getItem("servicio"));
