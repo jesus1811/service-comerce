@@ -1,10 +1,7 @@
-import { useContext, useState } from "react";
 import { useRouter } from "next/router";
-import { DataContext } from "../../../../context/Provider";
 import { Button, Card, Description, Subtitle } from "../../../../styled-components";
 
 const Comprobante = ({ comprobante }) => {
-  const { store } = useContext(DataContext);
   const router = useRouter();
   const handleClickRedirect = () => {
     localStorage.setItem("idComprobanteElectronico", JSON.stringify(comprobante.idComprobanteElectronico));

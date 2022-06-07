@@ -6,7 +6,7 @@ import { Container } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { Button, Card, Description, Input, Title } from "../../styled-components";
 import useField from "../../hooks/useField";
-import { ContainerButtons, ContainerFile, ContainerInputs, File, Image, Subtitle } from "./styled";
+import { ContainerButtons, ContainerFile, ContainerInputs, File, Image, Subtitle } from "./Styled";
 
 const Register = () => {
   const dni = useField("number",8);

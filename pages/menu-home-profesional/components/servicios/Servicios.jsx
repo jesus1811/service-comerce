@@ -1,5 +1,5 @@
 import { Button, Card, Oferta, Subtitle } from "../../../../styled-components";
-import { ContainerButtons, ContainerText, Image } from "./styled";
+import { ContainerButtons, ContainerText, Image } from "./Styled";
 import { useRouter } from "next/router";
 
 const Servicios = ({ servicio }) => {

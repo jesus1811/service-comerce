@@ -3,7 +3,7 @@ import { ContainerPrimary, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { putPasswordCliente } from "../../services/cliente.service";
 import { Title } from "../../styled-components";
-import { Edit, List } from "./components";
+import {  List } from "./components";
 
 const User = () => {
   const { store } = useContext(DataContext);

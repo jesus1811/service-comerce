@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { Button, Card, Description, Oferta, Subtitle } from "../../../../styled-components";
-import { ContainerText, Image } from "./styled";
+import { ContainerText, Image } from "./Styled";
 
 const Servicio = ({ servicio }) => {
   const router = useRouter();

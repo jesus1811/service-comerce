@@ -1,5 +1,5 @@
 import { Card, Description, Subtitle } from "../../../../styled-components";
-import { Image } from "./styled";
+import { Image } from "./Styled";
 
 const Profesional = ({ profesional }) => {
   return (

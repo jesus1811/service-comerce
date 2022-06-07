@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Description, Oferta, Subtitle } from "../../../../styled-components";
-import { Image } from "./styled";
+import { Image } from "./Styled";
 
 const Servicios = ({ servicio }) => {
   return (

@@ -1,5 +1,5 @@
 import { Card, Description } from "../../../../styled-components";
-import { Image } from "./styled";
+import { Image } from "./Styled";
 
 const Comentarios = ({ valoracion }) => {
   return (

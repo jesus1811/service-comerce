@@ -5,7 +5,7 @@ import { DataContext } from "../../context/Provider";
 import { getComprobanteServices } from "../../services/comprobante.service";
 import { Title } from "../../styled-components";
 import { Comprobante } from "./components";
-import { ContainerCard } from "./styled";
+import { ContainerCard } from "./Styled";
 
 const Historial = () => {
   const [comprobantes, setComprobantes] = useState([]);

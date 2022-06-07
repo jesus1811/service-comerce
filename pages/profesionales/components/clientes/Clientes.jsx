@@ -1,6 +1,6 @@
 import React from "react";
 import { Description } from "../../../../styled-components";
-import { Image, CardRow } from "./styled";
+import { Image, CardRow } from "./Styled";
 
 const Clientes = ({ cliente }) => {
   return (

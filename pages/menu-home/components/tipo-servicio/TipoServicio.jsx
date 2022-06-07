@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useRouter } from "next/router";
 import { Button, Card, Subtitle } from "../../../../styled-components";
-import { Images } from "./styled";
+import { Images } from "./Styled";
 import { DataContext } from "../../../../context/Provider";
 
 const TipoServicio = ({ tipoServicio }) => {
