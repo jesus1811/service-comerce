@@ -5,8 +5,7 @@ import { DataContext } from "../context/Provider";
 import useField from "../hooks/useField";
 import { validarclienteServices } from "../services/cliente.service";
 import { Button, Description, Input, Subtitle, Title, Card } from "../styled-components";
-import styled from "styled-components";
-
+import { ContainerInputs, ContainerButtons, Error, Image } from "./hola";
 const Home = () => {
   const email = useField("email");
   const password = useField("password");
@@ -14,37 +13,6 @@ const Home = () => {
   const { store, setStore } = useContext(DataContext);
   const [error, setError] = useState(false);
   const router = useRouter();
-
-  const ContainerButtons = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-  `;
-  const Image = styled.img`
-    width: 161px;
-    height: 161px;
-    border-radius: 50%;
-    aspect-ratio: 1/1;
-  `;
-  const ContainerInputs = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    width: 100%;
-  `;
-  const Error = styled.p`
-    font-size: 20px;
-    text-align: center;
-    color: #5f2120;
-    font-weight: 600;
-    line-height: 23px;
-    background: #fff4e5;
-    padding: 8px;
-    border-radius: 4px;
-  `;
 
   useEffect(() => {
     store?.user.length != 0 && router.push("/menu-home");
