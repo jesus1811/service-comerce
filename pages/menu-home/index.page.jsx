@@ -3,8 +3,7 @@ import { useRouter } from "next/router";
 import { Container, Header } from "../../components/layouts";
 import { getTipoServices } from "../../services/tipoServicio.service";
 import { TipoServicio } from "./components";
-import {  Loading, Title } from "../../styled-components";
-import { ContainerCard } from "./Styled";
+import {  ContainerCard, Loading, Title } from "../../styled-components";
 
 const MenuHome = () => {
   const [tipoServicios, setTipoServicios] = useState([]);
