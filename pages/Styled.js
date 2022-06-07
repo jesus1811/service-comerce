@@ -29,6 +29,3 @@ export const Error = styled.p`
   padding: 8px;
   border-radius: 4px;
 `;
-export const Image404 = styled.img`
-
-`
