@@ -37,7 +37,7 @@ const Home = () => {
         <Image src="./login.png" alt="login" />
         <ContainerButtons>
           <Button onClick={handleClickRedirectRegistrar}>Registrar</Button>
-          <Button onClick={handleClickProfesional} variant>
+          <Button onClick={handleClickProfesional} outline>
             Profesional
           </Button>
         </ContainerButtons>

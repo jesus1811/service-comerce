@@ -8,5 +8,5 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   align-items: center;
-  padding: 20px 20px 100px 20px;
+  padding: 15px 15px 100px 15px;
 `;

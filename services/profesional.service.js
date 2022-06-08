@@ -14,7 +14,7 @@ export const getProfesionalServices = async (idProfesional, setData, setLoader) 
       console.log(err);
     });
 };
-export const validarProfesionalServices = async (email, password, setState, state, setLoader) => {
+export const validarProfesionalServices = async (email, password, setState, state, setLoader, setError) => {
   email != 0 &&
     password != 0 &&
     (await axios
@@ -27,9 +27,7 @@ export const validarProfesionalServices = async (email, password, setState, stat
           ? (setState({ ...state, userProfesional: data }),
             localStorage.setItem("store", JSON.stringify({ ...state, userProfesional: data })),
             localStorage.setItem("idProfesional", JSON.stringify(data)))
-          : Swal.fire({
-              title: "Correo y/o Contraseña Incorrecta",
-            });
+          : setError(true);
         setLoader(true);
       })
       .catch((err) => {
@@ -47,7 +45,18 @@ export const getProfesionalesServices = async (setState, setLoader) => {
       console.log(err);
     });
 };
-export const postProfesional = async (dni, nombre, apellido, correo, password, celular, foto, pais, domicilio,router) => {
+export const postProfesional = async (
+  dni,
+  nombre,
+  apellido,
+  correo,
+  password,
+  celular,
+  foto,
+  pais,
+  domicilio,
+  router
+) => {
   await axios
     .post(BASE_URL + "/api/profesional", {
       dni,
@@ -68,7 +77,7 @@ export const postProfesional = async (dni, nombre, apellido, correo, password, c
         title: data,
         icon: "success",
       });
-     router.push("/profesional");
+      router.push("/profesional");
     })
     .catch((err) => {
       console.log(err);

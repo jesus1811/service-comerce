@@ -21,7 +21,7 @@ const Servicios = ({ servicio }) => {
         <Button variant onClick={handleClickRedirectEditar}>
           Editar
         </Button>
-        <Button onClick={handleClickEliminar}>Eliminar</Button>
+        <Button outline onClick={handleClickEliminar}>Eliminar</Button>
       </ContainerButtons>
     </Card>
   );

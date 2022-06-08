@@ -5,12 +5,13 @@ import { DataContext } from "../../context/Provider";
 import useField from "../../hooks/useField";
 import { validarProfesionalServices } from "../../services/profesional.service";
 import { Button, Card, Description, Input, Subtitle, Title } from "../../styled-components";
-import { ContainerButtons, ContainerInputs, Image } from "./Styled";
+import { ContainerButtons, ContainerInputs, Image, Error } from "./Styled";
 
 const Profesional = () => {
   const email = useField("email");
   const password = useField("password");
   const [loader, setLoader] = useState(true);
+  const [error, setError] = useState(false);
   const { store, setStore } = useContext(DataContext);
   const router = useRouter();
 
@@ -20,7 +21,7 @@ const Profesional = () => {
   }, [loader]);
   const handleClickValidate = (e) => {
     e.preventDefault();
-    validarProfesionalServices(email.value, password.value, setStore, store, setLoader);
+    validarProfesionalServices(email.value, password.value, setStore, store, setLoader, setError);
   };
   const handleClickCliente = (e) => {
     e.preventDefault();
@@ -38,7 +39,7 @@ const Profesional = () => {
         <Image src="./login.png" alt="login" />
         <ContainerButtons>
           <Button onClick={handleClickRedirectRegistrar}>Registrar</Button>
-          <Button onClick={handleClickCliente} variant>
+          <Button onClick={handleClickCliente} outline>
             Cliente
           </Button>
         </ContainerButtons>
@@ -48,7 +49,7 @@ const Profesional = () => {
         <ContainerInputs>
           <Input {...email} placeholder="Correo Electronico" />
           <Input {...password} placeholder="Contraseña" />
-          {/* {error ? <Error>Usuario y/o contraseña incorrecta</Error> : null} */}
+          {error ? <Error>Usuario y/o contraseña incorrecta</Error> : null}
         </ContainerInputs>
         <ContainerButtons>
           <Button onClick={handleClickValidate}>Ingresar</Button>
