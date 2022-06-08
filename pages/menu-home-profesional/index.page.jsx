@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import { Container, HeaderProfesional } from "../../components/layouts";
-import { Loading, Title } from "../../styled-components";
+import { ContainerCard, Loading, Title } from "../../styled-components";
 import { getServiciosForProfesionalServices } from "../../services/servicio.service";
 import { Servicios } from "./components";
-import { ContainerCard } from "./Styled";
-
 const MenuHomeProfesional = () => {
   const [loader, setLoader] = useState(true);
   const [servicios, setServicios] = useState([]);
