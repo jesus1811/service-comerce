@@ -9,7 +9,7 @@ const MenuHomeProfesional = () => {
   useEffect(() => {
     const idProfesional = JSON.parse(localStorage.getItem("idProfesional"))[0].idProfesional;
     getServiciosForProfesionalServices(idProfesional, setServicios, setLoader);
-  }, []);
+  }, [loader]);
   return (
     <Container>
       <HeaderProfesional />
@@ -22,7 +22,7 @@ const MenuHomeProfesional = () => {
             {servicios.map((servicio, index) => {
               return (
                 <>
-                  <Servicios servicio={servicio} key={index} />
+                  <Servicios servicio={servicio} key={index} setLoader={setLoader} />
                 </>
               );
             })}

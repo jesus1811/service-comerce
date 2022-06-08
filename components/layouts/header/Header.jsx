@@ -13,7 +13,7 @@ const Header = () => {
     <Container>
       <CheckBox type="checkbox" id="check" />
       <Link href="/menu-home">
-        <a smooth={true}>
+        <a>
           {store.onDark ? <Icon src="/homeDark.svg" alt="montalvo" /> : <Icon src="/home.svg" alt="montalvo" />}
         </a>
       </Link>

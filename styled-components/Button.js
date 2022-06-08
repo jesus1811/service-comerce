@@ -6,11 +6,11 @@ export const Button = styled.button`
   transition: all ease-out 200ms;
   font-weight: bold;
   font-size: 20px;
-  background: ${({ outline }) => (outline ? "transparent" : "#343d4c")};
-  color: ${({ outline }) => (outline ? "#343d4c" : "white")};
-  border: solid 2px #343d4c;
+  background: ${({ outline, danger }) => (outline ? "transparent" : danger ? "#fff4e5" : "#343d4c")};
+  color: ${({ outline, danger }) => (outline ? "#343d4c" : danger ? "#5f2120" : "white")};
+  border: solid 2px ${({ danger }) => (danger ? "#5f2120" : "#343d4c")};
   &:hover {
-    background: #343d4c;
-    color: white;
+    background: ${({ danger }) => (danger ? "#5f2120" : "#343d4c")};
+    color: ${({ danger }) => (danger ? "#fff4e5" : "white")};
   }
 `;

@@ -1,11 +1,11 @@
 import { useEffect, useState, useContext } from "react";
-import {  Container, Header } from "../../../components/layouts";
+import { Container, Header } from "../../../components/layouts";
 import { DataContext } from "../../../context/Provider";
 import useField from "../../../hooks/useField";
 import { getProfesionalServices } from "../../../services/profesional.service";
 import { getServicioIdServices } from "../../../services/servicio.service";
 import { getValoraciones, postValoracion } from "../../../services/valoracion.service";
-import { Button, Card, Input, Loading, Subtitle, Title } from "../../../styled-components";
+import { Button, Card, ContainerCard, Input, Loading, Subtitle, Title } from "../../../styled-components";
 import { Comentarios, Profesional, ServicioDetalle } from "../components";
 
 const Detalle = () => {
@@ -40,19 +40,23 @@ const Detalle = () => {
       <Title center>Detalle del Servicio</Title>
       {loader ? <Loading /> : <ServicioDetalle servicio={servicio} fecha={fecha} store={store} />}
       <Subtitle center>Comentarios</Subtitle>
-      {loaderValoraciones ? (
-        <Loading />
-      ) : (
-        <>
-          {valoraciones.map((valoracion, index) => {
-            return <Comentarios valoracion={valoracion} key={index} />;
-          })}
-          <Card>
-            <Input {...comentario} />
-            <Button onClick={handleClickAddValoracion}>Agregar Comentario</Button>
-          </Card>
-        </>
-      )}
+      <ContainerCard>
+        {loaderValoraciones ? (
+          <Loading />
+        ) : (
+          <>
+            <Card>
+              <Input {...comentario} />
+              {/* <textarea name="" id="" cols="30" rows="10"></textarea> */}
+              <Button onClick={handleClickAddValoracion}>Agregar Comentario</Button>
+            </Card>
+            {valoraciones.map((valoracion, index) => {
+              return <Comentarios valoracion={valoracion} key={index} />;
+            })}
+          </>
+        )}
+      </ContainerCard>
+
       <Subtitle center>Informacion Personal del Provedor</Subtitle>
       {loaderProfesional ? <Loading /> : <Profesional profesional={profesional} />}
     </Container>

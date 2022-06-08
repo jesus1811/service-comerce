@@ -1,14 +1,17 @@
 import { Button, Card, Oferta, Subtitle } from "../../../../styled-components";
 import { ContainerButtons, ContainerText, Image } from "./Styled";
 import { useRouter } from "next/router";
+import { deleteServiceServices } from "../../../../services/servicio.service";
 
-const Servicios = ({ servicio }) => {
+const Servicios = ({ servicio, setLoader }) => {
   const router = useRouter();
   const handleClickRedirectEditar = () => {
     localStorage.setItem("servicio", JSON.stringify(servicio));
     router.push("/editar-servicio");
   };
-  const handleClickEliminar = () => {};
+  const handleClickEliminar = () => {
+    deleteServiceServices(servicio.idServicio, setLoader);
+  };
   return (
     <Card>
       {servicio.descuento > 0 && <Oferta>{"en Oferta " + servicio.descuento + "%"}</Oferta>}
@@ -21,7 +24,9 @@ const Servicios = ({ servicio }) => {
         <Button variant onClick={handleClickRedirectEditar}>
           Editar
         </Button>
-        <Button outline onClick={handleClickEliminar}>Eliminar</Button>
+        <Button danger onClick={handleClickEliminar}>
+          Eliminar
+        </Button>
       </ContainerButtons>
     </Card>
   );

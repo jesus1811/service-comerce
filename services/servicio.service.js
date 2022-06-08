@@ -77,3 +77,17 @@ export const putServiceServices = async (idServicio, nombre, descripcion, precio
       console.log(err);
     });
 };
+export const deleteServiceServices = async (idServicio, setLoader) => {
+  await axios
+    .delete(BASE_URL + "/api/servicio/" + idServicio)
+    .then(({ data }) => {
+      Swal.fire({
+        title: data,
+        icon: "success",
+      });
+      setLoader(true);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
