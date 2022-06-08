@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Content } from "./styled";
+import { Content } from "./Styled";
 
 export const Container = ({ children }) => {
   return (
