@@ -36,8 +36,8 @@ const Home = () => {
         <Description>plataforma de multiservicios</Description>
         <Image src="./login.png" alt="login" />
         <ContainerButtons>
-          <Button onClick={handleClickRedirectRegistrar}>Registrar</Button>
-          <Button onClick={handleClickProfesional} outline>
+          <Button onClick={handleClickRedirectRegistrar} outline>Registrar</Button>
+          <Button onClick={handleClickProfesional}>
             Profesional
           </Button>
         </ContainerButtons>

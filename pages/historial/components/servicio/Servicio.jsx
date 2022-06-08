@@ -7,9 +7,10 @@ const Servicio = ({ comprobanteDetalle }) => {
     <Card>
       <Subtitle>Servicio Contratado</Subtitle>
       <Image src={comprobanteDetalle[0]?.foto} alt="" />
+      <Subtitle>{comprobanteDetalle[0]?.NombreServicio}</Subtitle>
       <Description>Fecha: {comprobanteDetalle[0]?.fecha}</Description>
-      <Subtitle>Nombre: {comprobanteDetalle[0]?.NombreServicio}</Subtitle>
       <Description>Tipo: {comprobanteDetalle[0]?.nombreTipoServicio}</Description>
+      <Description>Plataforma de Pago: {comprobanteDetalle[0]?.plataformaDePago}</Description>
       {comprobanteDetalle[0]?.precio - comprobanteDetalle[0]?.total === 0 ? (
         <>
           <Subtitle>Total a Pagar: S/.{comprobanteDetalle[0]?.total}</Subtitle>
@@ -22,7 +23,7 @@ const Servicio = ({ comprobanteDetalle }) => {
         </>
       )}
 
-      <Description>Plataforma de Pago: {comprobanteDetalle[0]?.plataformaDePago}</Description>
+
     </Card>
   );
 };
