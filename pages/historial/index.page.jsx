@@ -1,9 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-import { Loading } from "../../components/common";
 import { Container, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { getComprobanteServices } from "../../services/comprobante.service";
-import { Title } from "../../styled-components";
+import { Loading, Title } from "../../styled-components";
 import { Comprobante } from "./components";
 import { ContainerCard } from "./Styled";
 
