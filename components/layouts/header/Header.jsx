@@ -4,7 +4,7 @@ import { DataContext } from "../../../context/Provider";
 import Link from "next/link";
 import { LinkNav } from "./components";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
-import { CheckBox, Container, Icon, Logout, Perfil } from "./styled";
+import { CheckBox, Container, Icon, Logout, Perfil } from "./Styled";
 import { Navigation } from "../../../styled-components";
 const Header = () => {
   const router = useRouter();

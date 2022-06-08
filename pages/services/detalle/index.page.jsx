@@ -1,11 +1,11 @@
 import { useEffect, useState, useContext } from "react";
-import { Card, Container, Header } from "../../../components/layouts";
+import {  Container, Header } from "../../../components/layouts";
 import { DataContext } from "../../../context/Provider";
 import useField from "../../../hooks/useField";
 import { getProfesionalServices } from "../../../services/profesional.service";
 import { getServicioIdServices } from "../../../services/servicio.service";
 import { getValoraciones, postValoracion } from "../../../services/valoracion.service";
-import { Button, Input, Loading, Subtitle, Title } from "../../../styled-components";
+import { Button, Card, Input, Loading, Subtitle, Title } from "../../../styled-components";
 import { Comentarios, Profesional, ServicioDetalle } from "../components";
 
 const Detalle = () => {

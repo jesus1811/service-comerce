@@ -1,13 +1,11 @@
-import Link from "next/link";
-import styles from "./linkNav.module.scss";
+import LinkNext from "next/link";
+import { Link } from "./Styled";
 
 const LinkNav = ({ children, path }) => {
   return (
-    <Link href={path}>
-      <a className={styles.link}>
-        {children}
-      </a>
-    </Link>
+    <LinkNext href={path} passHref>
+      <Link>{children}</Link>
+    </LinkNext>
   );
 };
 

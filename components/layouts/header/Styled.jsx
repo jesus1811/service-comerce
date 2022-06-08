@@ -24,8 +24,8 @@ export const CheckBox = styled.input`
 `;
 export const Logout = styled.button`
   text-align: center;
-  color: black;
-  font-size: 20px;
+  color: #343d4c;
+  font-size: 21px;
 `;
 export const Perfil = styled.img`
   border-radius: 50%;
