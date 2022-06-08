@@ -1,5 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useRouter } from "next/router";
 const BASE_URL = process.env.NEXT_PUBLIC_URL;
 
 export const getProfesionalServices = async (idProfesional, setData, setLoader) => {
@@ -46,7 +47,7 @@ export const getProfesionalesServices = async (setState, setLoader) => {
       console.log(err);
     });
 };
-export const postProfesional = async (dni, nombre, apellido, correo, password, celular, foto, pais, domicilio) => {
+export const postProfesional = async (dni, nombre, apellido, correo, password, celular, foto, pais, domicilio,router) => {
   await axios
     .post(BASE_URL + "/api/profesional", {
       dni,
@@ -67,6 +68,7 @@ export const postProfesional = async (dni, nombre, apellido, correo, password, c
         title: data,
         icon: "success",
       });
+     router.push("/profesional");
     })
     .catch((err) => {
       console.log(err);

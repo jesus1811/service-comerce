@@ -10,7 +10,7 @@ const Custom404 = () => {
       <Container>
         <Header />
         <img src="/error404.svg" alt="error404" />
-        <Title>Pagina no Encontrada</Title>
+        <Title center>Pagina no Encontrada</Title>
       </Container>
     </>
   );

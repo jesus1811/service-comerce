@@ -6,7 +6,7 @@ export const Oferta = styled.p`
   color: #014361;
   font-weight: 600;
   line-height: 23px;
-  background: #E5F6FD;
+  background: #e5f6fd;
   padding: 8px;
   border-radius: 4px;
 `;

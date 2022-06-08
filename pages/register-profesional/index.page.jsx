@@ -1,35 +1,41 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
-import { postClienteServices } from "../../services/cliente.service";
 import { app } from "../../services/firebase.service";
 import { Container } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import useField from "../../hooks/useField";
 import { Button, Card, Description, Input, Title } from "../../styled-components";
-import { ContainerButtons, ContainerFile, ContainerInputs, File, Image, Subtitle } from "./Styled";
+import { ContainerButtons, ContainerFile, ContainerInputs, File, Image, Select, Subtitle } from "./Styled";
+import { postProfesional } from "../../services/profesional.service";
+import { getPaisesServices } from "../../services/pais.service";
 
-const Register = () => {
-  const dni = useField("number",8);
+const RegisterProfesional = () => {
+  const dni = useField("number", 8);
   const nombre = useField("text");
   const apellido = useField("text");
   const correo = useField("email");
   const password = useField("password");
-  const celular = useField("text",9);
+  const celular = useField("text", 9);
+  const domicilio = useField("text");
+  const [pais, setPais] = useState("");
   const [archivo, setArchivo] = useState({});
+  const [paises, setPaises] = useState([]);
   const { store } = useContext(DataContext);
   const router = useRouter();
   const clearInputs = () => {
     dni.setValue("");
     nombre.setValue("");
+    apellido.setValue("");
     dni.setValue("");
     celular.setValue("");
     correo.setValue("");
     password.setValue("");
+    domicilio.setValue("");
   };
   const handleGuardarCliente = async () => {
     const path = app.storage().ref().child(archivo.name);
     await path.put(archivo);
-    postClienteServices(
+    postProfesional(
       dni.value,
       nombre.value,
       apellido.value,
@@ -37,13 +43,18 @@ const Register = () => {
       password.value,
       celular.value,
       archivo.name,
+      pais,
+      domicilio.value,
       router
     );
     clearInputs();
   };
   const handleClickRedirectLogin = () => {
-    router.push("/");
+    router.push("/profesional");
   };
+  useEffect(() => {
+    getPaisesServices(setPaises);
+  }, []);
 
   return (
     <Container>
@@ -64,6 +75,19 @@ const Register = () => {
           <Input {...celular} placeholder="Celular" />
           <Input {...correo} placeholder="Correo Electronico" />
           <Input {...password} placeholder="Contraseña" />
+          <Select onChange={(e) => setPais(e.target.value)} defaultValue={null}>
+            <option selected disabled>
+              selecionar pais
+            </option>
+            {paises.map((pais, index) => {
+              return (
+                <option key={index} value={pais.idPais}>
+                  {pais.nombrePais}
+                </option>
+              );
+            })}
+          </Select>
+          <Input {...domicilio} placeholder="Domicilio" />
           <ContainerFile>
             <Subtitle>Agregar foto</Subtitle>
             <File
@@ -82,4 +106,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterProfesional;

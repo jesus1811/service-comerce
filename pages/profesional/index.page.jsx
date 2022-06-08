@@ -27,7 +27,7 @@ const Profesional = () => {
     router.push("/");
   };
   const handleClickRedirectRegistrar = () => {
-    router.push("/profesional/register");
+    router.push("/register-profesional");
   };
 
   return (

@@ -32,7 +32,7 @@ const Home = () => {
   return (
     <Container>
       <Card center>
-        <Title center>MONTALVO Edit</Title>
+        <Title center>MONTALVO</Title>
         <Description>plataforma de multiservicios</Description>
         <Image src="./login.png" alt="login" />
         <ContainerButtons>
