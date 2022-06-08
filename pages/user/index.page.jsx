@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
-import { ContainerPrimary, Header } from "../../components/layouts";
+import { Container, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { putPasswordCliente } from "../../services/cliente.service";
 import { Title } from "../../styled-components";
-import {  List } from "./components";
+import { List } from "./components";
 
 const User = () => {
   const { store } = useContext(DataContext);
@@ -14,11 +14,11 @@ const User = () => {
     setPassword("");
   };
   return (
-    <ContainerPrimary>
+    <Container>
       <Header />
       <Title>Perfil</Title>
       {onUserEdit ? null : <List onClick={() => alert("en mantimiento")} />}
-    </ContainerPrimary>
+    </Container>
   );
 };
 

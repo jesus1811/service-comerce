@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Content } from "./Styled";
 
-export const Container = ({ children }) => {
+ const Container = ({ children }) => {
   return (
     <>
       <Head>
@@ -14,3 +14,4 @@ export const Container = ({ children }) => {
     </>
   );
 };
+ export default Container
