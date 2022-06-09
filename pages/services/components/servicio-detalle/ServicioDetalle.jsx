@@ -30,7 +30,7 @@ const ServicioDetalle = ({ servicio, fecha, store }) => {
       <Description>{servicio[0]?.descripcion}</Description>
       {servicio[0]?.descuento > 0 ? (
         <>
-          <Subtitle>Antes S/. {servicio[0]?.precio}</Subtitle>
+          <Description>Antes S/. {servicio[0]?.precio}</Description>
           <Subtitle>Ahora S/.{servicio[0]?.precio - servicio[0]?.precio * (servicio[0]?.descuento / 100)}</Subtitle>
         </>
       ) : (
