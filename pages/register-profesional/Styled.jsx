@@ -17,15 +17,11 @@ export const Select = styled.select`
   color: white;
   padding: 2px 8px;
   outline: none;
-  background: #343d4c;
+  background: #291839;
   border-radius: 4px;
   &::placeholder {
     color: white;
   }
-`;
-export const Subtitle = styled.p`
-  font-weight: bold;
-  font-size: 20px;
 `;
 export const ContainerInputs = styled.div`
   display: flex;
@@ -44,7 +40,7 @@ export const ContainerFile = styled.div`
   border-radius: 4px;
   padding: 8px 16px;
   color: white;
-  background: #343d4c;
+  background: #291839;
 `;
 export const File = styled.input`
   opacity: 0;

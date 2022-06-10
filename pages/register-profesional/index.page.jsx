@@ -4,8 +4,8 @@ import { app } from "../../services/firebase.service";
 import { Container } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import useField from "../../hooks/useField";
-import { Button, Card, Description, Input, Title } from "../../styled-components";
-import { ContainerButtons, ContainerFile, ContainerInputs, File, Image, Select, Subtitle } from "./Styled";
+import { Button, Card, Description, Input, Title,Subtitle } from "../../styled-components";
+import { ContainerButtons, ContainerFile, ContainerInputs, File, Image, Select } from "./Styled";
 import { postProfesional } from "../../services/profesional.service";
 import { getPaisesServices } from "../../services/pais.service";
 
@@ -57,24 +57,24 @@ const RegisterProfesional = () => {
   }, []);
 
   return (
-    <Container>
-      <Card center>
-        <Title center>MONTALVO</Title>
+    <Container dark={store.onDark}>
+      <Card center dark={store.onDark}>
+        <Title center dark={store.onDark}>MONTALVO</Title>
         <Description>plataforma de multiservicios</Description>
         <Image src="./login.png" alt="login" />
         <ContainerButtons>
           <Button onClick={handleClickRedirectLogin}>Ir a Login</Button>
         </ContainerButtons>
       </Card>
-      <Card center>
-        <Subtitle>Registro</Subtitle>
+      <Card center dark={store.onDark}>
+        <Subtitle dark={store.onDark}>Registro</Subtitle>
         <ContainerInputs>
-          <Input {...dni} placeholder="DNI" />
-          <Input {...nombre} placeholder="Nombre" />
-          <Input {...apellido} placeholder="Apellido" />
-          <Input {...celular} placeholder="Celular" />
-          <Input {...correo} placeholder="Correo Electronico" />
-          <Input {...password} placeholder="Contraseña" />
+          <Input dark={store.onDark} {...dni} placeholder="DNI" />
+          <Input dark={store.onDark} {...nombre} placeholder="Nombre" />
+          <Input dark={store.onDark} {...apellido} placeholder="Apellido" />
+          <Input dark={store.onDark} {...celular} placeholder="Celular" />
+          <Input dark={store.onDark} {...correo} placeholder="Correo Electronico" />
+          <Input dark={store.onDark} {...password} placeholder="Contraseña" />
           <Select onChange={(e) => setPais(e.target.value)} defaultValue={null}>
             <option selected disabled>
               selecionar pais
@@ -89,7 +89,7 @@ const RegisterProfesional = () => {
           </Select>
           <Input {...domicilio} placeholder="Domicilio" />
           <ContainerFile>
-            <Subtitle>Agregar foto</Subtitle>
+            <Subtitle dark={store.onDark}>Agregar foto</Subtitle>
             <File
               type="file"
               onChange={(e) => {

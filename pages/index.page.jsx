@@ -48,7 +48,7 @@ const Home = () => {
         <ContainerInputs>
           <Input {...email} placeholder="Correo Electronico" dark={store.onDark} />
           <Input {...password} placeholder="Contraseña" dark={store.onDark} />
-          {error ? <Error>Usuario y/o contraseña incorrecta</Error> : null}
+          {error ? <Error dark={store.onDark}>Usuario y/o contraseña incorrecta</Error> : null}
         </ContainerInputs>
         <ContainerButtons>
           <Button onClick={handleClickValidate}>Ingresar</Button>

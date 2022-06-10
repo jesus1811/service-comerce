@@ -32,10 +32,10 @@ const Profesional = () => {
   };
 
   return (
-    <Container>
-      <Card center>
-        <Title center>MONTALVO</Title>
-        <Description>plataforma de multiservicios</Description>
+    <Container dark={store.onDark}>
+      <Card center dark={store.onDark}>
+        <Title center dark={store.onDark}>MONTALVO</Title>
+        <Description dark={store.onDark}>plataforma de multiservicios</Description>
         <Image src="./login.png" alt="login" />
         <ContainerButtons>
           <Button onClick={handleClickRedirectRegistrar}>Registrar</Button>
@@ -44,12 +44,12 @@ const Profesional = () => {
           </Button>
         </ContainerButtons>
       </Card>
-      <Card center>
-        <Subtitle>Acceso</Subtitle>
+      <Card center dark={store.onDark}>
+        <Subtitle dark={store.onDark}>Acceso</Subtitle>
         <ContainerInputs>
-          <Input {...email} placeholder="Correo Electronico" />
-          <Input {...password} placeholder="Contraseña" />
-          {error ? <Error>Usuario y/o contraseña incorrecta</Error> : null}
+          <Input dark={store.onDark} {...email} placeholder="Correo Electronico" />
+          <Input dark={store.onDark} {...password} placeholder="Contraseña" />
+          {error ? <Error dark={store.onDark}>Usuario y/o contraseña incorrecta</Error> : null}
         </ContainerInputs>
         <ContainerButtons>
           <Button onClick={handleClickValidate}>Ingresar</Button>

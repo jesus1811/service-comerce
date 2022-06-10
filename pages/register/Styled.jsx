@@ -11,10 +11,6 @@ export const Image = styled.img`
   border-radius: 50%;
   aspect-ratio: 1/1;
 `;
-export const Subtitle = styled.p`
-  font-weight: bold;
-  font-size: 20px;
-`;
 export const ContainerInputs = styled.div`
   display: flex;
   flex-direction: column;
@@ -32,7 +28,7 @@ export const ContainerFile = styled.div`
   border-radius: 4px;
   padding: 8px 16px;
   color: white;
-  background: #343d4c;
+  background: #291839;
 `;
 export const File = styled.input`
   opacity: 0;

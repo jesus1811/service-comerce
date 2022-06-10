@@ -17,7 +17,7 @@ const Servicios = ({ servicio, setLoader }) => {
   };
   return (
     <Card dark={store.onDark}>
-      {servicio.descuento > 0 && <Oferta>{"en Oferta " + servicio.descuento + "%"}</Oferta>}
+      {servicio.descuento > 0 && <Oferta dark={store.onDark}>{"en Oferta " + servicio.descuento + "%"}</Oferta>}
       <Image src={servicio.foto} alt={servicio.nombreProfesional} />
       <ContainerText>
         <Subtitle dark={store.onDark}>{servicio.NombreServicio}</Subtitle>

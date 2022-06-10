@@ -22,10 +22,10 @@ export const ContainerInputs = styled.div`
 export const Error = styled.p`
   font-size: 20px;
   text-align: center;
-  color: #5f2120;
+  color: ${({ dark }) => (dark ? "#FFE2B7" : "#5f2120")};
   font-weight: 600;
   line-height: 23px;
-  background: #fff4e5;
+  background: ${({ dark }) => (dark ? "#160B0B" : "#fff4e5")};
   padding: 8px;
   border-radius: 4px;
 `;
