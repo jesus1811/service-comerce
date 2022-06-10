@@ -5,7 +5,7 @@ export const Container = styled.section`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  background: #e6e6e6;
+  background: ${({ dark }) => (dark ? "#13111C" : "#e6e6e6")};
   padding-bottom: 8px;
   padding-top: 8px;
   z-index: 50;
@@ -24,7 +24,7 @@ export const CheckBox = styled.input`
 `;
 export const Logout = styled.button`
   text-align: center;
-  color: #343d4c;
+  color: ${({ dark }) => (dark ? "white" : "#343d4c")};
   font-size: 21px;
 `;
 export const Perfil = styled.img`

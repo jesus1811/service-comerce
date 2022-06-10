@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/router";
 import { Container, Header } from "../../components/layouts";
 import { getTipoServices } from "../../services/tipoServicio.service";
 import { TipoServicio } from "./components";
-import {  ContainerCard, Loading, Title } from "../../styled-components";
+import { ContainerCard, Loading, Title } from "../../styled-components";
+import { DataContext } from "../../context/Provider";
 
 const MenuHome = () => {
   const [tipoServicios, setTipoServicios] = useState([]);
   const [loader, setLoader] = useState(true);
+  const { store } = useContext(DataContext);
   const router = useRouter();
   useEffect(() => {
     const cliente = JSON.parse(localStorage.getItem("cliente")) || [];
@@ -15,12 +17,12 @@ const MenuHome = () => {
     getTipoServices(setTipoServicios, setLoader);
   }, [loader]);
   return (
-    <Container>
+    <Container dark={store.onDark}>
       <Header />
-      <Title center>Elija su Categoria de Interes</Title>
+      <Title center dark={store.onDark}>Elija su Categoria de Interes</Title>
       <ContainerCard>
         {loader ? (
-          <Loading />
+          <Loading dark={store.onDark}/>
         ) : (
           <>
             {tipoServicios.map((tipoServicio, index) => {

@@ -10,7 +10,7 @@ const Header = () => {
   const router = useRouter();
   const { store, setStore } = useContext(DataContext);
   return (
-    <Container>
+    <Container dark={store.onDark}>
       <CheckBox type="checkbox" id="check" />
       <Link href="/menu-home-profesional">
         <a>{store.onDark ? <Icon src="/homeDark.svg" alt="montalvo" /> : <Icon src="/home.svg" alt="montalvo" />}</a>
@@ -32,12 +32,15 @@ const Header = () => {
       <label htmlFor="check">
         {store?.onDark ? <Icon src="/menuDark.svg" alt="" /> : <Icon src="/menu.svg" alt="" />}
       </label>
-      <Navigation id="navigation">
-        <LinkNav path="#">
+      <Navigation id="navigation" dark={store.onDark}>
+        <LinkNav path="#" dark={store.onDark}>
           <Perfil src={store?.userProfesional[0]?.urlFoto} alt="" />
         </LinkNav>
-        <LinkNav path="#">Mis Servicios</LinkNav>
+        <LinkNav path="#" dark={store.onDark}>
+          Mis Servicios
+        </LinkNav>
         <Logout
+          dark={store.onDark}
           onClick={() => {
             setStore({ ...store, userProfesional: [] });
             localStorage.setItem("store", JSON.stringify({ ...store, userProfesional: [] }));

@@ -15,11 +15,11 @@ const Services = () => {
   }, []);
 
   return (
-    <Container>
+    <Container dark={store.onDark}>
       <Header />
-      <Title center>{store.categoria}</Title>
+      <Title center dark={store.onDark}>{store.categoria}</Title>
       {loader ? (
-        <Loading />
+        <Loading dark={store.onDark}/>
       ) : (
         <ContainerCard>
           {servicios.map((servicio, index) => {

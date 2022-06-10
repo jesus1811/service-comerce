@@ -1,17 +1,20 @@
+import { useContext } from "react";
+import { DataContext } from "../../../../context/Provider";
 import { Card, Description, Subtitle } from "../../../../styled-components";
 import { Image } from "./Styled";
 
 const ProfesionalDetalle = ({ profesional }) => {
+  const { store } = useContext(DataContext);
   return (
-    <Card>
+    <Card dark={store.onDark}>
       <Image src={profesional.urlFoto} alt={profesional.nombreProfesional} />
-      <Subtitle>
+      <Subtitle dark={store.onDark}>
         {profesional.nombreProfesional} {profesional.apellidoProfesional}
       </Subtitle>
-      <Description>{profesional.correoProfesional}</Description>
-      <Description>{profesional.celularProfesional}</Description>
-      <Description>{profesional.nombrePais}</Description>
-      <Description>{profesional.direccionDomicilio}</Description>
+      <Description dark={store.onDark}>{profesional.correoProfesional}</Description>
+      <Description dark={store.onDark}>{profesional.celularProfesional}</Description>
+      <Description dark={store.onDark}>{profesional.nombrePais}</Description>
+      <Description dark={store.onDark}>{profesional.direccionDomicilio}</Description>
     </Card>
   );
 };

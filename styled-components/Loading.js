@@ -4,7 +4,7 @@ export const Loading = styled.div`
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  border-left-color: #1D222A;
+  border-left-color: ${({ dark }) => (dark ? "white" : "#1D222A")};
   animation: spin 1s linear infinite;
 
   @keyframes spin {

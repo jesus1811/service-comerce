@@ -6,14 +6,14 @@ import { Image } from "./Styled";
 const List = ({ onClick }) => {
   const { store } = useContext(DataContext);
   return (
-    <Card>
+    <Card dark={store.onDark}>
       <Image src={store.user[0]?.urlFoto} alt={store.user[0]?.nombreCliente} />
-      <Subtitle>DNI</Subtitle>
-      <Description>{store.user[0]?.DNI}</Description>
-      <Subtitle>Nombre</Subtitle>
-      <Description>{store.user[0]?.nombreCliente + "  " + store.user[0]?.apellidoCliente}</Description>
-      <Subtitle>Correo</Subtitle>
-      <Description>{store.user[0]?.correoCliente}</Description>
+      <Subtitle dark={store.onDark}>DNI</Subtitle>
+      <Description dark={store.onDark}>{store.user[0]?.DNI}</Description>
+      <Subtitle dark={store.onDark}>Nombre</Subtitle>
+      <Description dark={store.onDark}>{store.user[0]?.nombreCliente + "  " + store.user[0]?.apellidoCliente}</Description>
+      <Subtitle dark={store.onDark}>Correo</Subtitle>
+      <Description dark={store.onDark}>{store.user[0]?.correoCliente}</Description>
       <Button onClick={onClick}>Cambiar Contraseña</Button>
     </Card>
   );

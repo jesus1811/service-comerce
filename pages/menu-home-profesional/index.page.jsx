@@ -1,22 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Container, HeaderProfesional } from "../../components/layouts";
 import { ContainerCard, Loading, Title } from "../../styled-components";
 import { getServiciosForProfesionalServices } from "../../services/servicio.service";
 import { Servicios } from "./components";
+import { DataContext } from "../../context/Provider";
 const MenuHomeProfesional = () => {
   const [loader, setLoader] = useState(true);
   const [servicios, setServicios] = useState([]);
+  const { store } = useContext(DataContext);
   useEffect(() => {
     const idProfesional = JSON.parse(localStorage.getItem("idProfesional"))[0].idProfesional;
     getServiciosForProfesionalServices(idProfesional, setServicios, setLoader);
   }, [loader]);
   return (
-    <Container>
+    <Container dark={store.onDark}>
       <HeaderProfesional />
-      <Title center> Administración de mis Cursos</Title>
+      <Title dark={store.onDark} center> Administración de mis Cursos</Title>
       <ContainerCard>
         {loader ? (
-          <Loading />
+          <Loading dark={store.onDark} />
         ) : (
           <>
             {servicios.map((servicio, index) => {

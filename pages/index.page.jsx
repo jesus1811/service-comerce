@@ -28,12 +28,13 @@ const Home = () => {
   const handleClickRedirectRegistrar = () => {
     router.push("/register");
   };
-
   return (
-    <Container>
-      <Card center>
-        <Title center>MONTALVO</Title>
-        <Description>plataforma de multiservicios</Description>
+    <Container dark={store.onDark}>
+      <Card center dark={store.onDark}>
+        <Title center dark={store.onDark}>
+          MONTALVO
+        </Title>
+        <Description dark={store.onDark}>plataforma de multiservicios</Description>
         <Image src="./login.png" alt="login" />
         <ContainerButtons>
           <Button onClick={handleClickRedirectRegistrar}>Registrar</Button>
@@ -42,11 +43,11 @@ const Home = () => {
           </Button>
         </ContainerButtons>
       </Card>
-      <Card center>
-        <Subtitle>Acceso</Subtitle>
+      <Card center dark={store.onDark}>
+        <Subtitle dark={store.onDark}>Acceso</Subtitle>
         <ContainerInputs>
-          <Input {...email} placeholder="Correo Electronico" />
-          <Input {...password} placeholder="Contraseña" />
+          <Input {...email} placeholder="Correo Electronico" dark={store.onDark} />
+          <Input {...password} placeholder="Contraseña" dark={store.onDark} />
           {error ? <Error>Usuario y/o contraseña incorrecta</Error> : null}
         </ContainerInputs>
         <ContainerButtons>

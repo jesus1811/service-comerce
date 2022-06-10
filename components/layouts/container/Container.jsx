@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Content } from "./Styled";
 
- const Container = ({ children }) => {
+const Container = ({ children, dark }) => {
   return (
     <>
       <Head>
@@ -10,8 +10,8 @@ import { Content } from "./Styled";
         <meta name="keywords" content="servicio, multiservicio, terapia, cursos, tecnologia, capacitacion" />
         <meta name="author" content="JesuDev" />
       </Head>
-      <Content>{children}</Content>
+      <Content dark={dark}>{children}</Content>
     </>
   );
 };
- export default Container
+export default Container;

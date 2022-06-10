@@ -34,12 +34,12 @@ const AgregarServicio = () => {
     getTipoServices(setTiposServicios, setLoader);
   }, []);
   return (
-    <Container>
+    <Container dark={store.onDark}>
       <HeaderProfesional />
-      <Title>Agregar Servicio</Title>
-      <Card>
-        <Input {...nombre} placeholder="Nombre" value={nombre.value} />
-        <Input {...descripcion} placeholder="Descripcion" />
+      <Title dark={store.onDark}>Agregar Servicio</Title>
+      <Card dark={store.onDark}>
+        <Input dark={store.onDark} {...nombre} placeholder="Nombre" value={nombre.value} />
+        <Input dark={store.onDark} {...descripcion} placeholder="Descripcion" />
         <Select onChange={(e) => setTipo(e.target.value)} defaultValue={null}>
           <option selected disabled>
             Tipo de Servicio
@@ -52,7 +52,7 @@ const AgregarServicio = () => {
             );
           })}
         </Select>
-        <Input {...precio} placeholder="Precio S/." />
+        <Input dark={store.onDark} {...precio} placeholder="Precio S/." />
         <ContainerFile>
           <Subtitle>Agregar foto</Subtitle>
           <File

@@ -14,9 +14,9 @@ const User = () => {
     setPassword("");
   };
   return (
-    <Container>
+    <Container dark={store.onDark}>
       <Header />
-      <Title>Perfil</Title>
+      <Title dark={store.onDark}>Perfil</Title>
       {onUserEdit ? null : <List onClick={() => alert("en mantimiento")} />}
     </Container>
   );

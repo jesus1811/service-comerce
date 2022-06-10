@@ -12,13 +12,13 @@ export const Navigation = styled.section`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background: #e6e6e6;
+    background: ${({ dark }) => (dark ? "#13111C" : "#f2f2f2")};
     position: absolute;
     width: 50%;
     opacity: 0;
     display: none;
     gap: 0;
-    bottom: 56px;
+    bottom: 51px;
     right: 0;
     border-radius: 4px;
     overflow: hidden;

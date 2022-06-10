@@ -19,12 +19,12 @@ const Profesionales = () => {
     getProfesionalesServices(setProfesionales, setLoader);
   }, [loader]);
   return (
-    <Container>
+    <Container dark={store.onDark}>
       <Header />
-      <Title>Provedores</Title>
+      <Title dark={store.onDark}>Provedores</Title>
       <ContainerCard>
         {loader ? (
-          <Loading />
+          <Loading dark={store.onDark}/>
         ) : (
           <>
             {profesionales.map((profesional, index) => {

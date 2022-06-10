@@ -1,10 +1,10 @@
 import LinkNext from "next/link";
 import { Link } from "./Styled";
 
-const LinkNav = ({ children, path }) => {
+const LinkNav = ({ children, path, dark }) => {
   return (
     <LinkNext href={path} passHref>
-      <Link>{children}</Link>
+      <Link dark={dark}>{children}</Link>
     </LinkNext>
   );
 };

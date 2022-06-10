@@ -10,12 +10,10 @@ const Header = () => {
   const router = useRouter();
   const { store, setStore } = useContext(DataContext);
   return (
-    <Container>
+    <Container dark={store.onDark}>
       <CheckBox type="checkbox" id="check" />
       <Link href="/menu-home">
-        <a>
-          {store.onDark ? <Icon src="/homeDark.svg" alt="montalvo" /> : <Icon src="/home.svg" alt="montalvo" />}
-        </a>
+        <a>{store.onDark ? <Icon src="/homeDark.svg" alt="montalvo" /> : <Icon src="/home.svg" alt="montalvo" />}</a>
       </Link>
       <DarkModeSwitch
         sunColor="#272e3a"
@@ -29,13 +27,18 @@ const Header = () => {
       <label htmlFor="check">
         {store?.onDark ? <Icon src="/menuDark.svg" alt="menu" /> : <Icon src="/menu.svg" alt="menu" />}
       </label>
-      <Navigation id="navigation">
-        <LinkNav path="/user">
+      <Navigation id="navigation" dark={store.onDark}>
+        <LinkNav path="/user" dark={store.onDark}>
           <Perfil src={store?.user[0]?.urlFoto} alt="usuario" />
         </LinkNav>
-        <LinkNav path="/historial">Historial de Compras</LinkNav>
-        <LinkNav path="/profesionales">Provedores</LinkNav>
+        <LinkNav path="/historial" dark={store.onDark}>
+          Historial de Compras
+        </LinkNav>
+        <LinkNav path="/profesionales" dark={store.onDark}>
+          Provedores
+        </LinkNav>
         <Logout
+          dark={store.onDark}
           onClick={() => {
             setStore({ ...store, user: [] });
             localStorage.setItem("store", JSON.stringify({ ...store, user: [] }));

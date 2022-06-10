@@ -15,11 +15,11 @@ const Historial = () => {
     getComprobanteServices(idCliente, setComprobantes, setLoader);
   }, [loader]);
   return (
-    <Container>
+    <Container dark={store.onDark}>
       <Header />
-      <Title center>Historial de Servicios Solicitados</Title>
+      <Title center  dark={store.onDark}>Historial de Servicios Solicitados</Title>
       {loader ? (
-        <Loading />
+        <Loading  dark={store.onDark} />
       ) : (
         <>
           <ContainerCard>

@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import { Container, HeaderProfesional } from "../../components/layouts";
 import useField from "../../hooks/useField";
 import { putServiceServices } from "../../services/servicio.service";
 import { Button, Card, Input, Title } from "../../styled-components";
+import { DataContext } from "../../context/Provider";
 
 const EditarServicio = () => {
   const nombre = useField("text");
@@ -11,6 +12,7 @@ const EditarServicio = () => {
   const precio = useField("number");
   const descuento = useField("number");
   const router = useRouter();
+  const { store } = useContext(DataContext);
 
   const handleClickPutService = () => {
     const { idServicio } = JSON.parse(localStorage.getItem("servicio"));
@@ -24,14 +26,14 @@ const EditarServicio = () => {
     descuento.setValue(servicio.descuento);
   }, []);
   return (
-    <Container>
+    <Container dark={store.onDark}>
       <HeaderProfesional />
-      <Title>Editar Servicio</Title>
-      <Card>
-        <Input {...nombre} placeholder="Nombre" value={nombre.value} />
-        <Input {...descripcion} placeholder="Descripcion" />
-        <Input {...precio} placeholder="Precio S/." />
-        <Input {...descuento} placeholder="descuento %" />
+      <Title dark={store.onDark}>Editar Servicio</Title>
+      <Card dark={store.onDark}>
+        <Input {...nombre} placeholder="Nombre" value={nombre.value} dark={store.onDark} />
+        <Input {...descripcion} placeholder="Descripcion" dark={store.onDark} />
+        <Input {...precio} placeholder="Precio S/." dark={store.onDark} />
+        <Input {...descuento} placeholder="descuento %" dark={store.onDark} />
         <Button onClick={handleClickPutService}>Editar Servicio</Button>
       </Card>
     </Container>

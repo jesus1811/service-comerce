@@ -35,18 +35,22 @@ const Detalle = () => {
   };
 
   return (
-    <Container>
+    <Container dark={store.onDark}>
       <Header />
-      <Title center>Detalle del Servicio</Title>
+      <Title center dark={store.onDark}>
+        Detalle del Servicio
+      </Title>
       {loader ? <Loading /> : <ServicioDetalle servicio={servicio} fecha={fecha} store={store} />}
-      <Subtitle center>Comentarios</Subtitle>
+      <Subtitle center dark={store.onDark}>
+        Comentarios
+      </Subtitle>
       <ContainerCard>
         {loaderValoraciones ? (
-          <Loading />
+          <Loading dark={store.onDark}/>
         ) : (
           <>
-            <Card>
-              <Input {...comentario} />
+            <Card dark={store.onDark}>
+              <Input {...comentario} dark={store.onDark} />
               {/* <textarea name="" id="" cols="30" rows="10"></textarea> */}
               <Button onClick={handleClickAddValoracion}>Agregar Comentario</Button>
             </Card>
@@ -57,8 +61,10 @@ const Detalle = () => {
         )}
       </ContainerCard>
 
-      <Subtitle center>Informacion Personal del Provedor</Subtitle>
-      {loaderProfesional ? <Loading /> : <Profesional profesional={profesional} />}
+      <Subtitle center dark={store.onDark}>
+        Informacion Personal del Provedor
+      </Subtitle>
+      {loaderProfesional ? <Loading dark={store.onDark}/> : <Profesional profesional={profesional} />}
     </Container>
   );
 };

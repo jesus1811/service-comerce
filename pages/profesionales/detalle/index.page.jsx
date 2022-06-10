@@ -24,11 +24,11 @@ const Detalle = () => {
     getClienteForProfesionalServices(idProfesional, setClientes, setLoaderClientes);
   }, []);
   return (
-    <Container>
+    <Container dark={store.onDark}>
       <Header />
-      <Title center>Detalle provedor</Title>
+      <Title center dark={store.onDark}>Detalle provedor</Title>
       {loader ? (
-        <Loading />
+        <Loading dark={store.onDark}/>
       ) : (
         <>
           {profesional.map((profesional, index) => {
@@ -37,10 +37,10 @@ const Detalle = () => {
         </>
       )}
 
-      <Title center>¿Que servicios ofrezco?</Title>
+      <Title center dark={store.onDark}>¿Que servicios ofrezco?</Title>
       <ContainerCard>
         {loaderService ? (
-          <Loading />
+          <Loading dark={store.onDark}/>
         ) : (
           <>
             {serviciosProfesional.map((servicio, index) => {
@@ -49,10 +49,10 @@ const Detalle = () => {
           </>
         )}
       </ContainerCard>
-      <Title center>¿Que Clientes Confian en Mi?</Title>
+      <Title center dark={store.onDark}>¿Que Clientes Confian en Mi?</Title>
       <ContainerCard>
         {loaderClientes ? (
-          <Loading />
+          <Loading dark={store.onDark}/>
         ) : (
           <>
             {clientes.map((cliente, index) => {
