@@ -24,10 +24,10 @@ const Servicios = ({ servicio, setLoader }) => {
         <Subtitle dark={store.onDark}>Precio : S/. {servicio.precio - servicio.precio * (servicio.descuento / 100)}</Subtitle>
       </ContainerText>
       <ContainerButtons>
-        <Button variant onClick={handleClickRedirectEditar}>
+        <Button dark={store.onDark} onClick={handleClickRedirectEditar}>
           Editar
         </Button>
-        <Button danger onClick={handleClickEliminar}>
+        <Button dark={store.onDark} danger onClick={handleClickEliminar}>
           Eliminar
         </Button>
       </ContainerButtons>

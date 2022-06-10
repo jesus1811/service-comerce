@@ -34,7 +34,7 @@ const EditarServicio = () => {
         <Input {...descripcion} placeholder="Descripcion" dark={store.onDark} />
         <Input {...precio} placeholder="Precio S/." dark={store.onDark} />
         <Input {...descuento} placeholder="descuento %" dark={store.onDark} />
-        <Button onClick={handleClickPutService}>Editar Servicio</Button>
+        <Button dark={store.onDark} onClick={handleClickPutService}>Editar Servicio</Button>
       </Card>
     </Container>
   );

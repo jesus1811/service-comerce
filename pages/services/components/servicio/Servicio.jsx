@@ -13,12 +13,15 @@ const Servicio = ({ servicio }) => {
       <Image src={servicio.foto} alt={servicio.nombreProfesional} />
       <ContainerText>
         <Subtitle dark={store.onDark}>{servicio.NombreServicio}</Subtitle>
-        <Subtitle dark={store.onDark}>Precio : S/. {servicio.precio - servicio.precio * (servicio.descuento / 100)}</Subtitle>
+        <Subtitle dark={store.onDark}>
+          Precio : S/. {servicio.precio - servicio.precio * (servicio.descuento / 100)}
+        </Subtitle>
         <Description dark={store.onDark}>
           {servicio.nombreProfesional} {servicio.apellidoProfesional}
         </Description>
       </ContainerText>
       <Button
+        dark={store.onDark}
         onClick={() => {
           router.push("services/detalle");
           localStorage.setItem("servicio", JSON.stringify(servicio));

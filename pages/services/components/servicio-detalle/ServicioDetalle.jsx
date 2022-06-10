@@ -1,6 +1,6 @@
 import { postComprobanteServices } from "../../../../services/comprobante.service";
 import { Button, Card, Description, Oferta, Subtitle } from "../../../../styled-components";
-import { Image } from "./Styled";
+import { ContainerButtons, Image } from "./Styled";
 
 const ServicioDetalle = ({ servicio, fecha, store }) => {
   const handleClickPlin = () => {
@@ -40,9 +40,14 @@ const ServicioDetalle = ({ servicio, fecha, store }) => {
           <Subtitle dark={store.onDark}>S/. {servicio[0]?.precio}</Subtitle>
         </>
       )}
-
-      <Button onClick={handleClickPlin}>pagar por Plin</Button>
-      <Button onClick={handleClickYape}>pagar por Yape</Button>
+      <ContainerButtons>
+        <Button dark={store.onDark} onClick={handleClickPlin}>
+          pagar por Plin
+        </Button>
+        <Button dark={store.onDark} onClick={handleClickYape}>
+          pagar por Yape
+        </Button>
+      </ContainerButtons>
     </Card>
   );
 };

@@ -38,8 +38,8 @@ const Profesional = () => {
         <Description dark={store.onDark}>plataforma de multiservicios</Description>
         <Image src="./login.png" alt="login" />
         <ContainerButtons>
-          <Button onClick={handleClickRedirectRegistrar}>Registrar</Button>
-          <Button onClick={handleClickCliente} outline>
+          <Button onClick={handleClickRedirectRegistrar} dark={store.onDark}>Registrar</Button>
+          <Button onClick={handleClickCliente} outline dark={store.onDark}>
             Cliente
           </Button>
         </ContainerButtons>
@@ -52,7 +52,7 @@ const Profesional = () => {
           {error ? <Error dark={store.onDark}>Usuario y/o contraseña incorrecta</Error> : null}
         </ContainerInputs>
         <ContainerButtons>
-          <Button onClick={handleClickValidate}>Ingresar</Button>
+          <Button  onClick={handleClickValidate} dark={store.onDark}>Ingresar</Button>
         </ContainerButtons>
       </Card>
     </Container>

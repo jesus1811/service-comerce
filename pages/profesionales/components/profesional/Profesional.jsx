@@ -11,7 +11,7 @@ const Profesional = ({ profesional, handleClickRedirect }) => {
       <Subtitle dark={store.onDark}>
         {profesional.nombreProfesional} {profesional.apellidoProfesional}
       </Subtitle>
-      <Button onClick={() => handleClickRedirect(profesional.idProfesional)}>Ver Detalle</Button>
+      <Button dark={store.onDark} onClick={() => handleClickRedirect(profesional.idProfesional)}>Ver Detalle</Button>
     </Card>
   );
 };

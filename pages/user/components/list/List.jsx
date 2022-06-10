@@ -14,7 +14,7 @@ const List = ({ onClick }) => {
       <Description dark={store.onDark}>{store.user[0]?.nombreCliente + "  " + store.user[0]?.apellidoCliente}</Description>
       <Subtitle dark={store.onDark}>Correo</Subtitle>
       <Description dark={store.onDark}>{store.user[0]?.correoCliente}</Description>
-      <Button onClick={onClick}>Cambiar Contraseña</Button>
+      <Button dark={store.onDark} onClick={onClick}>Cambiar Contraseña</Button>
     </Card>
   );
 };

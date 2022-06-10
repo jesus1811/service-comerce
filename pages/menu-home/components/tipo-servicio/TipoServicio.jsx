@@ -23,7 +23,7 @@ const TipoServicio = ({ tipoServicio }) => {
     <Card center dark={store.onDark}>
       <Subtitle dark={store.onDark} center>{tipoServicio.nombreTipoServicio}</Subtitle>
       <Images src={tipoServicio.urlServicio} alt={tipoServicio.nombreTipoServicio} />
-      <Button onClick={handleClickStorage}>Ingresar</Button>
+      <Button onClick={handleClickStorage} dark={store.onDark}>Ingresar</Button>
     </Card>
   );
 };

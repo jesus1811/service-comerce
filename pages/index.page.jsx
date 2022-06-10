@@ -34,11 +34,11 @@ const Home = () => {
         <Title center dark={store.onDark}>
           MONTALVO
         </Title>
-        <Description dark={store.onDark}>plataforma de multiservicios</Description>
+        <Description dark={store.onDark}>Plataforma de multiservicios</Description>
         <Image src="./login.png" alt="login" />
         <ContainerButtons>
-          <Button onClick={handleClickRedirectRegistrar}>Registrar</Button>
-          <Button onClick={handleClickProfesional} outline>
+          <Button onClick={handleClickRedirectRegistrar} dark={store.onDark}>Registrar</Button>
+          <Button onClick={handleClickProfesional} dark={store.onDark} outline>
             Profesional
           </Button>
         </ContainerButtons>
@@ -51,7 +51,7 @@ const Home = () => {
           {error ? <Error dark={store.onDark}>Usuario y/o contraseña incorrecta</Error> : null}
         </ContainerInputs>
         <ContainerButtons>
-          <Button onClick={handleClickValidate}>Ingresar</Button>
+          <Button dark={store.onDark} onClick={handleClickValidate}>Ingresar</Button>
         </ContainerButtons>
       </Card>
     </Container>
