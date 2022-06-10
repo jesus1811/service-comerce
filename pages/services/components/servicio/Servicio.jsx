@@ -9,7 +9,7 @@ const Servicio = ({ servicio }) => {
   const { store } = useContext(DataContext);
   return (
     <Card dark={store.onDark}>
-      {servicio.descuento > 0 ? <Oferta center>{"en Oferta " + servicio.descuento + "%"}</Oferta> : null}
+      {servicio.descuento > 0 ? <Oferta center dark={store.onDark}>{"en Oferta " + servicio.descuento + "%"}</Oferta> : null}
       <Image src={servicio.foto} alt={servicio.nombreProfesional} />
       <ContainerText>
         <Subtitle dark={store.onDark}>{servicio.NombreServicio}</Subtitle>

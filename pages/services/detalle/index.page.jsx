@@ -52,7 +52,7 @@ const Detalle = () => {
             <Card dark={store.onDark}>
               <Input {...comentario} dark={store.onDark} />
               {/* <textarea name="" id="" cols="30" rows="10"></textarea> */}
-              <Button onClick={handleClickAddValoracion}>Agregar Comentario</Button>
+              <Button onClick={handleClickAddValoracion} dark={store.onDark}>Agregar Comentario</Button>
             </Card>
             {valoraciones.map((valoracion, index) => {
               return <Comentarios valoracion={valoracion} key={index} />;

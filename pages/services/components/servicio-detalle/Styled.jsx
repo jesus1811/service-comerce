@@ -5,10 +5,3 @@ export const Image = styled.img`
   width: 100%;
   border-radius: 4px;
 `;
-export const ContainerButtons = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-`;

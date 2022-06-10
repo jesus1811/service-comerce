@@ -3,7 +3,7 @@ import { Container, Header } from "../../../components/layouts";
 import { DataContext } from "../../../context/Provider";
 import { getComprobanteByIdServices } from "../../../services/comprobante.service";
 import { ContainerCard, Title } from "../../../styled-components";
-import { Cliente,Provedor, Servicio } from "../components";
+import { Cliente, Provedor, Servicio } from "../components";
 
 const Detalle = () => {
   const { store } = useContext(DataContext);
@@ -15,9 +15,9 @@ const Detalle = () => {
     getComprobanteByIdServices(idComprobante, setComprobanteDetalle, setLoader);
   }, []);
   return (
-    <Container>
+    <Container dark={store.onDark}>
       <Header />
-      <Title>Boleta de Pago</Title>
+      <Title dark={store.onDark}>Boleta de Pago</Title>
       <ContainerCard>
         <Provedor comprobanteDetalle={comprobanteDetalle} />
         <Cliente comprobanteDetalle={comprobanteDetalle} />

@@ -23,7 +23,7 @@ const ServicioDetalle = ({ servicio, fecha, store }) => {
   };
   return (
     <Card dark={store.onDark}>
-      {servicio[0]?.descuento > 0 ? <Oferta>{"en Oferta " + servicio[0]?.descuento + "%"}</Oferta> : null}
+      {servicio[0]?.descuento > 0 ? <Oferta center dark={store.onDark}>{"en Oferta " + servicio[0]?.descuento + "%"}</Oferta> : null}
 
       <Image src={servicio[0]?.foto} alt="" />
       <Subtitle dark={store.onDark}>{servicio[0]?.NombreServicio}</Subtitle>
@@ -40,14 +40,12 @@ const ServicioDetalle = ({ servicio, fecha, store }) => {
           <Subtitle dark={store.onDark}>S/. {servicio[0]?.precio}</Subtitle>
         </>
       )}
-      <ContainerButtons>
-        <Button dark={store.onDark} onClick={handleClickPlin}>
-          pagar por Plin
-        </Button>
-        <Button dark={store.onDark} onClick={handleClickYape}>
-          pagar por Yape
-        </Button>
-      </ContainerButtons>
+      <Button dark={store.onDark} onClick={handleClickPlin}>
+        pagar por Plin
+      </Button>
+      <Button dark={store.onDark} onClick={handleClickYape}>
+        pagar por Yape
+      </Button>
     </Card>
   );
 };

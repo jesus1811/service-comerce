@@ -19,7 +19,7 @@ const Comprobante = ({ comprobante }) => {
         {comprobante.NombreServicio}
       </Subtitle>
       <Description dark={store.onDark}>{comprobante.plataformaDePago}</Description>
-      <Button onClick={handleClickRedirect}>Ver Detalle</Button>
+      <Button onClick={handleClickRedirect} dark={store.onDark}>Ver Detalle</Button>
     </Card>
   );
 };
