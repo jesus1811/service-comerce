@@ -7,8 +7,8 @@ import { validarclienteServices } from "../services/cliente.service";
 import { Button, Description, Input, Subtitle, Title, Card } from "../styled-components";
 import { ContainerInputs, ContainerButtons, Error, Image } from "./Styled";
 const Home = () => {
-  const email = useField("email");
-  const password = useField("password");
+  const email = useField("email","jesus@gmail.com");
+  const password = useField("password","123456");
   const [loader, setLoader] = useState(true);
   const { store, setStore } = useContext(DataContext);
   const [error, setError] = useState(false);
@@ -46,7 +46,7 @@ const Home = () => {
       <Card center dark={store.onDark}>
         <Subtitle dark={store.onDark}>Acceso</Subtitle>
         <ContainerInputs>
-          <Input {...email} placeholder="Correo Electronico" dark={store.onDark} />
+          <Input {...email} placeholder="Correo Electronico" dark={store.onDark} value={email.value} />
           <Input {...password} placeholder="Contraseña" dark={store.onDark} />
           {error ? <Error dark={store.onDark}>Usuario y/o contraseña incorrecta</Error> : null}
         </ContainerInputs>
