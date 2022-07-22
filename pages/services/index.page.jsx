@@ -2,9 +2,8 @@ import { useEffect, useState, useContext } from "react";
 import { Container, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { getServicioServices } from "../../services/servicio.service";
-import { Loading, Title } from "../../styled-components";
+import { ContainerCard, Loading, Title } from "../../styled-components";
 import { Servicio } from "./components";
-import { ContainerCard } from "./Styled";
 
 const Services = () => {
   const [loader, setLoader] = useState(true);

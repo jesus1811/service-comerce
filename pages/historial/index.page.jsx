@@ -2,9 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import { Container, Header } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import { getComprobanteServices } from "../../services/comprobante.service";
-import { Loading, Title } from "../../styled-components";
+import { ContainerCard, Loading, Title } from "../../styled-components";
 import { Comprobante } from "./components";
-import { ContainerCard } from "./Styled";
 
 const Historial = () => {
   const [comprobantes, setComprobantes] = useState([]);

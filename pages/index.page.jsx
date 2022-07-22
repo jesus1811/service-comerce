@@ -38,9 +38,9 @@ const Home = () => {
         <Image src="./login.png" alt="login" />
         <ContainerButtons>
           <Button onClick={handleClickRedirectRegistrar} dark={store.onDark}>Registrar</Button>
-          <Button onClick={handleClickProfesional} dark={store.onDark} outline>
+          {/* <Button onClick={handleClickProfesional} dark={store.onDark} outline>
             Profesional
-          </Button>
+          </Button> */}
         </ContainerButtons>
       </Card>
       <Card center dark={store.onDark}>

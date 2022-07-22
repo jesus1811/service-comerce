@@ -3,7 +3,7 @@ const Store = () => {
   const initial = {
     user: [],
     userProfesional: [],
-    onDark: false,
+    onDark: true,
   };
   const [store, setStore] = useState(initial);
   useEffect(() => {

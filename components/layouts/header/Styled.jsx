@@ -5,12 +5,13 @@ export const Container = styled.section`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  background: ${({ dark }) => (dark ? "#13111C" : "#e6e6e6")};
+  max-width: 500px;
+  background: ${({ dark }) => (dark ? "#13111C" : "#f2f2f2")};
   padding-bottom: 8px;
   padding-top: 8px;
   z-index: 50;
   position: fixed;
-  left: 0;
+  left: calc(50% - 250px);
   bottom: 0;
 `;
 export const CheckBox = styled.input`
