@@ -11,7 +11,6 @@ export const Container = styled.section`
   padding-top: 8px;
   z-index: 50;
   position: fixed;
-  left: calc(50% - 250px);
   bottom: 0;
 `;
 export const CheckBox = styled.input`
