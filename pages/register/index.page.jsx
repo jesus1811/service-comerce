@@ -5,16 +5,16 @@ import { app } from "../../services/firebase.service";
 import { Container } from "../../components/layouts";
 import { DataContext } from "../../context/Provider";
 import useField from "../../hooks/useField";
-import { Button, Card, Description, Input, Title,Subtitle } from "../../styled-components";
+import { Button, Card, Description, Input, Title, Subtitle } from "../../styled-components";
 import { ContainerButtons, ContainerFile, ContainerInputs, File, Image } from "./Styled";
 
 const Register = () => {
-  const dni = useField("number", 8);
+  const dni = useField("number", null, 8);
   const nombre = useField("text");
   const apellido = useField("text");
   const correo = useField("email");
   const password = useField("password");
-  const celular = useField("text", 9);
+  const celular = useField("text", null, 9);
   const [archivo, setArchivo] = useState({});
   const { store } = useContext(DataContext);
   const router = useRouter();
@@ -48,7 +48,9 @@ const Register = () => {
   return (
     <Container dark={store.onDark}>
       <Card center dark={store.onDark}>
-        <Title center dark={store.onDark}>MONTALVO</Title>
+        <Title center dark={store.onDark}>
+          MONTALVO
+        </Title>
         <Description dark={store.onDark}>plataforma de multiservicios</Description>
         <Image src="./login.png" alt="login" />
         <ContainerButtons>
